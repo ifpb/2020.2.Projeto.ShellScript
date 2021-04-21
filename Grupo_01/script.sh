@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#------------------APENAS O BETA DO BETA DO BETA-------------------------"
 # ----------------------------- VARIÁVEIS ----------------------------- #
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
