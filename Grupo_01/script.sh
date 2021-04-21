@@ -18,7 +18,7 @@ sudo rm /var/cache/apt/archives/lock
 ## Atualizando o repositório ##
 sudo apt update -y
 
-## Adicionando repositórios de terceiros e suporte a Snap (Driver Logitech e Drivers Nvidia)##
+## Adicionando repositórios de terceiros e driver de video (Driver Logitech e Drivers Nvidia)##
 sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
