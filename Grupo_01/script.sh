@@ -5,8 +5,6 @@ PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
-DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
-
 #programas para instalar:
 #"wine, chrome, drivers de video, spotify, vscode, sublime"
 
