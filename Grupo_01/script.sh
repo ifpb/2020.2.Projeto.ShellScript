@@ -5,6 +5,18 @@ PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
+read -p "Como deseja iniciar a atualização do sistema?
+	saindo
+	das		- para instalar...
+	dsa
+	" ini
+
+while [ "${ini}" != "saindo" ];do 
+	if [[ ${ini} = das ]]
+	
+
+
+
 #programas para instalar:
 #"wine, chrome, drivers de video, spotify, vscode, sublime"
 
