@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #------------------APENAS O BETA DO BETA DO BETA-------------------------"
 # ----------------------------- VARIÁVEIS ----------------------------- #
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
