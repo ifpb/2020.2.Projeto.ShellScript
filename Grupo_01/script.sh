@@ -21,7 +21,7 @@ while [ "${ini}" != "saindo" ];do
 #"wine, chrome, drivers de video, spotify, vscode, sublime"
 
 # ----------------------------- REQUISITOS ----------------------------- #
-## Removendo travas eventuais do apt ##
+## Removendo travas do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
@@ -38,6 +38,7 @@ sudo apt-add-repository "deb $URL_PPA_WINE bionic main"
 # ----------------------------- EXECUÇÃO ----------------------------- #
 ## Atualizando o repositório depois da adição de novos repositórios ##
 sudo apt update -y
+sudo apt upgrade -y
 
 
 # Instalar programas no apt
@@ -57,7 +58,7 @@ sudo snap install sublime-text --classic
 sudo snap install code --classic
 # ---------------------------------------------------------------------- #
 
-#instalando pacote de pprodutor de mmidias digitais
+## instalando pacote de produtor de midias digitais ##
 sudo apt-get install ubuntustudio-installer -y
 #vai abrir uma janela e o usuario escolhe o que vai ser instalado automaticamente"
 
