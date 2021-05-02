@@ -1,4 +1,4 @@
 - Grupo 2: 
     - Jefferson Lucas
-    - Diego
-    - Renato
+    - Diego Figueiredo
+    - Renato Fernandes
