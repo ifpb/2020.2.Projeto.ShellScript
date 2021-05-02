@@ -47,8 +47,7 @@ while true; do
 				--add-entry="Informe o nome do grupo: " )
 			case $? in
 				0)
-					echo $grupo
-					$(sudo addgroup $grupo) &> /dev//null
+					$(sudo addgroup $grupo) &> /dev/null
 					if [ $? -eq 127 ];then
 						zenity --info --title="System" --text="Grupo Criado Com Sucesso!"
 						
