@@ -6,8 +6,8 @@ while true; do
 		--column="ID" --column="Opções" \
 		"01" "Criar Usuário" \
 		"02" "Excluir Usuário" \
-		"03" "Trocar Grupo" \
-	 	"04" "Criar Grupo" \
+		"03" "Criar Grupo" \
+	 	"04" "Excluir Grupo" \
 		"05" "Sair" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 	case $opcao1 in
@@ -38,11 +38,11 @@ while true; do
 			fi
 			;;
 		'Excluir Usuário'|02)
-			remove=$(zenity --title="Remover user" --text="Informe o nick do usuário" --entry)
+			remove=$(zenity --title="Remover user" --text="Informe o nick do usuário: " --entry)
 			$(deluser --remove-home $remove) &> /dev/null
 			zenity --info --title="System" --text="Usuário excluido Com Sucesso!"
 			;;
-		'Criar Grupo'|04)
+		'Criar Grupo'|03)
 			grupo=$(zenity --forms --title="Criando Grupo" \
 				--add-entry="Informe o nome do grupo: " )
 			case $? in
@@ -57,6 +57,10 @@ while true; do
 					zenity --error --text="Nenhum grupo informado! "
 			esac
 			;;
+		'Excluir Grupo'|04)
+			remove=$(zenity --title="Remover Group" --text="Informe o nome do grupo: " --entry)
+			$(groupdel $remove)
+			zenity --info --title="System" --text="Grupo Excluido Com Sucesso!"
 	esac
 	verf=$(echo $opcao)
 	if [ -z $verf ] && [ $? -eq 0 ];then break; fi
