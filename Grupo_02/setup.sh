@@ -21,7 +21,7 @@ while true; do
 				--add-password="Digite a senha: " \
 				--add-password="Digite novamente: ")
 			user=$(echo $usuario | cut -d'|' -f1)
-			$(sudo adduser --disabled-login $user) &> /dev/null
+			$(adduser --disabled-login $user) &> /dev/null
 			echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/senhas.txt
 			zenity --info --title="System" --text="Usuário Criado Com Sucesso!"
 			passw1=$(echo $usuario | cut -d'|' -f2)
@@ -29,7 +29,7 @@ while true; do
 			zenity --text="Deseja habilitar a senha?" --question
 			a=$(echo $?)
 			if [ $passw1 -eq $passw2 -a $a -eq 0 ]; then
-				$(sudo passwd $user < /tmp/senhas.txt)
+				$(passwd $user < /tmp/senhas.txt)
 				echo "sucesso"
 				zenity --info --title="System" --text="Senha Habilitada Com Sucesso!"
 			else
@@ -39,7 +39,7 @@ while true; do
 			;;
 		'Excluir Usuário'|02)
 			remove=$(zenity --title="Remover user" --text="Informe o nick do usuário" --entry)
-			$(sudo userdel $remove)
+			$(deluser --remove-home $remove) &> /dev/null
 			zenity --info --title="System" --text="Usuário excluido Com Sucesso!"
 			;;
 		'Criar Grupo'|04)
@@ -47,8 +47,7 @@ while true; do
 				--add-entry="Informe o nome do grupo: " )
 			case $? in
 				0)
-					echo $grupo
-					$(sudo addgroup $grupo) &> /dev//null
+					$(addgroup $grupo) &> /dev/null
 					if [ $? -eq 127 ];then
 						zenity --info --title="System" --text="Grupo Criado Com Sucesso!"
 						
