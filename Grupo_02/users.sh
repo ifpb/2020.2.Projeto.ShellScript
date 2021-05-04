@@ -24,9 +24,9 @@ while true; do
 			passw1=$(echo $usuario | cut -d'|' -f2)
 			passw2=$(echo $usuario | cut -d'|' -f3)
 			if [ ${passw1} -eq ${passw2} ];then
-				echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/senhas.txt
-				for i in $(seq 1 6);do echo " " >> /tmp/senhas.txt ; done
-				$(adduser $user < /tmp/senhas.txt) &> /dev/null
+				echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.senhas.txt
+				for i in $(seq 1 6);do echo " " >> /tmp/.senhas.txt ; done
+				$(adduser $user < /tmp/.senhas.txt) &> /dev/null
 				$(chage -I 10 -M 30 $user) &> /dev/null
 				$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 
@@ -35,9 +35,9 @@ while true; do
 				senha=$(zenity --forms --title="Digte ambas as senhas iguais!" \
 					--add-password="Senha " \
 					--add-password="Novamente " --width="600" --height="400")
-				echo $senha | cut -d'|' -f1,2 | tr -s '|' '\n' > /tmp/senhas1.txt
-				for i in $(seq 1 6);do echo " " >> /tmp/senhas1.txt ; done
-				$(adduser $user < /tmp/senhas1.txt) &> /dev/null
+				echo $senha | cut -d'|' -f1,2 | tr -s '|' '\n' > /tmp/.senhas1.txt
+				for i in $(seq 1 6);do echo " " >> /tmp/.senhas1.txt ; done
+				$(adduser $user < /tmp/.senhas1.txt) &> /dev/null
 				$(chage -I 10 -M 30 $user) &> /dev/null
 				$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 
