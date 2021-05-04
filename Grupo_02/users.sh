@@ -7,9 +7,7 @@ while true; do
 		--column="ID" --column="Opções" \
 		"01" "Criar Usuário" \
 		"02" "Deletar Usuário" \
-	 	"03" "Adicionar Grupo ao Usuário" \
-		"04" "Remover Grupo do Usuário" \
-		"05" "Sair do Menu do Usuário" --width="600" --height="400")
+	 	"03" "Sair do Menu do Usuário" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 
 
@@ -51,26 +49,9 @@ while true; do
 			;;
 
 		03)
-			opcao=$(zenity --forms --title="Adicionar Usuário ao Grupo" \
-				--add-entry="Informe o nick do usuário " \
-				--add-entry="Informe o nome do grupo " --width="600" --height="400")
-			user=$(echo $opcao | cut -d'|' -f1)
-			grupo=$(echo $opcao | cut -d'|' -f2)
-			$(adduser $user $grupo) &> /dev/null
-			$(zenity --info --title="System" --text="Adicionado o usuário $user ao grupo $grupo com sucesso!" --width="600" --height="400")
-			;;
-		04)
-			opcao=$(zenity --forms --title="Removendo Usuário do Grupo" \
-				--add-entry="Informe o nick do usuário " \
-				--add-entry="Informe o nome do grupo " --width="600" --height="400")
-			user=$(echo $opcao | cut -d'|' -f1)
-			grupo=$(echo $opcao | cut -d'|' -f2)
-			$(gpasswd -d $user $grupo) &> /dev/null
-			$(zenity --info --title="System" --text="Removendo o usuário $user do grupo $grupo !" --width="600" --height="400")
-			;;
-		05)
 			$(zenity --info --title="System" --text="Saindo do Menu do Usuário" --width="600" --height="400")
-			break		
+			break
+			;;		
 		
 
 		esac
