@@ -7,7 +7,8 @@ while true; do
 		--column="ID" --column="Opções" \
 		"01" "Criar Usuário" \
 		"02" "Deletar Usuário" \
-	 	"03" "Sair do Menu do Usuário" --width="600" --height="400")
+		"03" "Alterar Usuario de uma Arquivo ou Diretório" \
+	 	"04" "Sair do Menu do Usuário" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 
 
@@ -49,6 +50,17 @@ while true; do
 			;;
 
 		03)
+			opcao=$(zenity --forms --title="Alterando Usuário Proprietário" \
+				--add-entry="Informe o nome do usuário " \
+				--add-entry="Informe o nome do arquvivo ou diretório " --width="600" --height="400")
+			user=$(echo $opcao | cut -d'|' -f1)
+			arq_dir=$(echo $opcao | cut -d'|' -f2)
+			$(chown $user $arq_dir) &> /dev/null
+			$(zenity --info --title="System" --text="Alterando o usuário proprietário de $arq_dir !" \
+			--width="600" --height="400")
+			;;
+
+		04)
 			$(zenity --info --title="System" --text="Saindo do Menu do Usuário" --width="600" --height="400")
 			break
 			;;		
