@@ -14,21 +14,36 @@ read -p "Como deseja iniciar a atualização do sistema?
 while [ "${ini}" != "s" ];do
 	if [[ ${ini} = "p" ]]; then
 		sudo apt update		#Update the packages index and install the dependencies
-		sudo apt install software-properties-common apt-transport-https wget
-		wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - #Import the Microsoft GPG key
-		#enable the Visual Studio Code repository
-		sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-		sudo apt install code #install VSC
-		read -p "qual linguagem você deseja? (p) - Python; (j) - Java; (js) - JavaScript" lin; fi
-		if [[ "${lin}" = p ]]; then
-			which python3 > 
+		read -p "qual linguagem você deseja?
+			(vsc) - Visual Studio Code
+			(git) - Git
+			(py)  - Python; 
+                        (j)   - Java; 
+                        (js)  - JavaScript;	" lin; fi
+		if [[ "${lin}" = git ]]; then
+			sudo apt-get install git-all    #install git
+		if [[ "${lin}" = vsc ]]; then
+			sudo apt install software-properties-common apt-transport-https wget
+                	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - #Import the Microsoft GPG key
+                	#enable the Visual Studio Code repository
+                	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+                	sudo apt install code #install VSC
+		if [[ "${lin}" = py ]]; then
+			which python3 > tx.txt
+			cat tx.txt | grep -o --color "python3" > dev/null || sudo apt-get install python3; fi
+		if [[ "${lin}" = j ]]; then
+			which java > tx.txt
+                        cat tx.txt | grep -o --color "java" > dev/null || sudo apt install default-jre; fi
+		if [[ "${lin}" = js ]]; then
+                        nodejs -v &> tx.txt
+                        cat tx.txt | grep -o --color "nodejs" &> dev/null && sudo apt install nodejs; fi
 
 
 	
 
 
 
-#programas para instalar:
+eprogramas para instalar:
 #"wine, chrome, drivers de video, spotify, vscode, sublime"
 
 # ----------------------------- REQUISITOS ----------------------------- #
