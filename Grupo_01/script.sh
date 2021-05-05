@@ -6,13 +6,24 @@ URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
 read -p "Como deseja iniciar a atualização do sistema?
-	saindo
-	das		- para instalar...
-	dsa
+	s	- para fechar
+	p	- para instalação referente a programação
+	d	- ...
 	" ini
 
-while [ "${ini}" != "saindo" ];do 
-	if [[ ${ini} = das ]]
+while [ "${ini}" != "s" ];do
+	if [[ ${ini} = "p" ]]; then
+		sudo apt update		#Update the packages index and install the dependencies
+		sudo apt install software-properties-common apt-transport-https wget
+		wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - #Import the Microsoft GPG key
+		#enable the Visual Studio Code repository
+		sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+		sudo apt install code #install VSC
+		read -p "qual linguagem você deseja? (p) - Python; (j) - Java; (js) - JavaScript" lin; fi
+		if [[ "${lin}" = p ]]; then
+			which python3 > 
+
+
 	
 
 
