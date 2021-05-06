@@ -9,7 +9,8 @@ while true; do
 		"02" "Excluir Grupo" \
 		"03" "Adicionar Grupo ao Usuário" \
 		"04" "Remover Grupo do Usuário" \
-		"05" "Exit" --width="600" --height="400")
+		"05" "Alterar Grupo de uma Arquivo ou Diretório" \
+		"06" "Exit" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 
 	case $opcao1 in
@@ -51,7 +52,8 @@ while true; do
 			user=$(echo $opcao | cut -d'|' -f1)
 			grupo=$(echo $opcao | cut -d'|' -f2)
 			$(adduser $user $grupo) &> /dev/null
-			$(zenity --info --title="System" --text="Adicionado o usuário $user ao grupo $grupo com sucesso!" --width="600" --height="400")
+			$(zenity --info --title="System" --text="Adicionado o usuário $user ao grupo $grupo com sucesso!" \
+			--width="600" --height="400")
 			;;
 		04)
 			opcao=$(zenity --forms --title="Removendo Usuário do Grupo" \
@@ -63,8 +65,18 @@ while true; do
 			$(zenity --info --title="System" --text="Removendo o usuário $user do grupo $grupo !" --width="600" --height="400")
 				
 			;;
-
 		05)
+			opcao=$(zenity --forms --title="Alterando Grupo Proprietário" \
+				--add-entry="Informe o nome do grupo " \
+				--add-entry="Informe o nome do arquivo ou diretório " --width="600" --height="400")
+			grupo=$(echo $opcao | cut -d'|' -f1)
+			arq_dir=$(echo $opcao | cut -d'|' -f2)
+			$(chgrp $grupo $arq_dir) &> /dev/null
+			$(zenity --info --title="System" --text="Alterando o grupo de $arq_dir para o grupo $grupo !" \
+			--width="600" --height="400")	
+			;;
+
+		06)
 			$(zenity --info --title="System" --text="Saindo do Menu de Grupos" --width="600" --height="400")
 			break		
 
