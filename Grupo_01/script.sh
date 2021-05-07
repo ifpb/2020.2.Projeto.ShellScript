@@ -16,6 +16,7 @@ while [ "${ini}" != "s" ];do
 		sudo apt update		#Update the packages index and install the dependencies
 		read -p "qual linguagem você deseja?
 			(vsc) - Visual Studio Code
+			(ecl) - Eclipse
 			(git) - Git
 			(py)  - Python; 
                         (j)   - Java; 
@@ -37,6 +38,13 @@ while [ "${ini}" != "s" ];do
 		if [[ "${lin}" = js ]]; then
                         nodejs -v &> tx.txt
                         cat tx.txt | grep -o --color "nodejs" &> dev/null && sudo apt install nodejs; fi
+		if [[ "${lin}" = ecl ]]; then		#CORRIGIR
+			#baixando uma versão
+			wget -c http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
+			sudo tar -zxvf eclipse.tar.gz -C /opt/  #descomprimir para a pasta opt 
+			sudo mv /opt/eclipse*/ /opt/eclipse     #renomei
+			#baixar e salvar o incone ;)
+			sudo wget https://dl2.macupdate.com/images/icons128/11662.png -O /opt/eclipse/eclipse.png; fi
 
 
 	
