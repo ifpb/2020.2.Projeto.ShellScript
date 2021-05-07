@@ -11,23 +11,11 @@
 - Help (Sticks Bits)
 - Help (Chattr)
 
-### Identificador de permissões
-- Identificar de permissões por um único arquivo
-- Identificar de permissões por múltiplos arquivos
-- Identificar de permissões por todos arquivos de um diretório
-- Identificar de permissões por todos tipo de arquivo(.sh, .txt)
-
 ### Modificador de permissões
 - Alterar permissões por um único arquivo
 - Alterar permissões por múltiplos arquivos
 - Alterar permissões por todos arquivos de um diretório
 - Alterar permissões por todos em um tipo de arquivo(.sh, .txt)
-
-### Identificador de Atributos
-- Identificar de permissões por um único arquivo
-- Identificar de permissões por múltiplos arquivos
-- Identificar de permissões por todos arquivos de um diretório
-- Identificar de permissões por todos tipo de arquivo(.sh, .txt)
 
 ### Modificador de Atributos
 - Alterar atributos por um único arquivo
