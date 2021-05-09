@@ -118,15 +118,28 @@ sudo snap install sublime-text --classic
 sudo snap install code --classic
 # ---------------------------------------------------------------------- #
 
+## instalando pacote da opção "auto" ##
+sudo snap install code --classic -y
+sudo snap install brave -y
+sudo apt-get install wireshark -y
+sudo snap install sftpclient -y
+sudo snap install remmina -y
+sudo snap install spotify -y
+sudo snap install wps-2019-snap -y
+
+
 ## instalando pacote de produtor de midias digitais ##
 sudo apt-get install ubuntustudio-installer -y
 #vai abrir uma janela e o usuario escolhe o que vai ser instalado automaticamente"
 
 #instalando ferramentas de pofissional de cyber segurança"
+sudo snap install brave -y
+sudo snap install remmina -y
 wget https://raw.githubusercontent.com/LionSec/katoolin/master/katoolin.py
 sudo mv katoolin.py /usr/bin/katoolin
 sudo chmod +x /usr/bin/katoolin
 katoolin
+#vai abrir uma janela e o usuario escolhe o que vai ser instalado automaticamente"
 
 # ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
 ## Finalização, atualização e limpeza##
