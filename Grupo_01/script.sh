@@ -51,8 +51,33 @@ while [ "${ini}" != "s" ];do
 
 
 
-eprogramas para instalar:
-#"wine, chrome, drivers de video, spotify, vscode, sublime"
+programas para instalar:
+#"DEV"
+#"sudo snap install code --classic"
+#"sudo snap install sublime-text --classic"
+#"sudo snap install beekeeper-studio"
+#"sudo snap install kubectl --classic"
+#"sudo snap install insomnia"
+#"sudo snap install docker"
+#"REDES"
+#"sudo snap install google-cloud-sdk --classic"
+#"sudo apt-get install wireshark"
+#"sudo snap install sftpclient"
+#"sudo snap install remmina"
+#"ENTRETERIMENTO"
+#"sudo snap install spotify"
+#"sudo snap install skype"
+#"sudo snap install discord"
+#"ESCRITORIO"
+#"sudo snap install mailspring"
+#"sudo snap install wps-2019-snap"
+#"OUTROS"
+#"sudo snap install brave"
+#"sudo snap install chromium"
+#"sudo snap install teams-insiders"
+#
+#
+
 
 # ----------------------------- REQUISITOS ----------------------------- #
 ## Removendo travas do apt ##
@@ -67,6 +92,7 @@ sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
 sudo apt-add-repository "deb $URL_PPA_WINE bionic main"
+sudo add-apt-repository ppa:wireshark-dev/stable
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- EXECUÇÃO ----------------------------- #
