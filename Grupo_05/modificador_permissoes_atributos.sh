@@ -8,7 +8,7 @@
 #Email		: mateusmota0100@gmail.com, .. , .. #						#
 #################################################################################################
 
-Principal() {
+Inicio() {
 	zenity	--info \
 		--width=350 \
 		--height=100 \
@@ -17,7 +17,7 @@ Principal() {
 
 }
 
-Menu() {
+Menu_Principal() {
 	escolha=$(zenity --list	\
 		--width=350 \
 		--height=250 \
@@ -45,5 +45,5 @@ esac
 
 } 
 
-Principal
-Menu
+Inicio
+Menu_Principal
