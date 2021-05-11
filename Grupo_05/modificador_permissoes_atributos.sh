@@ -16,7 +16,8 @@ Inicio() {
 		--height=250 \
 		--title="Bem-vindo" \
 		--text="Script para Modificação de Permissões e Atributos" 
-
+	
+	Menu_Principal
 }
 
 
@@ -25,20 +26,24 @@ Menu_Principal() {
 	escolha=$(zenity --list	\
 		--width=350 \
 		--height=250 \
-		--title "Script para Modificação de Permissões e Atributos" \
+		--title="Script para Modificação de Permissões e Atributos" \
 		--text="Escolha uma das opções abaixo"                      \
 		--radiolist                                                 \
-		--hide-column 2                                             \
+		--hide-column=2                                             \
        		--column="Marque" --column="" --column="Opções" false 0 "Modificar Permissão" false 1 "Modificar Atributo" false 2 "Help Stick Bits" false 3 "Help Chatrir")				
 
 case $escolha in
 	0)	
 		opcao="$(Menu_Secundario)"
-		permissoes="$(Menu_Permissoes)"
+		if [ "opcao" == "0" ]; then
+			arquivo="$(Selecionar_Arquivo)"
+		fi
 		;;
 	1)
 		opcao="$(Menu_Secundario)"
-		atributos="$(Menu_Atributos)"
+		if [ opcao == "0" ]; then
+			arquivo=$(Selecionar_Arquivo)
+		fi
 		;;
 	2)	
 		echo "Você escolheu visualizar o help sobre Stick Bits";;
@@ -49,48 +54,49 @@ esac
 
 } 
 
-
-
 Menu_Secundario() {
-	escolha=$(zenity --list \
-		--width=350 \
+	zenity	--list \
+		--width=400 \
 		--height=250 \
-		--title="" \
-		--text="" \
+		--title="Seleção de Arquivos" \
+		--text="Selecione uma opcão" \
 		--radiolist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Um arquivo" false 1 "Múltiplos Arquivos" false 2 "Diretório")
-
+		--column="Marque" --column="" --column="Opções" false 0 "Um arquivo" false 1 "Múltiplos Arquivos" false 2 "Diretório"
 }
 
-
 Menu_Permissoes() {
-	permissoes="$(zenity --list \
+	zenity	--list \
 		--width=350 \
 		--height=250 \
 		--title="Escolha as permissões" \
-		--checkclist \
+		--checklist \
 		--hide-column=2 \
-		--column="Marque" --column"" --column"Opções" false 0 "Executar" false 1 "Escrever" false 2 "Ler")"
+		--column="Marque" --column="" --column="Opções" false 0 "Executar" false 1 "Escrever" false 2 "Ler"
 }
 
 Menu_Atributos() {
-	atributos="$(zenity --list \
+	zenity 	--list \
 		--width=350 \
 		--height=250 \
 		--title="Escolha as permissões" \
-		--checkclist \
+		--checklist \
 		--hide-column=2 \
-		--column="Marque" --column"" --column"Opções" false 0 "Atributo 1" false 1 "Atributo 2" false 2 "Atributo 3")"
+		--column="Marque" --column="" --column="Opções" false 0 "Atributo 1" false 1 "Atributo 2" false 2 "Atributo 3"
 }
 
+
+
 Selecionar_Arquivo() {
-	arquivo="$(zenity --file-selection --title="Selecione o arquivo")"
+	zenity --file-selection --title="Selecione o arquivo"
 }
 
 Selecionar_Arquivos() {
-	arquivos="$(zenity --file-selection --multiple --title="Selecione os arquivos")"
+	zenity --file-selection --multiple --title="Selecione os arquivos"
+}
+
+Selecionar_Diretorio() {
+	zenity --file-selection --directory --title="Selecione o diretório"
 }
 
 Inicio
-Menu_Principal
