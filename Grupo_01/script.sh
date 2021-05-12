@@ -5,14 +5,33 @@ PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
-read -p "Como deseja iniciar a atualização do sistema?
-	s	- para fechar
-	p	- para instalação referente a programação
-	d	- ...
-	" ini
+# para saber a distribuição
+# lsb\_release -a
 
+read -p "Qual a distribuição do seu linux? " dist
 
+#sudo apt install snapd
 
+while true; do
+        read -p "Como deseja iniciar a atualização do sistema?
+                s       - para fechar
+                p       - pacote programador
+                r       - pacote de redes
+                e       - pacote para escritório
+                f       - pacote para entretenimento
+                " ini
+        case ${ini} in
+                "p")  
+                        ;;
+                "r")
+                        ;;
+                "e") read -p 
+                        ;;
+                "f")
+                        ;;
+                "s") break ;;
+        esac
+done
 	
 
 
