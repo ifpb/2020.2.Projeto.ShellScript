@@ -1,9 +1,4 @@
 #!/bin/bash
-#------------------APENAS O BETA DO BETA DO BETA-------------------------"
-# ----------------------------- VARIÁVEIS ----------------------------- #
-PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
-URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
-URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
 # para saber a distribuição
 # lsb\_release -a
@@ -13,7 +8,7 @@ URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 read -p "Primeiro necessitamos do snap e atualizar o sistema (s/n): " dest
 if [[ "${dest}" = s ]]; then 
 	sudo apt install snapd
-	#sudo apt update
+	sudo apt update
 else
 	echo "Prosseguindo"
 fi
@@ -27,14 +22,38 @@ while true; do
                 f       - pacote para entretenimento
                 " ini
         case ${ini} in
-                "p")  
+                "p") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				echo "será instalado o code, sublime, beekeeper, kubectl, incomnia e docker"
+				sudo snap install code --classic
+				sudo snap install sublime-text --classic
+				sudo snap install beekeeper-studio
+				sudo snap install kubectl --classic
+				sudo snap install insomnia
+				sudo snap install docker
+			fi
+			if [[ "${opc}" = r ]]; then
+			fi	
                         ;;
-                "r")
+                "r") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				sudo snap install google-cloud-sdk --classic
+				sudo apt-get install wireshark
+				sudo snap install sftpclient
+				sudo snap install remmina
+			fi
+			if [[ "${opc}" = r ]]; then
+                        fi
                         ;;
-		"e") read -p "Você quer: 
-				(i) instalar, 
-				(a) atualizar ou
-			      	(r) remover 
+		"f") read -p "Você quer: 
+				(i) instalar,
+			      	(r) remover ou
 				(s) sair " opc
 			if [[ "${opc}" = i ]]; then
 				echo "será instalado o spotifr, skype e discord"
@@ -49,41 +68,34 @@ while true; do
 				sudo snap remove discord
 			fi	
                         ;;
-                "f")
+                "e") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				sudo snap install mailspring
+				sudo snap install wps-2019-snap
+			fi
+			if [[ "${opc}" = r ]]; then
+                                echo "Removendo"
+			fi
                         ;;
                 "s") break ;;
         esac
 done
 	
-
+#------------------APENAS O BETA DO BETA DO BETA-------------------------"
+# ----------------------------- VARIÁVEIS ----------------------------- #
+PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
+URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
+URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
 
 programas para instalar:
-#"DEV"
-#"sudo snap install code --classic"
-#"sudo snap install sublime-text --classic"
-#"sudo snap install beekeeper-studio"
-#"sudo snap install kubectl --classic"
-#"sudo snap install insomnia"
-#"sudo snap install docker"
-#"REDES"
-#"sudo snap install google-cloud-sdk --classic"
-#"sudo apt-get install wireshark"
-#"sudo snap install sftpclient"
-#"sudo snap install remmina"
-#"ENTRETERIMENTO"
-#"sudo snap install spotify"
-#"sudo snap install skype"
-#"sudo snap install discord"
-#"ESCRITORIO"
-#"sudo snap install mailspring"
-#"sudo snap install wps-2019-snap"
 #"OUTROS"
 #"sudo snap install brave"
 #"sudo snap install chromium"
 #"sudo snap install teams-insiders"
-#
-#
 
 
 # ----------------------------- REQUISITOS ----------------------------- #
