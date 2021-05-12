@@ -1,0 +1,33 @@
+No search term specified. Here are some interesting snaps:
+
+Name                Version               Publisher        Notes    Summary
+boa                 3.0                   njmcphail        -        Wolfenstein | Blade of Agony
+triangle-wallpaper  2.2.0                 toryberra        -        Generate pleasing triangular wallpapers, and set them to change on a schedule.
+rubymine            2021.1.1              jetbrains*       classic  The Most Intelligent Ruby and Rails IDE
+ohmygiraffe         1.1.0a                popey            -        oh my giraffe
+geforcenow          1.1.3                 popey            -        GeForce NOW
+kreya               1.4.0                 riokritchie      -        gRPC GUI client
+openspades          0.1.3                 yvt              -        Sandbox building and FPS videogame
+spot                0.1.14                popey            -        Gtk/Rust native Spotify client for the GNOME desktop.
+yakyak              1.5.11.4              snapcrafters     -        YakYak
+syzygy              v1.0.1                popey            -        System Syzygy - A narrative meta-puzzle game
+newsflash           1.4.0                 popey            -        Follow your favorite blogs & news sites.
+knowte              2.0.8                 digmezzo         -        Knowte
+konversation        1.8.20123             kde*             -        IRC client
+whatsie             0+git.15de59c         keshavnrj        -        WhatsApp Web Client written in Qt
+natron              2.4.0                 popey            -        Natron
+libreoffice         7.1.3.2               canonical*       -        LibreOffice is a powerful office suite including word processing and creation of spreadsheets, slideshows and databases
+picard              2.6.2                 metabrainz-apps  -        Picard is the official MusicBrainz audio tagger
+alacritty           0.7.2                 tunix            classic  A fast, cross-platform, OpenGL terminal emulator
+x16emu              r38                   popey            -        Commander X16 Emulator
+dirsize             2.2.4                 michael-fross    -        DirSize - The command line directory reporting tool
+kompare             21.04.0               kde*             -        Diff/Patch Frontend
+pinta               1.7                   james-carroll    -        Pinta: Painting Made Simple
+spotify             1.1.55.498.gf9a83c60  spotify*         -        Music for everyone
+bomist              2.4.8                 bomist           -        Parts Inventory and BOM Management for Electronics
+shutter             0.94.3                popey            -        Feature-rich screenshot program
+home-media-server   4.8.0                 hms              -        Provides media resources on your computer to other UPnP (DLNA) devices in the home network
+quoter              2.6.3                 michael-fross    -        Quoter - A Console Based Stock Quote Tool
+konquest            2.4.20123             kde*             -        Galactic Strategy Game
+
+Provide a search term for more specific results.
