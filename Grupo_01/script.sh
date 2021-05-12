@@ -8,9 +8,15 @@ URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 # para saber a distribuição
 # lsb\_release -a
 
-read -p "Qual a distribuição do seu linux? " dist
+#read -p "Qual a distribuição do seu linux? " dist
 
-#sudo apt install snapd
+read -p "Primeiro necessitamos do snap e atualizar o sistema (s/n): " dest
+if [[ "${dest}" = s ]]; then 
+	sudo apt install snapd
+	#sudo apt update
+else
+	echo "Prosseguindo"
+fi
 
 while true; do
         read -p "Como deseja iniciar a atualização do sistema?
@@ -25,7 +31,23 @@ while true; do
                         ;;
                 "r")
                         ;;
-                "e") read -p 
+		"e") read -p "Você quer: 
+				(i) instalar, 
+				(a) atualizar ou
+			      	(r) remover 
+				(s) sair " opc
+			if [[ "${opc}" = i ]]; then
+				echo "será instalado o spotifr, skype e discord"
+				sudo snap install spotify
+				sudo snap install skype
+				sudo snap install discord
+			fi
+			if [[ "${opc}" = r ]]; then
+				echo "Removendo"
+				sudo snap remove spotify
+				sudo snap remove skype
+				sudo snap remove discord
+			fi	
                         ;;
                 "f")
                         ;;
