@@ -35,14 +35,37 @@ Menu_Principal() {
 case $escolha in
 	0)	
 		opcao="$(Menu_Secundario)"
-		if [ "opcao" == "0" ]; then
+		if [ "$opcao" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
+			permissoes="$(Menu_Permissoes)"
+		fi
+		
+		if [ "$opcao" == "1" ]; then
+			arquivos="$(Selecionar_Arquivos)"
+			permissoes="$(Menu_Permissoes)"	
+		fi
+	
+		if [ "$opcao" == "2" ]; then 
+			diretorio="$(Selecionar_Diretorio)"
+			permissoes="$(Menu_Permissoes)"
 		fi
 		;;
 	1)
 		opcao="$(Menu_Secundario)"
-		if [ opcao == "0" ]; then
-			arquivo=$(Selecionar_Arquivo)
+		if [ "$opcao" == "0" ]; then
+			arquivo="$(Selecionar_Arquivo)"
+			atributos="$(Menu_Atributos)"
+		fi
+
+		if [ "$opcao" == "1" ]; then
+			arquivos="$(Selecionar_Arquivos)"
+			atributos="$(Menu_Atributos)"
+
+		fi
+
+		if [ "$opcao" == "2" ]; then
+			diretorio="$(Selecionar_Diretorio)"
+			atributos="$(Menu_Atributos)"
 		fi
 		;;
 	2)	
