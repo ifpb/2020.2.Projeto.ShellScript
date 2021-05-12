@@ -11,40 +11,6 @@ read -p "Como deseja iniciar a atualização do sistema?
 	d	- ...
 	" ini
 
-while [ "${ini}" != "s" ];do
-	if [[ ${ini} = "p" ]]; then
-		sudo apt update		#Update the packages index and install the dependencies
-		read -p "qual linguagem você deseja?
-			(vsc) - Visual Studio Code
-			(ecl) - Eclipse
-			(git) - Git
-			(py)  - Python; 
-                        (j)   - Java; 
-                        (js)  - JavaScript;	" lin; fi
-		if [[ "${lin}" = git ]]; then
-			sudo apt-get install git-all    #install git
-		if [[ "${lin}" = vsc ]]; then
-			sudo apt install software-properties-common apt-transport-https wget
-                	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - #Import the Microsoft GPG key
-                	#enable the Visual Studio Code repository
-                	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-                	sudo apt install code #install VSC
-		if [[ "${lin}" = py ]]; then
-			which python3 > tx.txt
-			cat tx.txt | grep -o --color "python3" > dev/null || sudo apt-get install python3; fi
-		if [[ "${lin}" = j ]]; then
-			which java > tx.txt
-                        cat tx.txt | grep -o --color "java" > dev/null || sudo apt install default-jre; fi
-		if [[ "${lin}" = js ]]; then
-                        nodejs -v &> tx.txt
-                        cat tx.txt | grep -o --color "nodejs" &> dev/null && sudo apt install nodejs; fi
-		if [[ "${lin}" = ecl ]]; then		#CORRIGIR
-			#baixando uma versão
-			wget -c http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
-			sudo tar -zxvf eclipse.tar.gz -C /opt/  #descomprimir para a pasta opt 
-			sudo mv /opt/eclipse*/ /opt/eclipse     #renomei
-			#baixar e salvar o incone ;)
-			sudo wget https://dl2.macupdate.com/images/icons128/11662.png -O /opt/eclipse/eclipse.png; fi
 
 
 	
