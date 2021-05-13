@@ -1,82 +1,101 @@
 #!/bin/bash
+
+# para saber a distribuição
+# lsb\_release -a
+
+#read -p "Qual a distribuição do seu linux? " dist
+
+read -p "Primeiro necessitamos do snap e atualizar o sistema (s/n): " dest
+if [[ "${dest}" = s ]]; then 
+	sudo apt install snapd
+	sudo apt update
+else
+	echo "Prosseguindo"
+fi
+
+while true; do
+        read -p "Como deseja iniciar a atualização do sistema?
+                s       - para fechar
+                p       - pacote programador
+                r       - pacote de redes
+                e       - pacote para escritório
+                f       - pacote para entretenimento
+                " ini
+        case ${ini} in
+                "p") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				echo "será instalado o code, sublime, beekeeper, kubectl, incomnia e docker"
+				sudo snap install code --classic
+				sudo snap install sublime-text --classic
+				sudo snap install beekeeper-studio
+				sudo snap install kubectl --classic
+				sudo snap install insomnia
+				sudo snap install docker
+			fi
+			if [[ "${opc}" = r ]]; then
+			fi	
+                        ;;
+                "r") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				sudo snap install google-cloud-sdk --classic
+				sudo apt-get install wireshark
+				sudo snap install sftpclient
+				sudo snap install remmina
+			fi
+			if [[ "${opc}" = r ]]; then
+                        fi
+                        ;;
+		"f") read -p "Você quer: 
+				(i) instalar,
+			      	(r) remover ou
+				(s) sair " opc
+			if [[ "${opc}" = i ]]; then
+				echo "será instalado o spotifr, skype e discord"
+				sudo snap install spotify
+				sudo snap install skype
+				sudo snap install discord
+			fi
+			if [[ "${opc}" = r ]]; then
+				echo "Removendo"
+				sudo snap remove spotify
+				sudo snap remove skype
+				sudo snap remove discord
+			fi	
+                        ;;
+                "e") read -p "Você quer: 
+                                (i) instalar,
+                                (r) remover ou
+                                (s) sair " opc
+                        if [[ "${opc}" = i ]]; then
+				sudo snap install mailspring
+				sudo snap install wps-2019-snap
+			fi
+			if [[ "${opc}" = r ]]; then
+                                echo "Removendo"
+			fi
+                        ;;
+                "s") break ;;
+        esac
+done
+	
 #------------------APENAS O BETA DO BETA DO BETA-------------------------"
 # ----------------------------- VARIÁVEIS ----------------------------- #
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 
-read -p "Como deseja iniciar a atualização do sistema?
-	s	- para fechar
-	p	- para instalação referente a programação
-	d	- ...
-	" ini
-
-while [ "${ini}" != "s" ];do
-	if [[ ${ini} = "p" ]]; then
-		sudo apt update		#Update the packages index and install the dependencies
-		read -p "qual linguagem você deseja?
-			(vsc) - Visual Studio Code
-			(ecl) - Eclipse
-			(git) - Git
-			(py)  - Python; 
-                        (j)   - Java; 
-                        (js)  - JavaScript;	" lin; fi
-		if [[ "${lin}" = git ]]; then
-			sudo apt-get install git-all    #install git
-		if [[ "${lin}" = vsc ]]; then
-			sudo apt install software-properties-common apt-transport-https wget
-                	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - #Import the Microsoft GPG key
-                	#enable the Visual Studio Code repository
-                	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-                	sudo apt install code #install VSC
-		if [[ "${lin}" = py ]]; then
-			which python3 > tx.txt
-			cat tx.txt | grep -o --color "python3" > dev/null || sudo apt-get install python3; fi
-		if [[ "${lin}" = j ]]; then
-			which java > tx.txt
-                        cat tx.txt | grep -o --color "java" > dev/null || sudo apt install default-jre; fi
-		if [[ "${lin}" = js ]]; then
-                        nodejs -v &> tx.txt
-                        cat tx.txt | grep -o --color "nodejs" &> dev/null && sudo apt install nodejs; fi
-		if [[ "${lin}" = ecl ]]; then		#CORRIGIR
-			#baixando uma versão
-			wget -c http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
-			sudo tar -zxvf eclipse.tar.gz -C /opt/  #descomprimir para a pasta opt 
-			sudo mv /opt/eclipse*/ /opt/eclipse     #renomei
-			#baixar e salvar o incone ;)
-			sudo wget https://dl2.macupdate.com/images/icons128/11662.png -O /opt/eclipse/eclipse.png; fi
-
-
-	
-
-
 
 programas para instalar:
-#"DEV"
-#"sudo snap install code --classic"
-#"sudo snap install sublime-text --classic"
-#"sudo snap install beekeeper-studio"
-#"sudo snap install kubectl --classic"
-#"sudo snap install insomnia"
-#"sudo snap install docker"
-#"REDES"
-#"sudo snap install google-cloud-sdk --classic"
-#"sudo apt-get install wireshark"
-#"sudo snap install sftpclient"
-#"sudo snap install remmina"
-#"ENTRETERIMENTO"
-#"sudo snap install spotify"
-#"sudo snap install skype"
-#"sudo snap install discord"
-#"ESCRITORIO"
-#"sudo snap install mailspring"
-#"sudo snap install wps-2019-snap"
 #"OUTROS"
 #"sudo snap install brave"
 #"sudo snap install chromium"
 #"sudo snap install teams-insiders"
-#
-#
 
 
 # ----------------------------- REQUISITOS ----------------------------- #
