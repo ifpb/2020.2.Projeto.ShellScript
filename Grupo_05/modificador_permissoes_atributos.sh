@@ -18,7 +18,7 @@ Inicio() {
 		--title="Bem-vindo" \
 		--text="Script para Modificação de Permissões e Atributos" 
 	
-	Menu_Principal
+		Menu_Principal
 }
 
 Inicio
