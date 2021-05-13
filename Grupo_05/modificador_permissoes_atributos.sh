@@ -12,8 +12,8 @@
 
 Inicio() {
 	zenity	--info \
-		--width=350 \
-		--height=250 \
+		--width=450 \
+		--height=300 \
 		--title="Bem-vindo" \
 		--text="Script para Modificação de Permissões e Atributos" 
 	
@@ -22,10 +22,11 @@ Inicio() {
 
 
 
+#Menus da Interface Gráfica
 Menu_Principal() {
 	escolha=$(zenity --list	\
-		--width=350 \
-		--height=250 \
+		--width=400 \
+		--height=350 \
 		--title="Script para Modificação de Permissões e Atributos" \
 		--text="Escolha uma das opções abaixo"                      \
 		--radiolist                                                 \
@@ -79,8 +80,8 @@ esac
 
 Menu_Secundario() {
 	zenity	--list \
-		--width=400 \
-		--height=250 \
+		--width=450 \
+		--height=300 \
 		--title="Seleção de Arquivos" \
 		--text="Selecione uma opcão" \
 		--radiolist \
@@ -90,8 +91,8 @@ Menu_Secundario() {
 
 Menu_Permissoes() {
 	zenity	--list \
-		--width=350 \
-		--height=250 \
+		--width=450 \
+		--height=300 \
 		--title="Escolha as permissões" \
 		--checklist \
 		--hide-column=2 \
@@ -100,8 +101,8 @@ Menu_Permissoes() {
 
 Menu_Atributos() {
 	zenity 	--list \
-		--width=350 \
-		--height=250 \
+		--width=450 \
+		--height=300 \
 		--title="Escolha as permissões" \
 		--checklist \
 		--hide-column=2 \
@@ -109,7 +110,19 @@ Menu_Atributos() {
 }
 
 
+Menu_Usuarios() {
+	zenity 	--list \
+		--width=450 \
+		--height=300 \
+		--title="Escolha o usuário" \
+		--radiolist \
+		--hide-column 2 \
+		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que não são do mesmo Grupo do arquivo" false 2 "Usúarios que são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
+}
 
+
+
+#Seleção de Arquivos e Diretório.
 Selecionar_Arquivo() {
 	zenity --file-selection --title="Selecione o arquivo"
 }
