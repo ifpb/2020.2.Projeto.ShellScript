@@ -9,6 +9,7 @@
 #################################################################################################
 
 
+source menus_graficos.sh
 
 Inicio() {
 	zenity	--info \
@@ -74,4 +75,3 @@ case $escolha in
 esac
 
 Inicio
-
