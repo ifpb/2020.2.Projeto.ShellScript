@@ -22,9 +22,10 @@ snap_find(){
 }
 
 snap_install(){
-	pacote=$(yad --title="Install" --text="Digite o nome do pacote:" --entry --center)
+	pacote=$(yad --title="Instalar Snap" --text="Digite o nome do pacote:" --entry --center) 
 	sudo snap install $pacote &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" --center 	#a solicitação de senha está aparecendo no terminal
+	yad --text="$(cat /tmp/snap_manager)" 	 	#a solicitação de senha está aparecendo no terminal
+
 }
 
 snap_list(){
@@ -33,38 +34,34 @@ snap_list(){
 
 snap_upgrade(){
 	sudo snap refresh &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" --center
+	yad --text="$(cat /tmp/snap_manager)" --center --timeout=2 --no-buttons
 }
 
 snap_remove(){
-	rmv=$(yad --title="Unistall" --text="Digite o nome do pacote:" --entry --center)
+	rmv=$(yad --title="Remover Snap" --text="Digite o nome do pacote:" --entry --center)
 	sudo snap remove $rmv &> /tmp/snap_manager
 	yad --text="$(cat /tmp/snap_manager)" --center	#a solicitação de senha está aparecendo no terminal
 }
 
 snap_version(){
-	yad --title="Versão do SNAP" --text="$(snap --version)" --width="220" --center
+	yad \
+		--title="Sobre" \
+		--text="$(snap --version)" --center \
+		--button="Ok"
 }
 
 #expotando as funções
 
 export -f snap_find snap_install snap_list snap_upgrade snap_remove snap_version
 
-yad --title="Snap Manager" --center \
-	--text="						Gerenciador de pacotes Snap (Snap-Manager YAD)
+yad --form \
+	--title='Snap-Manager - Gerenciador de pacotes Snap' --center \
+	--text="Bem vindo $USER!" \
+	--field="_INSTALAR":BTN "@bash -c snap_install" \
+	--field="_REMOVER":BTN "@bash -c snap_remove" \
+	--field="_ATUALIZAR":BTN "@bash -c snap_upgrade" \
+	--field="_MEUS SNAPS":BTN "@bash -c snap_list" \
+	--field="_PROCURAR":BTN "@bash -c snap_find" \
+	--field="_SOBRE":BTN "@bash -c snap_version" \
+	--columns=3 --button="_Sair":1
 
-Opções:
-
-find - mostra snaps que podem ser instalados.
-install - instala snaps no sistema.
-list - mostra os snaps instalados.
-upgrade - atualiza todos snaps.
-remove - remove snaps instalados.
-version - mostra informações sobre o programa." \
-	--button="find!Procurar":"bash -c snap_find" \
-	--button="install":"bash -c snap_install" \
-	--button="list":"bash -c snap_list" \
-	--button="upgrade":"bash -c snap_upgrade" \
-	--button="remove":"bash -c snap_remove" \
-	--button="version":"bash -c snap_version"\
-	--columns=2 --button="Sair":0 --width:"640" --height="480"
