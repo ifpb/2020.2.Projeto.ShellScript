@@ -55,7 +55,7 @@ snap_version(){
 export -f snap_find snap_install snap_list snap_upgrade snap_remove snap_version
 
 yad --form \
-	--title='Snap-Manager - Gerenciador de pacotes Snap' --center \
+	--title='Snap-Manager - Gerenciador de pacotes Snap'  \
 	--text="Bem vindo $USER!" \
 	--field="_INSTALAR":BTN "@bash -c snap_install" \
 	--field="_REMOVER":BTN "@bash -c snap_remove" \
@@ -64,4 +64,3 @@ yad --form \
 	--field="_PROCURAR":BTN "@bash -c snap_find" \
 	--field="_SOBRE":BTN "@bash -c snap_version" \
 	--columns=3 --button="_Sair":1
-
