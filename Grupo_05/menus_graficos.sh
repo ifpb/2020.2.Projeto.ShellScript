@@ -17,16 +17,19 @@ case $escolha in
 		opcao="$(Menu_Secundario)"
 		if [ "$opcao" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
+			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
 		fi
 		
 		if [ "$opcao" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
+			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"	
 		fi
 	
 		if [ "$opcao" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
+			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
 		fi
 		;;
