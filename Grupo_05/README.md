@@ -1,15 +1,16 @@
 # Modificador de Permissões e Atributos Avançadas
 
 ## :dart: Objetivo
-O objetivo desse projeto é criar um script em bash para visualizar e manipular as permissões e atributos de arquivos em sistemas GNU/Linux.  O script poderá realizar verifcação e alterações em arquivos únicos ou múltiplos arquivos, criar padrões de permissões, entre outros.
+O objetivo desse projeto é criar um script em bash para manipular as permissões e atributos em sistemas GNU/Linux. O script poderá realizar verificação em arquivos únicos ou múltiplos e em diretórios.
 
 
 ## :vertical_traffic_light: Status do Projeto
- :construction: Em construção...  :construction:
+:construction: Em construção...  :construction:
 
 
 ## :package: Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Zenity](https://gitlab.gnome.org/GNOME/zenity), [GTK](https://www.gtk.org/)
+
 
 ## :keyboard: Instruções de instalação
 ### Clone este repositório
@@ -21,7 +22,6 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 
 ## :white_check_mark: Funcionalidades
-
 ### Help
 - [ ] Help (Sticks Bits)
 - [ ] Help (Chattr)
