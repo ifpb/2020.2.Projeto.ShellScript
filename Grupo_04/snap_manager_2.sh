@@ -62,5 +62,5 @@ yad --form \
 	--field="_ATUALIZAR":BTN "@bash -c snap_upgrade" \
 	--field="_MEUS SNAPS":BTN "@bash -c snap_list" \
 	--field="_PROCURAR":BTN "@bash -c snap_find" \
-	--field="_SOBRE":BTN "@bash -c snap_version" \
+	--field="_VERSÃO":BTN "@bash -c snap_version" \
 	--columns=3 --button="_Sair":1
