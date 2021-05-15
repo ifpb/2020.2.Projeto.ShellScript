@@ -2,6 +2,7 @@
 
 .gtk
 originals
+*test*
 
 # IntelliJ project files
 .idea
