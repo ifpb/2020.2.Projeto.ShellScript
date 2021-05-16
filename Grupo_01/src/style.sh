@@ -20,19 +20,17 @@ AUTOBASH_WINDOW_CONFIG='title="AutoBASH"
 ## NOTEBOOK
 NOTEBOOK_CONFIG='labels="Programas|Pacotes"
                  enable-popup="true"
-                 tab-pos="3"
-                 page="1"'
+                 tab-pos="3"'
 
 ## HBOX
 FRAME_HBOX_CONFIG='homogeneous="true"
                    scrollable="true"
-                   hscrollbar-policy="0"
+                   hscrollbar-policy="1"
                    vscrollbar-policy="2"
                    height="108"'
 
 ## VBOX
-TGBUTTON_VBOX_CONFIG='width-request="20" height-request="20"'
-
-
-# GAP
-GAP='<text width-chars="40"height-request="15"><label>""</label></text>'
+TGBUTTON_VBOX_CONFIG='visible="false"
+                      scrollable="true"
+                      hscrollbar-policy="2"
+                      vscrollbar-policy="1"'
