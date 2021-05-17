@@ -1,19 +1,23 @@
 #!/bin/bash
-
 # shellcheck disable=SC2016
+# shellcheck disable=SC2001
 
 # Caminho da Pasta do Script
-DIR_PATH="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+export DIR_PATH="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
 # Importar Ícones dos Programas
 source "${DIR_PATH}/src/img/icons.sh"
 
-# Importar Padrões de Widgets
-source "${DIR_PATH}/src/widgets.sh"
-
 # Importar Actions
+## Pop-ups
+source "${DIR_PATH}/src/actions/popups.sh"
 ## Widgets
 source "${DIR_PATH}/src/actions/widgets.sh"
+## Programs
+source "${DIR_PATH}/src/actions/programs.sh"
+
+# Importar Padrões de Widgets
+source "${DIR_PATH}/src/widgets.sh"
 
 XML='
 
@@ -30,14 +34,14 @@ XML='
     <frame Desenvolvimento>
     <hbox '"${FRAME_HBOX_CONFIG}"'>
 
-      '"$(program_button "JetBrains ToolBox" "ToolBox" "${TOOLBOX_ICON}")"'
-      '"$(program_button "Visual Studio" "VSCode" "${VSCODE_ICON}")"'
-      '"$(program_button "Insomnia" "Insomnia" "${INSOMNIA_ICON}")"'
-      '"$(program_button "Beekeeper" "Beekeeper" "${BEEKEEPER_ICON}")"'
-      '"$(program_button "Kubernetes" "Kubernetes" "${KUBERNETES_ICON}")"'
-      '"$(program_button "Docker" "Docker" "${DOCKER_ICON}")"'
-      '"$(program_button "Node JS" "Node JS" "${NODE_ICON}")"'
-      '"$(program_button "React JS" "React JS" "${REACT_ICON}")"'
+      '"$(program_button "TOOLBOX_BUTTON" "JetBrains ToolBox" "ToolBox" "${TOOLBOX_ICON}" "INSTALL_TOOLBOX")"'
+      '"$(program_button "VSCODE_BUTTON" "Visual Studio" "VSCode" "${VSCODE_ICON}" "INSTALL_VSCODE")"'
+      '"$(program_button "INSOMNIA_BUTTON" "Insomnia" "Insomnia" "${INSOMNIA_ICON}" "INSTALL_INSOMNIA")"'
+      '"$(program_button "BEEKEEPER_BUTTON" "Beekeeper" "Beekeeper" "${BEEKEEPER_ICON}" "INSTALL_BEEKEEPER")"'
+      '"$(program_button "KUBERNETES_BUTTON" "Kubernetes" "Kubernetes" "${KUBERNETES_ICON}" "INSTALL_KUBERNETES")"'
+      '"$(program_button "DOCKER_BUTTON" "Docker" "Docker" "${DOCKER_ICON}" "INSTALL_DOCKER")"'
+      '"$(program_button "NODE_BUTTON" "Node JS" "Node JS" "${NODE_ICON}" "INSTALL_NODE")"'
+      '"$(program_button "REACT_BUTTON" "React JS" "React JS" "${REACT_ICON}" "INSTALL_REACT")"'
 
     </hbox>
     </frame>
@@ -47,14 +51,14 @@ XML='
     <frame Redes>
     <hbox '"${FRAME_HBOX_CONFIG}"'>
 
-      '"$(program_button "Google Cloud SDK" "Cloud SDK" "${GOOGLE_CSDK_ICON}")"'
-      '"$(program_button "TCPdump" "TCPDump" "${TCPDUMP_ICON}")"'
-      '"$(program_button "Wireshark" "Wireshark" "${WIRESHARK_ICON}")"'
-      '"$(program_button "Oracle Virtual Box" "Virtual Box" "${VBOX_ICON}")"'
-      '"$(program_button "VMWare" "VMWare" "${VMWARE_ICON}")"'
-      '"$(program_button "FileZilla" "FileZilla" "${FILEZILLA_ICON}")"'
-      '"$(program_button "Putty" "Putty" "${PUTTY_ICON}")"'
-      '"$(program_button "Remmina" "Remmina" "${REMMINA_ICON}")"'
+      '"$(program_button "GOOGLE_CSDK_BUTTON" "Google Cloud SDK" "Cloud SDK" "${GOOGLE_CSDK_ICON}" "INSTALL_GOOGLE_CSDK")"'
+      '"$(program_button "TCPDUMP_BUTTON" "TCPdump" "TCPDump" "${TCPDUMP_ICON}" "INSTALL_TCPDUMP")"'
+      '"$(program_button "WIRESHARK_BUTTON" "Wireshark" "Wireshark" "${WIRESHARK_ICON}" "INSTALL_WIRESHARK")"'
+      '"$(program_button "VBOX_BUTTON" "Oracle Virtual Box" "Virtual Box" "${VBOX_ICON}" "INSTALL_VBOX")"'
+      '"$(program_button "VMWARE_BUTTON" "VMWare" "VMWare" "${VMWARE_ICON}" "INSTALL_VMWARE")"'
+      '"$(program_button "FILEZILLA_BUTTON" "FileZilla" "FileZilla" "${FILEZILLA_ICON}" "INSTALL_FILEZILLA")"'
+      '"$(program_button "PUTTY_BUTTON" "Putty" "Putty" "${PUTTY_ICON}" "INSTALL_PUTTY")"'
+      '"$(program_button "REMMINA_BUTTON" "Remmina" "Remmina" "${REMMINA_ICON}" "INSTALL_REMMINA")"'
 
     </hbox>
     </frame>
@@ -64,13 +68,13 @@ XML='
     <frame Escritório>
     <hbox '"${FRAME_HBOX_CONFIG}"'>
 
-      '"$(program_button "WPS Office" "WPS" "${WPS_ICON}")"'
-      '"$(program_button "Foxit PDF" "Foxit PDF" "${FOXIT_ICON}")"'
-      '"$(program_button "Gimp" "Gimp" "${GIMP_ICON}")"'
-      '"$(program_button "Krita" "Krita" "${KRITA_ICON}")"'
-      '"$(program_button "Inkscape" "Inkscape" "${INKSCAPE_ICON}")"'
-      '"$(program_button "Mailspring" "Mailspring" "${MAILSPRING_ICON}")"'
-      '"$(program_button "Audacity" "Audacity" "${AUDACITY_ICON}")"'
+      '"$(program_button "WPS_BUTTON" "WPS Office" "WPS" "${WPS_ICON}" "INSTALL_WPS")"'
+      '"$(program_button "FOXIT_BUTTON" "Foxit PDF" "Foxit PDF" "${FOXIT_ICON}" "INSTALL_FOXIT")"'
+      '"$(program_button "GIMP_BUTTON" "Gimp" "Gimp" "${GIMP_ICON}" "INSTALL_GIMP")"'
+      '"$(program_button "KRITA_BUTTON" "Krita" "Krita" "${KRITA_ICON}" "INSTALL_KRITA")"'
+      '"$(program_button "INKSCAPE_BUTTON" "Inkscape" "Inkscape" "${INKSCAPE_ICON}" "INSTALL_INKSCAPE")"'
+      '"$(program_button "MAILSPRING_BUTTON" "Mailspring" "Mailspring" "${MAILSPRING_ICON}" "INSTALL_MAILSPRING")"'
+      '"$(program_button "AUDACITY_BUTTON" "Audacity" "Audacity" "${AUDACITY_ICON}" "INSTALL_AUDACITY")"'
 
     </hbox>
     </frame>
@@ -81,9 +85,9 @@ XML='
       <frame Lazer>
       <hbox '"${FRAME_HBOX_CONFIG}"'>
 
-        '"$(program_button "Spotify" "Spotify" "${SPOTIFY_ICON}")"'
-        '"$(program_button "Skype" "Skype" "${SKYPE_ICON}")"'
-        '"$(program_button "Discord" "Discord" "${DISCORD_ICON}")"'
+        '"$(program_button "SPOTIFY_BUTTON" "Spotify" "Spotify" "${SPOTIFY_ICON}" "INSTALL_SPOTIFY")"'
+        '"$(program_button "SKYPE_BUTTON" "Skype" "Skype" "${SKYPE_ICON}" "INSTALL_SKYPE")"'
+        '"$(program_button "DISCORD_BUTTON" "Discord" "Discord" "${DISCORD_ICON}" "INSTALL_DISCORD")"'
 
       </hbox>
       </frame>
@@ -91,11 +95,11 @@ XML='
       <frame Utilitários>
       <hbox '"${FRAME_HBOX_CONFIG}"'>
 
-        '"$(program_button "Wine" "Wine" "${WINE_ICON}")"'
-        '"$(program_button "Chrome" "Chrome" "${CHROME_ICON}")"'
-        '"$(program_button "Brave" "Brave" "${BRAVE_ICON}")"'
-        '"$(program_button "Opera" "Opera" "${OPERA_ICON}")"'
-        '"$(program_button "WinRAR" "WinRAR" "${WINRAR_ICON}")"'
+        '"$(program_button "WINE_BUTTON" "Wine" "Wine" "${WINE_ICON}" "INSTALL_WINE")"'
+        '"$(program_button "CHROME_BUTTON" "Chrome" "Chrome" "${CHROME_ICON}" "INSTALL_CHROME")"'
+        '"$(program_button "BRAVE_BUTTON" "Brave" "Brave" "${BRAVE_ICON}" "INSTALL_BRAVE")"'
+        '"$(program_button "OPERA_BUTTON" "Opera" "Opera" "${OPERA_ICON}" "INSTALL_OPERA")"'
+        '"$(program_button "WINRAR_BUTTON" "WinRAR" "WinRAR" "${WINRAR_ICON}" "INSTALL_WINRAR")"'
 
       </hbox>
       </frame>
@@ -248,5 +252,5 @@ sed -e "s/##.*//" <<< "${XML}" > /tmp/xml
 
 case $1 in
 -d | --dump) echo "${XML}" ;;
-*) gtkdialog --file=/tmp/xml --center 2>/dev/null ;;
+*) gtkdialog --file=/tmp/xml --center 2> /dev/null ;;
 esac

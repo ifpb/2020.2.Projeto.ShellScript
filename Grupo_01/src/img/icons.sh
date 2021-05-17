@@ -21,7 +21,7 @@ FILEZILLA_ICON="${DIR_PATH}/src/img/icons/filezilla_icon.png"
 PUTTY_ICON="${DIR_PATH}/src/img/icons/putty_icon.png"
 REMMINA_ICON="${DIR_PATH}/src/img/icons/remmina_icon.png"
 
-## Entretenimento
+## Lazer
 SPOTIFY_ICON="${DIR_PATH}/src/img/icons/spotify_icon.png"
 SKYPE_ICON="${DIR_PATH}/src/img/icons/skype_icon.png"
 DISCORD_ICON="${DIR_PATH}/src/img/icons/discord_icon.png"

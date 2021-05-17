@@ -4,23 +4,25 @@
 source "${DIR_PATH}/src/style.sh"
 
 # BUTTON
-# 1 - Tooltip-markup | 2 - Label | 3 - Input File
+# 1 - Var Name | 2 - Tooltip-markup | 3 - Label | 4 - Image | 5 - Pop-up Path
 function program_button() {
-    cat <<EXIT
-    <button tooltip-markup="<b><i> ${1} </i></b>"
+  popup="${4}"
+  cat <<EXIT
+    <button tooltip-markup="<b><i> ${2} </i></b>"
             image-position="${BUTTON_IMG_POSITION}"
             height-request="${BUTTON_SIZE}" width-request="${BUTTON_SIZE}">
       <height>"${BUTTON_IMG_SIZE}"</height> <width>"${BUTTON_IMG_SIZE}"</width>
-      <label>${2}</label>
-      <input file>${3}</input>
-      <action>echo ${1}</action>
-    </button>
+      <label>${3}</label>
+      <input file>${4}</input>
+      <action type="disable">${1}</action>
+      <action type="launch">${5}</action>
+    <variable>${1}</variable></button>
 EXIT
 }
 
 # 1 - Label | 2 - Variable | 3 - Actions
 function package_button() {
-    cat <<EXIT
+  cat <<EXIT
     <button sensitive="true"
             width-request="110">
       <label>${1}</label>
@@ -31,11 +33,10 @@ function package_button() {
 EXIT
 }
 
-
 # TGBUTTON
-# 1 - Tooltip-markup | 2 - Label | 3 - Input File
+# 1 - Tooltip-markup | 2 - Label | 3 - Image
 function tgbutton() {
-    cat <<EXIT
+  cat <<EXIT
     <togglebutton>
       <label>"  ${1}"</label>
       <input file>${2}</input>
