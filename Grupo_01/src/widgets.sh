@@ -47,3 +47,10 @@ EXIT
 
 # GAP
 GAP='<text width-chars="40" height-request="15"><label>""</label></text>'
+
+# REFRESH
+REFRESH_BUTTON='<button image-position="1">
+                <label>Refresh</label>
+                <input file icon="reload"></input>
+                <action>echo Refresh...[Mentira]</action>
+                </button>'

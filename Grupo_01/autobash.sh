@@ -107,6 +107,7 @@ XML='
   #############
   ## Pacotes ##
   #############
+
   <vbox>
 
     <hbox homogeneous="true">
@@ -176,9 +177,64 @@ XML='
     </frame>
 
     '"${GAP}"'
-    <button>
+    <button image-position="1" height-request="40">
       <label>Instalar</label>
+      <input file icon="bottom"></input>
       <action>echo Instalando...[Mentira]</action>
+    </button>
+    '"${GAP}"'
+
+  </vbox>
+
+
+  #################
+  ## Desinstalar ##
+  #################
+
+  <vbox>
+
+      '"${REFRESH_BUTTON}"'
+
+      <frame>
+
+         <vbox '"${INSTALLED_VBOX_CONFIG}"'>
+            <text><label>Clique em Refresh para listar os programas instalados.</label></text>
+         <variable>UNINSTALL_VBOX</variable> </vbox>
+
+      </frame>
+
+    '"${GAP}"'
+    <button image-position="1" height-request="40">
+      <label>Desinstalar</label>
+      <input file icon="stop"></input>
+      <action>echo Desinstalando...[Mentira]</action>
+    </button>
+    '"${GAP}"'
+
+  </vbox>
+
+
+  ###############
+  ## Atualizar ##
+  ###############
+
+  <vbox>
+
+      '"${REFRESH_BUTTON}"'
+
+      <frame>
+
+         <vbox '"${INSTALLED_VBOX_CONFIG}"'>
+            <text><label>Clique em Refresh para listar os programas instalados.</label></text>
+         <variable>UNINSTALL_VBOX</variable> </vbox>
+
+      </frame>
+
+    '"${GAP}"'
+    <button image-position="1" height-request="40">
+      <label>Atualizar</label>
+      <input file stock="gtk-jump-to"></input>
+      <action>echo Desinstalando...[Mentira]</action>
     </button>
     '"${GAP}"'
 
