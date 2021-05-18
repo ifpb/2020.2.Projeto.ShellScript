@@ -7,7 +7,7 @@ while true; do
 		--column="ID" --column="Opções" \
 		"01" "Criar Usuário" \
 		"02" "Deletar Usuário" \
-		"03" "Alterar Usuario de uma Arquivo ou Diretório" \
+		"03" "Alterar Usuario de um Arquivo ou Diretório" \
 		"04" "Listar Usuários" \
 	 	"05" "Sair do Menu do Usuário" --width="600" --height="400")
 	opcao1=$(echo $opcao)

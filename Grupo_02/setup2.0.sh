@@ -23,7 +23,7 @@ while true; do
 			;;
 
 		03)
-			echo "Faltada criar"
+			$(./passwords.sh)
 
 	esac
 	verf=$(echo $opcao)
