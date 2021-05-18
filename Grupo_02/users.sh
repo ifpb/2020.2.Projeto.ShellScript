@@ -9,7 +9,7 @@ while true; do
 		"02" "Deletar Usuário" \
 		"03" "Alterar Usuario de um Arquivo ou Diretório" \
 		"04" "Listar Usuários" \
-	 	"05" "Sair do Menu do Usuário" --width="600" --height="400")
+	 	"05" "Sair" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 
 
@@ -31,14 +31,14 @@ while true; do
 							for i in $(seq 1 6);do echo " " >> /tmp/.senhas.txt ; done
 							$(adduser $user < /tmp/.senhas.txt &>/dev/null)
 							if [ $? -eq 0 ];then
-								$(chage -I 10 -M 50 $user) &>/dev/null
+								$(chage -I 10 -M 50 $user &>/dev/null)
 								$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 							else
 								$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
 							fi
 
 						else
-							$(zenity --error --text="Senhas diferentes! \nSenha precisa conter ao menos 6 caracteres (Aa1@)" --width="600" --height="400")
+							$(zenity --error --text="Senhas diferentes! \nSenha Precisa Conter Ao Menos 6 Caracteres\nEx: [ Senh@123 ]" --width="600" --height="400")
 							senha=$(zenity --forms --title="Digte ambas as senhas iguais!" --text="Informe: " \
 								--add-password="Senha " \
 								--add-password="Novamente " --width="600" --height="400")
@@ -49,7 +49,7 @@ while true; do
 								for i in $(seq 1 6);do echo " " >> /tmp/.senhas1.txt ; done
 								$(adduser $user < /tmp/.senhas1.txt &>/dev/null)
 								if [ $? -eq 0 ];then
-									$(chage -I 10 -M 50 $user) &>/dev/null
+									$(chage -I 10 -M 50 $user &>/dev/null)
 									$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 								else
 									$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
