@@ -26,7 +26,7 @@ while true; do
 					passw1=$(echo $usuario | cut -d'|' -f2)
 					passw2=$(echo $usuario | cut -d'|' -f3)
 					if [ -n "$user" ];then
-						if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){8,}" &>/dev/null;then
+						if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &>/dev/null;then
 							echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.senhas.txt
 							for i in $(seq 1 6);do echo " " >> /tmp/.senhas.txt ; done
 							$(adduser $user < /tmp/.senhas.txt &>/dev/null)
@@ -44,7 +44,7 @@ while true; do
 								--add-password="Novamente " --width="600" --height="400")
 							passw1=$(echo $senha | cut -d'|' -f1)
 							passw2=$(echo $senha | cut -d'|' -f2)
-							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -E '\b(([A-Za-z0-9]+)|([[:punct:]]+)){6}\b' &> /dev/null;then
+							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &> /dev/null;then
 								echo $senha | cut -d'|' -f1,2 | tr -s '|' '\n' > /tmp/.senhas1.txt
 								for i in $(seq 1 6);do echo " " >> /tmp/.senhas1.txt ; done
 								$(adduser $user < /tmp/.senhas1.txt &>/dev/null)
