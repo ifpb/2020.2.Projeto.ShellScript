@@ -2,7 +2,7 @@
 
 while true; do
 	opcao=$(zenity --list \
-		--title="Menu-Group" \
+		--title="Menu-Passwords" \
 		--text="Selecione" \
 		--column="ID" --column="Opções" \
 		"01" "Mudar Senha do Usuário" \
@@ -38,7 +38,7 @@ while true; do
 								--add-password="Novamente " --width="600" --height="400")
 							passw1=$(echo $senha | cut -d'|' -f1)
 							passw2=$(echo $senha | cut -d'|' -f2)
-							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -E '\b(([A-Za-z0-9]+)|([[:punct:]]+)){6,}\b' &> /dev/null;then
+							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &> /dev/null;then
 								echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.passwd_1.txt
 							    $(passwd $user < /tmp/.passwd_1.txt &> /dev/null)
 								if [ $? -eq 0];then
@@ -56,7 +56,7 @@ while true; do
 					;;
 
 				1)
-					$(zenity --info --title="System" --text="Alteração de usuário cancelada!" --width="600" --height="400")
+					$(zenity --info --title="System" --text="Alteração de senha do usuário cancelada!" --width="600" --height="400")
 			esac
 
 			;;
