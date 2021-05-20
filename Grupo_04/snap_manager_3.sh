@@ -15,14 +15,14 @@
 
 #funções para trabalhar os comandos do snap
 
+nome="Snap-Manager BETA"
+
 if [ "$(id -nu)" != "root" ]; then
         sudo -k
-        senha=$(yad --title="Autenticação" --text="Este script requer privilégios administrativos. Por favor autentique abaixo para iniciar o programa." --width="200" --entry --hide-text)
+        senha=$(yad --title="$nome - Autenticação" --text="Olá $USER, digite sua senha:" --width="240" --entry --hide-text)
         exec sudo -S -p '' "$0" "$@" <<< "$senha"
         exit -1
 fi
-
-nome="Snap-Manager BETA"
 
 snap_find(){ 	
 	
@@ -42,26 +42,23 @@ snap_find(){
 	fi
 }
 
-snap_install(){
-	pacote=$(yad --title="Instalar Snap" --text="Digite o nome do pacote:" --entry --center) 
-	sudo snap install $pacote &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" 	 	#a solicitação de senha está aparecendo no terminal
-
-}
-
-snap_list(){
-	yad --title="Snaps Instalados" --text="$(snap list)" --center
-}
-
 snap_upgrade(){
 	sudo snap refresh &> /tmp/snap_manager
 	yad --text="$(cat /tmp/snap_manager)" --center --timeout=2 --no-buttons
 }
 
-snap_remove(){
-	rmv=$(yad --title="Remover Snap" --text="Digite o nome do pacote:" --entry --center)
-	sudo snap remove $rmv &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" --center	#a solicitação de senha está aparecendo no terminal
+snap_list(){
+	rm /tmp/snap_remove /tmp/snap_remove_resultado &> /dev/null
+	yad --title="Snap Manager - Meus Snaps" --list --center --width="500" --height="600"  --separator=" " --button=gtk-delete:0 --checklist --column "Remover" --column "Snap" --column "Versão" $(snap list | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_remove
+	if [ -e /tmp/snap_remove ]; then
+		for linha in $(cat /tmp/snap_remove); do
+			sudo snap remove $linha &> /tmp/snap_remove_resultado
+		done
+	fi
+	#falta mostrar o progresso da instalação
+	if [ -e /tmp/snap_remove_resultado ]; then
+		yad --text="$(cat /tmp/snap_remove_resultado)"
+	fi
 }
 
 snap_version(){
@@ -73,7 +70,7 @@ snap_version(){
 
 #expotando as funções
 
-export -f snap_find snap_install snap_list snap_upgrade snap_remove snap_version
+export -f snap_find snap_list snap_upgrade snap_version
 
 #tela de apresentação
 yad --title='Snap-Manager-Beta' --image tela_inicial.jpeg --image-on-top \
