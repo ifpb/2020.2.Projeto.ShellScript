@@ -15,6 +15,13 @@
 
 #funções para trabalhar os comandos do snap
 
+if [ "$(id -nu)" != "root" ]; then
+        sudo -k
+        senha=$(yad --title="Autenticação" --text="Este script requer privilégios administrativos. Por favor autentique abaixo para iniciar o programa." --width="200" --entry --hide-text)
+        exec sudo -S -p '' "$0" "$@" <<< "$senha"
+        exit -1
+fi
+
 nome="Snap-Manager BETA"
 
 snap_find(){ 	
@@ -24,12 +31,12 @@ snap_find(){
 	rm /tmp/snap_install &> /dev/null
 	chave=$(yad --title="Snap-Manager - Buscar" --text="Digite o nome do pacote:" --entry --center)
 	yad --title="Snap Manager - Busca" --text="Resultado da busca por <i>$chave</i>" --list --center --width="500" --height="600"  --separator=" " --button=gtk-instalar:0 --checklist --column " " --column "Snap" --column "Descrição" $(snap find "${chave}" | awk 'NR>1 {printf "FALSE "$1" "$5" "}') | awk '{print $2}' > /tmp/snap_install
-	#yad --text="$(cat /tmp/snap_install)" #programas a serem instalados	
 	if [ -e /tmp/snap_install ]; then
 		for linha in $(cat /tmp/snap_install); do
 			sudo snap install $linha &> /tmp/snap_install_resultado
 		done
 	fi
+	#falta mostrar o progresso da instalação
 	if [ -e /tmp/snap_install_resultado ]; then
 		yad --text="$(cat /tmp/snap_install_resultado)"
 	fi
