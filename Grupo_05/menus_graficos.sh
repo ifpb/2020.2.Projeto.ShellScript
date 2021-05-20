@@ -15,12 +15,15 @@ Menu_Principal() {
 case $escolha in
 	0)	
 		modo_arquivo="$(Menu_Tipo_Arquivo)"
+		
+		
 		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
+			operador="$(Menu_Operador)"
 			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"
+			permissoes="$(Menu_Permissoes)"	
 
-			if [[ $permissoes =~ 0 ]]; then
+			if [[ $permissoes =~ 0 && "$operador" == "0" ]]; then
 				adicionar-execucao $arquivo
 			fi
 		fi
@@ -28,17 +31,21 @@ case $escolha in
 		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
 			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"	
+			permissoes="$(Menu_Permissoes)"
+			operador="$(Menu_Operador)"	
 		fi
 	
 		if [ "$modo_arquivo" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
 			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
+			operador="$(Menu_Operador)"
 		fi
 		;;
 	1)
 		modo_arquivo="$(Menu_Tipo_Arquivo)"
+		
+		
 		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
 			atributos="$(Menu_Atributos)"
@@ -101,10 +108,19 @@ Menu_Usuarios() {
 		--height=350 \
 		--title="Escolha o usuário" \
 		--radiolist \
-		--hide-column 2 \
+		--hide-column=2 \
 		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que não são do mesmo Grupo do arquivo" false 2 "Usúarios que são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
 }
 
+Menu_Operador(){
+	zenity 	--list \
+		--width=450 \
+		--height=350 \
+		--title="Escolha o operador" \
+		--radiolist \
+		--hide-column=2 \
+		--column="Marque" --column="" --column="Opções" false 0 "Adicionar Permissão" false 1 "Retirar Permissão" false 2 "Redifinir Permissões"
+}
 
 #Seleção de Arquivos e Diretório.
 Selecionar_Arquivo() {
