@@ -84,7 +84,7 @@ yad --form --center --title='Snap-Manager - Gerenciador de pacotes Snap'  \
 	--image tela_inicial.jpeg --image-on-top \
 	--text "<big><b>Snap-Manager BETA</b></big>\n\nGerenciador de <b>Snaps</b> para o <big><b>Linux</b></big>" \
 	--field="_ATUALIZAR":BTN "@bash -c snap_upgrade" \
-	--field="BUSCAR":BTN "@bash -c snap_find" \
+	--field="_BUSCAR":BTN "@bash -c snap_find" \
 	--field="_MEUS SNAPS":BTN "@bash -c snap_list" \
 	--field="_VERSÃO":BTN "@bash -c snap_version" \
 	--columns=2 --button="_Sair":1
