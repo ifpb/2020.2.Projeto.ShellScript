@@ -14,8 +14,8 @@ Menu_Principal() {
 
 case $escolha in
 	0)	
-		opcao="$(Menu_Secundario)"
-		if [ "$opcao" == "0" ]; then
+		modo_arquivo="$(Menu_Tipo_Arquivo)"
+		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
 			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
@@ -25,32 +25,32 @@ case $escolha in
 			fi
 		fi
 		
-		if [ "$opcao" == "1" ]; then
+		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
 			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"	
 		fi
 	
-		if [ "$opcao" == "2" ]; then 
+		if [ "$modo_arquivo" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
 			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
 		fi
 		;;
 	1)
-		opcao="$(Menu_Secundario)"
-		if [ "$opcao" == "0" ]; then
+		modo_arquivo="$(Menu_Tipo_Arquivo)"
+		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
 			atributos="$(Menu_Atributos)"
 		fi
 
-		if [ "$opcao" == "1" ]; then
+		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
 			atributos="$(Menu_Atributos)"
 
 		fi
 
-		if [ "$opcao" == "2" ]; then
+		if [ "$modo_arquivo" == "2" ]; then
 			diretorio="$(Selecionar_Diretorio)"
 			atributos="$(Menu_Atributos)"
 		fi
@@ -63,7 +63,7 @@ case $escolha in
 esac
 }
 
-Menu_Secundario() {
+Menu_Tipo_Arquivo() {
 	zenity	--list \
 		--width=450 \
 		--height=350 \
@@ -104,7 +104,6 @@ Menu_Usuarios() {
 		--hide-column 2 \
 		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que não são do mesmo Grupo do arquivo" false 2 "Usúarios que são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
 }
-
 
 
 #Seleção de Arquivos e Diretório.
