@@ -19,6 +19,10 @@ case $escolha in
 			arquivo="$(Selecionar_Arquivo)"
 			usuarios="$(Menu_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
+
+			if [[ $permissoes =~ 0 ]]; then
+				adicionar-execucao $arquivo
+			fi
 		fi
 		
 		if [ "$opcao" == "1" ]; then
