@@ -37,7 +37,7 @@ snap_find(){
 	rm /tmp/snap_install /tmp/snap_install_resultado &> /dev/null
 	chave=$(yad --window-icon=tux_mengao.png --title="$nome - Buscar" --text="Digite o nome do pacote:" --entry --center)
 	
-	if [ -n $chave ] && [ $chave != 1 &> /dev/null ]; then
+	if [ -n "$chave" ] && [ "$chave" != 1 &> /dev/null ]; then
 	       yad --window-icon=tux_mengao.png --title="$nome - Busca" --text="Resultado da busca por <i>$chave</i>" --list --center --width="500" --height="500"  --separator=" " --button=gtk-ok:0 --checklist --column "Instalar " --column "Snap" --column "Versão" $(snap find "${chave}" 2> /dev/null | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_install 2> /dev/null
 	fi
 	
