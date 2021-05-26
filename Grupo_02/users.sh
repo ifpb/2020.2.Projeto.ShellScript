@@ -7,9 +7,9 @@ while true; do
 		--column="ID" --column="Opções" \
 		"01" "Criar Usuário" \
 		"02" "Deletar Usuário" \
-		"03" "Alterar Usuario de uma Arquivo ou Diretório" \
+		"03" "Alterar Usuario de um Arquivo ou Diretório" \
 		"04" "Listar Usuários" \
-	 	"05" "Sair do Menu do Usuário" --width="600" --height="400")
+	 	"05" "Sair" --width="600" --height="400")
 	opcao1=$(echo $opcao)
 
 
@@ -26,30 +26,30 @@ while true; do
 					passw1=$(echo $usuario | cut -d'|' -f2)
 					passw2=$(echo $usuario | cut -d'|' -f3)
 					if [ -n "$user" ];then
-						if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){8,}" &>/dev/null;then
+						if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &>/dev/null;then
 							echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.senhas.txt
 							for i in $(seq 1 6);do echo " " >> /tmp/.senhas.txt ; done
 							$(adduser $user < /tmp/.senhas.txt &>/dev/null)
 							if [ $? -eq 0 ];then
-								$(chage -I 10 -M 50 $user) &>/dev/null
+								$(chage -I 10 -M 50 $user &>/dev/null)
 								$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 							else
 								$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
 							fi
 
 						else
-							$(zenity --error --text="Senhas diferentes! \nSenha precisa conter ao menos 6 caracteres (Aa1@)" --width="600" --height="400")
+							$(zenity --error --text="Senhas diferentes! \nSenha Precisa Conter Ao Menos 6 Caracteres\nEx: [ Senh@123 ]" --width="600" --height="400")
 							senha=$(zenity --forms --title="Digte ambas as senhas iguais!" --text="Informe: " \
 								--add-password="Senha " \
 								--add-password="Novamente " --width="600" --height="400")
 							passw1=$(echo $senha | cut -d'|' -f1)
 							passw2=$(echo $senha | cut -d'|' -f2)
-							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -E '\b(([A-Za-z0-9]+)|([[:punct:]]+)){6}\b' &> /dev/null;then
+							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &> /dev/null;then
 								echo $senha | cut -d'|' -f1,2 | tr -s '|' '\n' > /tmp/.senhas1.txt
 								for i in $(seq 1 6);do echo " " >> /tmp/.senhas1.txt ; done
 								$(adduser $user < /tmp/.senhas1.txt &>/dev/null)
 								if [ $? -eq 0 ];then
-									$(chage -I 10 -M 50 $user) &>/dev/null
+									$(chage -I 10 -M 50 $user &>/dev/null)
 									$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 								else
 									$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
