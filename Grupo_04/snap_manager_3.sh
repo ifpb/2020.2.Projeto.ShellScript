@@ -87,7 +87,9 @@ snap_list(){
 }
 
 snap_version(){
-	yad --form --title="$nome" --text="\n\n$(snap --version)\n" --center --button=gtk-ok:0 --window-icon=tux_mengao.png --text-align=center --width="500" --height="300" --image tux_mengao.png --field="Legenda"
+	snap --version > /tmp/snap_version.txt
+	yad --title=$nome --text="$nome" --text-info --back="gainsboro" </tmp/snap_version.txt --image=tux3.png --image-on-top --width=260 --height=320 --borders=8 --button=gtk-ok:0 &> /dev/null
+	#yad --form --title="$nome" --text="\n\n$(snap --version)\n" --center --button=gtk-ok:0 --window-icon=tux_mengao.png --text-align=center --width="500" --height="300" --image tux_mengao.png --field="Legenda"
 }
 
 #Expotando as funções
