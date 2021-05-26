@@ -21,7 +21,7 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 								$(chage -I 10 -M 50 $user &>/dev/null)
 								$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 							else
-								$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
+								#$(yad --title="System" --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 
 						else
@@ -42,14 +42,14 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 									$(chage -I 10 -M 50 $user &>/dev/null)
 									$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
 								else
-									$(zenity --error --title="System" --text="Falha Ao Criar Usuário!" --width="600" --height="400")
+									#$(yad --title="System" --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								fi
 							else
-								$(zenity --error --text="Não foi possivel criar usuário!\nTente novamente!" --width="600" --height="400")
+								#$(yad --title="System" --image ./Imagens/error.png --image-on-top --text="<b>Não foi possivel criar usuário!\nTente novamente!</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 						fi
 					else
-						$(zenity --error --text="Usuário não informado" --width="600" --height="400")
+						#$(yad --title="System" --image ./Imagens/error.png --image-on-top --text="<b>Usuário não informado</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 
