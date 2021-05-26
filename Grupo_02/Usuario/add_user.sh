@@ -1,9 +1,12 @@
 #!/bin/bash
 
-usuario=$(zenity --forms --title="Criando Usuário" --text="Informe: " \
-				--add-entry="Nome do user: " \
-				--add-password="Digite a senha: " \
-				--add-password="Digite novamente: " --width="600" --height="400")
+usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
+		--title="Administração de Sistemas" --center --text="<b>Criar</b>\n<i>Usuário</i>" --text-align=center \
+	       	--field="Nome" \
+		--field="Senha":H \
+		--field="Digite novamente":H \
+		--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+		--width="500" --height="400")
 			case $? in
 				0)
 					user=$(echo $usuario | cut -d'|' -f1)
@@ -22,10 +25,13 @@ usuario=$(zenity --forms --title="Criando Usuário" --text="Informe: " \
 							fi
 
 						else
-							$(zenity --error --text="Senhas diferentes! \nSenha Precisa Conter Ao Menos 6 Caracteres\nEx: [ Senh@123 ]" --width="600" --height="400")
-							senha=$(zenity --forms --title="Digte ambas as senhas iguais!" --text="Informe: " \
-								--add-password="Senha " \
-								--add-password="Novamente " --width="600" --height="400")
+							senha=$(yad --form --image ./Imagens/password.png --image-on-top \
+								--title="Administração de Sistemas" --center --text="<b>Senhas Diferentes\nDigite a senha novamente\n\nA senha precisa ser [Ass!mm]</b>" --text-align=center \
+								--field="Senha":H \
+								--field="Digite novamente":H \
+								--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+								--width="500" --height="400")
+
 							passw1=$(echo $senha | cut -d'|' -f1)
 							passw2=$(echo $senha | cut -d'|' -f2)
 							if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &> /dev/null;then
