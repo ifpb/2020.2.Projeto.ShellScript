@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while true; do
-	opcao=$(zenity --list \
+	opcao=$(zenity --list 
 		--title="Menu-Users " \
 		--text="Selecione" \
 		--column="ID" --column="Opções" \
