@@ -8,16 +8,16 @@ num=$(zenity --forms --title="Alteração da Data de Expiração" --text="Inform
 					if [ -n "$user" ] && [ -n "$numero" ];then
 						$(chage -M $numero $user &>/dev/null)
 						if [ $? -eq 0 ];then
-							$(zenity --info --title="System" --text="Data da Expiração Alterada Com Sucesso!" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						else
-							$(zenity --error --title="System" --text="Falha ao Alterar Data de Expiração!" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						fi
 					else
-						$(zenity --info --title="System" --text="Usuário ou Data Não Informado(s)!" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 				1)
-					$(zenity --info --title="System" --text="Usuário ou Data Não Informado(s)!" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;
 			esac
 
