@@ -1,9 +1,14 @@
 #!/bin/bash
 
-grupo=$(zenity --forms --title="Criando Grupo " --text="Informe: " \
-				--add-entry="Nome do grupo " --width="600" --height="400")
+opcao=$(yad --form --image ./Imagens/add-group.png --image-on-top \
+		--title="Administração de Sistemas" --center --text="<b>Criar</b>\n<i>Grupo</i>" --text-align=center \
+		--field="Nome do Grupo" \
+		--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+		--width="500" --height="400")
+
 			case $? in
 				0)
+					grupo=$(echo $opcao | cut -d"|" -f1)
 					if [ -n "$grupo" ]; then
 						$(addgroup $grupo &>/dev/null)
 						if [ $? -eq 0 ];then

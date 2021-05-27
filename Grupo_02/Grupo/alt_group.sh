@@ -1,8 +1,12 @@
 #!/bin/bash
 
-altgrupo=$(zenity --forms --title="Alterando Grupo Proprietário" --text="Informe: " \
-				--add-entry="Nome do grupo " \
-				--add-entry="Nome do arquivo/diretório" --width="600" --height="400")
+altgrupo=$(yad --form --image ./Imagens/alt_folder.png --image-on-top \
+		--title="Administração de Sistemas" --center --text="<b>Alterando Grupo</b>\n<i>Proprietário</i>" --text-align=center \
+	       	--field="Nome do Grupo" \
+		--field="Nome do F/D" \
+		--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+		--width="500" --height="400")
+
 			case $? in
 				0)
 					grupo=$(echo $altgrupo | cut -d'|' -f1)

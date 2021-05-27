@@ -1,8 +1,12 @@
 #!/bin/bash
 
-addgrupo=$(zenity --forms --title="Adicionar Usuário ao Grupo" --text="Informe: " \
-				--add-entry="Nick do usuário " \
-				--add-entry="Nome do grupo " --width="600" --height="400")
+addgrupo=$(yad --form --image ./Imagens/add-user.png --image-on-top \
+		--title="Administração de Sistemas" --center --text="<b>Adicionar Grupo ao</b>\n<i>Usuário</i>" --text-align=center \
+	       	--field="Nome do Usuário" \
+		--field="Nome do Grupo" \
+		--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+		--width="500" --height="400")
+
 			case $? in
 				0)
 					user=$(echo $addgrupo | cut -d'|' -f1)
