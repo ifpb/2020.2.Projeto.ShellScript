@@ -11,19 +11,19 @@ addgrupo=$(zenity --forms --title="Adicionar Usuário ao Grupo" --text="Informe:
 						$(adduser $user $grupo &>/dev/null)
 						case $? in
 							0)
-								$(zenity --info --title="System" --text="Adicionado o usuário $user ao grupo $grupo com sucesso!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								;;
 							1)
-								$(zenity --error --title="System" --text="Usuário ou grupo não existe!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								;;
 						esac
 					else
-						$(zenity --info --title="System" --text="Nenhum argumento informado!" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 
 				1)
-					$(zenity --info --title="System" --text="Nenhum argumento informado!" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;	
 			esac
 
