@@ -1,8 +1,11 @@
 #!/bin/bash
 
-altuser=$(zenity --forms --title="Alterando Usuário Proprietário" --text="Informe: "\
-				--add-entry="Nome do usuário " \
-				--add-entry="Nome do arquvivo/diretório" --width="600" --height="400")
+altuser=$(yad --form --image ./Imagens/folder.png --image-on-top \
+	--title="Administração de Sistemas" --center --text="<b>Alterar Usuário Proprietário</b>\n<i>Arquivos e Diretórios</i>" --text-align=center \
+	--field="Nome do Usuário" \
+	--field="Nome do F/D" \
+	--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+	--width="500" --height="400")
 			case $? in
 				0)
 					user=$(echo $altuser | cut -d'|' -f1)

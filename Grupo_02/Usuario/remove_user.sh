@@ -1,43 +1,45 @@
 #!/bin/bash
 
-user=$(zenity --forms --title="Excluir Usuário" --text="Informe: " \
-				--add-entry="Informe o nome do usuário " --width="600" --height="400")
+opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
+	--title="Administração de Sistemas" --center --text="<b>Excluir</b>\n<i>Usuário</i>" --text-align=center \
+	--field="Nome do Usuário" \
+	--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+	--width="600" --height="400")
 			case $? in
 				0)
+					user=$(echo $user | cut -d"|" -f1)
 					if [ -n "$user" ];then
+						echo "AQUI"
 						$(deluser -remove-home $user &>/dev/null)
 						if [ $? -eq 0 ];then
 							$(zenity --info --title="System" --text="Usuário Excluido Com Sucesso!" --width="600" --height="400")
 						else
-							$(zenity --error --text="Não foi possivel excluir usuário!\nInforme o nome correto!" --width="600" --height="400")
-							user=$(zenity --forms --title="Excluir Usuário"  --text="Informe: "\
-								--add-entry="Informe o nome do usuário " --width="600" --height="400")
-							if [ -n "$user" ];then
-								$(deluser -remove-home $user &>/dev/null)
-								if [ $? -eq 0 ];then
-									$(zenity --info --title="System" --text="Usuário Excluido Com Sucesso!" --width="600" --height="400")
-								else
-									$(zenity --error --text="Usuário não existe!\nTente novamente!" --width="600" --height="400")
-								fi
-								
-							fi
+							echo "ESPERA UM INFO DO YAD"
 						fi
-
 					else
-						$(zenity --error --text="Não foi possivel excluir usuário!\nInforme o nome correto!" --width="600" --height="400")
-						user=$(zenity --forms --title="Excluir Usuário" --text="Informe: "\
-							--add-entry="Informe o nome do usuário " --width="600" --height="400")
+						opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
+								--title="Administração de Sistemas" --center --text="<b>Excluir</b>\n<i>Usuário</i>" --text-align=center \
+								--field="Nome do Usuário" \
+								--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+								--width="600" --height="400")
+						user=$(echo $user | cut -d"|" -f1)
+
 						if [ -n "$user" ];then
 							$(deluser -remove-home $user &>/dev/null)
 							if [ $? -eq 0 ];then
 								$(zenity --info --title="System" --text="Usuário Excluido Com Sucesso!" --width="600" --height="400")
 							else
 								$(zenity --error --text="Usuário não existe!\nTente novamente!" --width="600" --height="400")
-		
 							fi
+						else
+							echo "ESPERA UM ERRO YAD"
 						fi
+
+								
 					fi
 					;;
+
+
 				1)
 					$(zenity --info --title="System" --text="Excluir usuário cancelado !" --width="600" --height="400")
 					;;
