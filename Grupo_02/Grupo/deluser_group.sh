@@ -11,20 +11,20 @@ delgrupo=$(zenity --forms --title="Removendo Usuário do Grupo" --text="Informe:
 						$(gpasswd -d $user $grupo &>/dev/null)
 						case $? in
 							0)
-								$(zenity --info --title="System" --text="Removido o usuário $user do grupo $grupo com sucesso!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								;;
 							1|3)
-								$(zenity --error --title="System" --text="Falha ao remover usuário do grupo!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								;;
 						esac
 					
 					else
-						$(zenity --info --title="System" --text="Usuário e grupo não informados!" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 											
 					fi
 					;;
 				1)
-					$(zenity --info --title="System" --text="Usuário e grupo não informados!" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;
 			esac
 
