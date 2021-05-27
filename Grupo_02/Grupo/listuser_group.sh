@@ -10,17 +10,16 @@ listgrupo=$(zenity --forms --title="Lista de Grupos do Usuário" --text="Informe
 							$(groups ${listgrupo} | tr -s ' ' '\n' | awk '{if (NR >=3) print $1}' > /tmp/.group_user.txt)
 							$(zenity --info --title="Lista" --text="$(cat /tmp/.group_user.txt | awk 'BEGIN{print "Grupo(s) do Usuário: ""'$listgrupo'\n" }{print $1}')" --width="600" --height="400")
 						else
-							$(zenity --error --title="System" --text="Falha ao listar grupos do usuário!" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						fi
 					else
-						$(zenity --info --title="System" --text="Usuário não informado!" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 
 					fi
 
 					;;
 				1)
-					$(zenity --info --title="System" --text="Usuário não informado!" --width="600" --height="400")
-
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;
 			esac
 
