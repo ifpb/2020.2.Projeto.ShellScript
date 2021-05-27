@@ -12,12 +12,13 @@ usuario=$(zenity --forms --title="Alterando a senha do Usuário" --text="Informe
 							echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.passwd_1.txt
 							$(passwd $user < /tmp/.passwd_1.txt &> /dev/null)
 							if [ $? -eq 0];then
-								$(zenity --info --title="System" --text="Senha Alterada com Sucesso!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							else
-								$(zenity --error --title="System" --text="Falha ao Alterar Senha!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 							fi
 						else
-							$(zenity --error --text="Senhas diferentes! \nSenha precisa conter ao menos 6 caracteres (Aa1@)" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>As Senhas estão diferentes!</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							senha=$(zenity --forms --title="Digte ambas as senhas iguais!" --text="Informe: " \
 								--add-password="Senha " \
 								--add-password="Novamente " --width="600" --height="400")
@@ -27,20 +28,21 @@ usuario=$(zenity --forms --title="Alterando a senha do Usuário" --text="Informe
 								echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.passwd_1.txt
 							    $(passwd $user < /tmp/.passwd_1.txt &> /dev/null)
 								if [ $? -eq 0];then
-									$(zenity --info --title="System" --text="Senha alterada Com Sucesso!" --width="600" --height="400")
+									$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								else
-									$(zenity --error --title="System" --text="Falha ao Alterar Senha!" --width="600" --height="400")
+									$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 								fi
 							else
-								$(zenity --error --text="Não foi possivel alterar senha!\nTente novamente!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 						fi
 					else
-						$(zenity --info --text="Usuário não informado" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 
 				1)
-					$(zenity --info --title="System" --text="Alteração de senha do usuário cancelada!" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 			esac
 
