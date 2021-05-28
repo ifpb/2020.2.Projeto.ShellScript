@@ -19,13 +19,14 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 							$(adduser $user < /tmp/.senhas.txt &>/dev/null)
 							if [ $? -eq 0 ];then
 								$(chage -I 10 -M 50 $user &>/dev/null)
-								$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Excutado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+						
 							else
-								#$(yad --title="System" --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 
 						else
-							senha=$(yad --form --image ./Imagens/password.png --image-on-top \
+							senha=$(yad --form --image ./Imagens/key.png --image-on-top \
 								--title="Administração de Sistemas" --center --text="<b>Senhas Diferentes\nDigite a senha novamente\n\nA senha precisa ser [Ass!mm]</b>" --text-align=center \
 								--field="Senha":H \
 								--field="Digite novamente":H \
@@ -40,19 +41,20 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 								$(adduser $user < /tmp/.senhas1.txt &>/dev/null)
 								if [ $? -eq 0 ];then
 									$(chage -I 10 -M 50 $user &>/dev/null)
-									$(zenity --info --title="System" --text="Usuário Criado Com Sucesso!" --width="600" --height="400")
+									$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Excutado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								else
-									#$(yad --title="System" --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+									$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 								fi
 							else
-								#$(yad --title="System" --image ./Imagens/error.png --image-on-top --text="<b>Não foi possivel criar usuário!\nTente novamente!</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Excutar </b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 						fi
 					else
-						#$(yad --title="System" --image ./Imagens/error.png --image-on-top --text="<b>Usuário não informado</b>" --text-align --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 
 				1)
-					$(zenity --info --title="System" --text="Criação de usuário cancelada !" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 			esac

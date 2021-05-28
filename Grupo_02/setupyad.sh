@@ -1,9 +1,11 @@
 #!/bin/bash
 
+USUARIO=$(ls -l | cut -d" " -f4 | tail -n 1)
+
 
 while true; do
 	$(yad --form --image ./Imagens/flamengo.png --image-on-top \
-		--title="Administração de Sistemas" --center --text="<b>Bem vindo</b> <i>$(whoami)</i>" --text-align=center \
+		--title="Administração de Sistemas" --center --text="<b>Bem vindo</b> <i>$USUARIO</i>" --text-align=center \
 		--expander="Opções" \
 		--field="Usuário":FBTN "@bash -c ./Usuario/usermenu.sh" \
 		--field="Grupo":FBTN "@bash -c ./Grupo/groupmenu.sh" \

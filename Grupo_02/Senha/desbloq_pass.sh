@@ -1,7 +1,12 @@
-user=$(zenity --forms --title="Desbloquear a Conta" --text="Informe: " \
-				--add-entry="Usuário: " --width="600" --height="400")
+opcao=$(yad --form --image ./Imagens/open.png --image-on-top \
+		--title="Administração de Sistemas" --center --text="<b>Desbloquear</b>\n<i>Usuário</i>" --text-align=center \
+		--field="Nome do Usuário" \
+		--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+		--width="500" --height="400")
+
 			case $? in
 				0)
+					user=$(echo $opcao | cut -d"|" -f1)
 					if [ -n "$user" ];then
 						$(passwd -u $user &>/dev/null)
 						if [ $? -eq 0 ];then

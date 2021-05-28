@@ -1,8 +1,11 @@
 #!/bin/bash
 
-altuser=$(zenity --forms --title="Alterando Usuário Proprietário" --text="Informe: "\
-				--add-entry="Nome do usuário " \
-				--add-entry="Nome do arquvivo/diretório" --width="600" --height="400")
+altuser=$(yad --form --image ./Imagens/folder.png --image-on-top \
+	--title="Administração de Sistemas" --center --text="<b>Alterar Usuário Proprietário</b>\n<i>Arquivos e Diretórios</i>" --text-align=center \
+	--field="Nome do Usuário" \
+	--field="Nome do F/D" \
+	--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
+	--width="500" --height="400")
 			case $? in
 				0)
 					user=$(echo $altuser | cut -d'|' -f1)
@@ -11,19 +14,23 @@ altuser=$(zenity --forms --title="Alterando Usuário Proprietário" --text="Info
 						if [ -f $arq_dir ] || [ -d $arq_dir ];then
 							$(chown $user $arq_dir &>/dev/null)
 							if [ $? -eq 0 ];then
-								$(zenity --info --title="System" --text="Alterando o usuário proprietário de $arq_dir !" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Excutado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 							else
-								$(zenity --error --title="System" --text="Falha ao alterar o proprietário do arquivo/diretório!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 							fi
 						else
-							$(zenity --error --title="System" --text="Falha ao alterar o proprietário do arquivo/diretório!" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 						fi
 					else
-						$(zenity --info --title="System" --text="Usuário / Arquivo / Diretório não informado(s)!" --width="600" --height="400")
+						$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado!</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					fi
 					;;
 				1)
-					$(zenity --info --title="System" --text="Usuário / Arquivo / Diretório não informado(s)!" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado!</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 					;;
 			esac
 
