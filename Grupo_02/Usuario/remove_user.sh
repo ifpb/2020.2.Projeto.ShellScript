@@ -11,12 +11,13 @@ opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 					if [ -n "$user" ];then
 						$(deluser -remove-home $user &>/dev/null)
 						if [ $? -eq 0 ];then
-							$(zenity --info --title="System" --text="Usuário Excluido Com Sucesso!" --width="600" --height="400")
+							$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						else
-							$(zenity --info --title="System" --text="FALHA")
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+
 						fi
 					else
-						echo "ESPERA UM INFO YAD"
+						$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 								--title="Administração de Sistemas" --center --text="<b>Excluir</b>\n<i>Usuário</i>" --text-align=center \
 								--field="Nome do Usuário" \
@@ -27,12 +28,12 @@ opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 						if [ -n "$user" ];then
 							$(deluser -remove-home $user &>/dev/null)
 							if [ $? -eq 0 ];then
-								$(zenity --info --title="System" --text="Usuário Excluido Com Sucesso!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							else
-								$(zenity --error --text="Usuário não existe!\nTente novamente!" --width="600" --height="400")
+								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							fi
 						else
-							$(zenity --error --title="System" --text="Error")
+							$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 						fi
 
 								
@@ -41,7 +42,7 @@ opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 
 
 				1)
-					$(zenity --info --title="System" --text="Excluir usuário cancelado !" --width="600" --height="400")
+					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;
 				esac
 
