@@ -20,7 +20,6 @@ opcao=$(yad --form --image ./Imagens/open.png --image-on-top \
 					fi
 					;;
 				1)
-					$(yad --title="System" --center --image ./Imagens/error.png --image-on-top --text="<b>ERROR - Parâmetro não Encontrado</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 					;;
 			esac
 
