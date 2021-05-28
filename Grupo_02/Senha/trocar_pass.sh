@@ -15,7 +15,7 @@ usuario=$(yad --form --image ./Imagens/trocars.png --image-on-top \
 						if [ "${passw1}" == "${passw2}" ] && echo $passw1 | grep -P "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[:punct:]]){6,}" &>/dev/null;then
 							echo $usuario | cut -d'|' -f2,3 | tr -s '|' '\n' > /tmp/.passwd_1.txt
 							$(passwd $user < /tmp/.passwd_1.txt &> /dev/null)
-							if [ $? -eq 0];then
+							if [ $? -eq 0 ];then
 								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 							else
 								$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
@@ -52,6 +52,7 @@ usuario=$(yad --form --image ./Imagens/trocars.png --image-on-top \
 					;;
 
 				1)
+
 				        ;; 
 			esac
 

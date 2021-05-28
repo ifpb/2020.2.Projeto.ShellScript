@@ -29,6 +29,7 @@ altuser=$(yad --form --image ./Imagens/folder.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 			esac
 

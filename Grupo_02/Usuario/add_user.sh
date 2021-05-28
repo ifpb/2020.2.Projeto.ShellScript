@@ -55,6 +55,7 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 					;;
 
 				1)
+
 					;;
 
 			esac

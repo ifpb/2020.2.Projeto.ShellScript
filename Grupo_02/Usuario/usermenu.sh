@@ -2,6 +2,7 @@
 
 while true;
 do
+
 	$(yad --form --image ./Imagens/user.png --image-on-top \
 		--title="Administração de Sistemas" --center --text="<b>Menu</b>\n<i>Usuário</i>" --text-align=center \
 		--expander="Opções" \
@@ -12,6 +13,7 @@ do
 		--columns=2 --borders=2 \
 		--button="Voltar":1  --buttons-layout=center \
 	       	--width="500" --height="400")
+
 
 	if [ $? -gt 0 ];then
 		break

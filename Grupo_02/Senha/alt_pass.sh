@@ -21,6 +21,7 @@ num=$(yad --form --image ./Imagens/time.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 			esac
 

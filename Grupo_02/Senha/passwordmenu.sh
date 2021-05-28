@@ -2,6 +2,7 @@
 
 while true;
 do
+
 	$(yad --form --image ./Imagens/password.png --image-on-top \
 		--title="Administração de Sistemas" --center --text="<b>Menu</b>\n<i>Senha</i>" --text-align=center \
 		--expander="Opções" \
