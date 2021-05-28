@@ -22,6 +22,7 @@ opcao=$(yad --form --image ./Imagens/add-group.png --image-on-top \
 
 					;;
 				1)
+
 					;;
 
 			esac

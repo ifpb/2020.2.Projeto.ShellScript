@@ -20,6 +20,7 @@ opcao=$(yad --form --image ./Imagens/open.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 			esac
 

@@ -12,7 +12,7 @@ delgrupo=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 					user1=$(echo $delgrupo | cut -d'|' -f1)
 					grupo1=$(echo $delgrupo | cut -d'|' -f2)
 					if [ -n "$user1" ] && [ -n "$grupo1" ];then
-						$(gpasswd -d $user $grupo &>/dev/null)
+						$(gpasswd -d $user1 $grupo1 &>/dev/null)
 						case $? in
 							0)
 								$(yad --title="System" --center --image ./Imagens/sucess.png --image-on-top --text="<b>Executado com Sucesso</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
@@ -28,6 +28,7 @@ delgrupo=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 			esac
 

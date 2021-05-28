@@ -21,6 +21,7 @@ opcao=$(yad --form --image ./Imagens/rm-group.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 
 			esac

@@ -17,6 +17,7 @@ do
 	       	--width="500" --height="400")
 
 	if [ $? -gt 0 ];then
+
 		break
 	fi
 done

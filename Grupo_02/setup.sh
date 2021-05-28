@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ "$(id -nu)" != "root" ]; then
+        sudo -k
+        senha=$(yad --title="Autenticação" --text="Este script requer privilégios administrativos. Por favor autentique abaixo para iniciar o programa." --width="200" --entry --hide-text)
+        exec sudo -S -p '' "$0" "$@" <<< "$senha"
+        exit -1
+fi
+
+
 USUARIO=$(ls -l | cut -d" " -f4 | tail -n 1)
 
 

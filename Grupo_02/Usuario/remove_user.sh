@@ -42,6 +42,7 @@ opcao=$(yad --form --image ./Imagens/remove-user.png --image-on-top \
 
 
 				1)
+
 					;;
-			        esac
+		  	esac
 

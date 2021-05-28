@@ -7,17 +7,24 @@ opcao=$(yad --form --image ./Imagens/time.png --image-on-top \
 			case $? in
 				0)
 					user=$(echo $opcao | cut -d"|" -f1)
-					if [ -n "$user" ];then		
-						$(yad --form --image ./Imagens/time.png --image-on-top \
-							--title"Administração de Sistemas" --text="<b>Data de\nExpiração</b>\n\n<i>$(chage -l $user | tr -d '[\t]' | awk -F':' '{if(NR >=2 && NR <=2) print $2}')</i>" --text-align=center \
-							--button="gtk-ok":0 --buttons-layout=center \
-							--width="500" --height="400")
+					if [ -n "$user" ];then
+						$(sudo cat /etc/passwd | grep "$user" &>/dev/null)
+						if [ $? -eq 0 ];then
+							$(yad --form --image ./Imagens/time.png --image-on-top \
+								--title"Administração de Sistemas" --text="<b>Data de\nExpiração</b>\n\n<i>$(chage -l $user | tr -d '[\t]' | awk -F':' '{if(NR >=2 && NR <=2) print $2}')</i>" --text-align=center \
+								--button="gtk-ok":0 --buttons-layout=center \
+								--width="500" --height="400")
+						else
+							$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
+						fi
+
 					else
 						$(yad --title="System" --center --image ./Imagens/info.png --image-on-top --text="<b>Falha ao Executar</b>" --text-align=center --button="gtk-ok":0 --buttons-layout=center --width="500" --height="400")
 
 					fi
 					;;
 				1)
+
 					;;
 			esac
 

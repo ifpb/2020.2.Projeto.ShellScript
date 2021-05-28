@@ -29,6 +29,7 @@ altgrupo=$(yad --form --image ./Imagens/alt_folder.png --image-on-top \
 					fi
 					;;
 				1)
+
 					;;
 			esac
 
