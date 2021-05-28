@@ -79,9 +79,10 @@ montar() {
 desmontar() {
 	
 	
-	echo -e "\n Informe a pasta a ser desmontada\n "
+	echo -e "\n diretórios usados para montagem:\n "
 	cd /media/
 	ls -l 	
+	echo -e "\n desmontar qual diretório? \n "
 	read mntpoint
 	umount /media/$mntpoint/
 	
