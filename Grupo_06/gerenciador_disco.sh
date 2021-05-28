@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "O programa necessita de permissão elevada para ser executado."
+
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
+
 clear
 Menu() {
 
@@ -38,37 +42,49 @@ mostrar() {
 
 listar() {
 
-       echo -e " \n listar partições  montadas e não montadas  " 
-       blkid -o list
+       echo -e " \n listar partições " 
+       lsblk
        Menu
 }
 
 montar() {
 
-       echo -e "\n  montar Partição : " 
+	echo -e "\n  montar Partição : " 
 
-       echo -e  "\n  Informe nome  partição para montar: "
-       read montagem
-
-
-       mkdir $montagem
-       mount -t ext4 /dev/sdb1 /$montagem 
-       df -h
-       Menu
+	echo -e  "\n  Informe o nome desejado para pasta a ser ponto de montagem: "
+	read mntpoint
+	
+	echo -e  "\n  Informe o dispositivo especial a ser montado na pasta(sda, sdb...): "
+	read mntdev
+		
+	mntdir="/media/$mntpoint"
+	
+	cd /media/
+	
+	if [ ! -d "$mntdir" ]; then
+	mkdir /media/$mntpoint/
+	mount /dev/$mntdev /media/$mntpoint/
+	df -h
+	
+	else
+	
+	mount /dev/$mntdev /media/$mntpoint/
+	df -h
+	
+	fi
+	Menu
 }
 
 
 desmontar() {
-
-
-          umount /$montagem
-
-          echo -e "\n Desmontar disco "
-
-
-          blkid -o list 
-	  Menu
-
+	
+	
+	echo -e "\n Informe a pasta a ser desmontada\n "
+	cd /media/
+	ls -l 	
+	read mntpoint
+	umount /media/$mntpoint/
+	
 }
 
 
