@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Adicionando leitura para dono, grupo, outros e todos.
-#teste
+
 adicionar-leitura-dono-arquivo(){
 	chmod +ru $arquivo 
 }
