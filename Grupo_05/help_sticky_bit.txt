@@ -1,1 +1,2 @@
-
+O sticky bit é uma permissão especial que pode ser definida em um diretório que tenha permissões de “gravação” definidas para o grupo com acesso a ele. Esse bit garante que todos os membros do grupo possam gravar no diretório, mas apenas a pessoa que criou o arquivo, ou seja, o proprietário do arquivo, pode excluí-lo.
+Ele pode ser utilizado por via do comando chmod comando com o +t flag pode ser usado para definir o sticky bit em um diretório. E também pelo por esse script, utilizando a opção Adicionar Sticky bits no Menu de Permissões.
