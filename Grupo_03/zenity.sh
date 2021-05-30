@@ -103,7 +103,7 @@ else
                   if [[ $result = "j) Desabilitar a conexão via root" ]]; then
                         echo "$(sed -i.bkp '/PermitRootLogin */c\PermitRootLogin no' sshd_config)"
                         zenity --info --title="Opção j)" \
-                        zenity --info --text"Conexão por root desabilitada." \
+                        zenity --info --text="Conexão por root desabilitada." \
                         --width="320" --height="100"
                   else
                     if [[ $result = "k) Criar chave criptografada RSA" ]]; then
@@ -115,7 +115,31 @@ else
                             zenity --info --title="Opção l)" \
                             zenity --info --text="Utilize o comando: ssh-keygen -t dsa" \
                             --width="320" --height="100"
+                      else
+                        if [[ $result = "m) Inserir usuários ao acesso SSH" ]]; then
+                              zenity --info --title="Opção m)" \
+	  		      zenity --info --text="Digite todos os usuários a serem habilitados ao SSH e/ou digite 'x' para encerrar." \
+			      --width="320" --height="100"
 
+			           for ((i=1; i<6; i++)); do
+			           u$i=$(zenity --title="Atenção:" --text "Digite o $iº: " --entry)
+				   vusers="u$i"
+
+			           if [[ "${!vusers}" = "Cancelar" ]]; then
+			             break
+			           else
+			             if [[ "${!vusers}" != "x" ]]; then
+			               echo "$(sed -i.bkp '/AllowUsers */c\AllowUsers '$u1' '$u2' '$u3' '$u4' '$u5'' sshd_config)"
+			               habusers="$(sed -n '/AllowUsers*/p' sshd_config | tail -1 | awk -F " " '{print $2,$3,$4,$5,$6}')"
+			             fi
+			           fi
+			           done
+
+			             zenity --info --title="Opção m)"\
+				     zenity --info --text="Os usuários habilitados: $habusers"
+				     --width="320" --height="100"
+
+                        fi
                       fi
                     fi
                   fi
