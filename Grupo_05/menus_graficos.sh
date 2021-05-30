@@ -19,9 +19,9 @@ case $escolha in
 		
 		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
-			operador="$(Menu_Operador)"
-			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"	
+			operador="$(Selecionar_Operador)"
+			usuarios="$(Selecionar_Usuarios)"
+			permissoes="$(Selecionar_Permissoes)"	
 
 			if [[ $permissoes =~ 0 && "$operador" == "0" ]]; then
 				adicionar-execucao $arquivo
@@ -30,16 +30,16 @@ case $escolha in
 		
 		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
-			usuarios="$(Menu_Usuarios)"
+			usuarios="$(Selecionar_Usuarios)"
 			permissoes="$(Menu_Permissoes)"
 			operador="$(Menu_Operador)"	
 		fi
 	
 		if [ "$modo_arquivo" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
-			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"
-			operador="$(Menu_Operador)"
+			usuarios="$(Selecionar_Usuarios)"
+			permissoes="$(Selecionar_Permissoes)"
+			operador="$(Selecionar_Operador)"
 		fi
 		;;
 	1)
@@ -48,18 +48,18 @@ case $escolha in
 		
 		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
-			atributos="$(Menu_Atributos)"
+			atributos="$(Selecionar_Atributos)"
 		fi
 
 		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
-			atributos="$(Menu_Atributos)"
+			atributos="$(Selecionar_Atributos)"
 
 		fi
 
 		if [ "$modo_arquivo" == "2" ]; then
 			diretorio="$(Selecionar_Diretorio)"
-			atributos="$(Menu_Atributos)"
+			atributos="$(Selecionar_Atributos)"
 		fi
 		;;
 	2)	
@@ -70,7 +70,7 @@ case $escolha in
 esac
 }
 
-Menu_Tipo_Arquivo() {
+Selecionar_Tipo_Arquivo() {
 	zenity	--list \
 		--width=450 \
 		--height=350 \
@@ -81,7 +81,7 @@ Menu_Tipo_Arquivo() {
 		--column="Marque" --column="" --column="Opções" false 0 "Um arquivo" false 1 "Múltiplos Arquivos" false 2 "Diretório"
 }
 
-Menu_Permissoes() {
+Selecionar_Permissoes() {
 	zenity	--list \
 		--width=450 \
 		--height=350 \
@@ -91,7 +91,7 @@ Menu_Permissoes() {
 		--column="Marque" --column="" --column="Opções" false 0 "Executar" false 1 "Escrever" false 2 "Ler"
 }
 
-Menu_Atributos() {
+Selecionar_Atributos() {
 	zenity 	--list \
 		--width=450 \
 		--height=350 \
@@ -102,7 +102,7 @@ Menu_Atributos() {
 }
 
 
-Menu_Usuarios() {
+Selecionar_Usuarios() {
 	zenity 	--list \
 		--width=450 \
 		--height=350 \
@@ -112,7 +112,7 @@ Menu_Usuarios() {
 		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que não são do mesmo Grupo do arquivo" false 2 "Usúarios que são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
 }
 
-Menu_Operador(){
+Selecionar_Operador(){
 	zenity 	--list \
 		--width=450 \
 		--height=350 \
@@ -121,6 +121,7 @@ Menu_Operador(){
 		--hide-column=2 \
 		--column="Marque" --column="" --column="Opções" false 0 "Adicionar Permissão" false 1 "Retirar Permissão" false 2 "Redifinir Permissões"
 }
+
 
 #Seleção de Arquivos e Diretório.
 Selecionar_Arquivo() {
