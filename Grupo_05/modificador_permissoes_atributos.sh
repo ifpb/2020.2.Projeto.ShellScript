@@ -9,7 +9,7 @@
 #################################################################################################
 
 
-source menus_graficos.sh
+source menu_principal.sh
 
 Inicio() {
 	zenity	--info \
