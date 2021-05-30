@@ -15,7 +15,7 @@ Menu_Principal() {
 
 case $escolha in
 	0)	
-		Menu_permissoes
+		Menu_Permissoes
 		;;
 	1)
 		modo_arquivo="$(Menu_Tipo_Arquivo)"

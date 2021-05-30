@@ -2,7 +2,7 @@
 
 source menus_graficos.sh
 
-Menu_permissoes() {
+Menu_Permissoes() {
 		
     modo_arquivo="$(Menu_Tipo_Arquivo)"
 		
