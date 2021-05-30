@@ -4,7 +4,7 @@ source menus_graficos.sh
 
 Menu_Permissoes() {
 		
-    modo_arquivo="$(Menu_Tipo_Arquivo)"
+    modo_arquivo="$(Menu_Selecionar_Tipo_Arquivo)"
 		
 		
 		if [ "$modo_arquivo" == "0" ]; then
