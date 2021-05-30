@@ -27,9 +27,13 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [ ] Help (Chattr)
 
 ### Modificador de permissões
-- [ ] Alterar permissões por um único arquivo
-- [ ] Alterar permissões por múltiplos arquivos
-- [ ] Alterar permissões de um diretório
+- [x] Alterar permissões por um único arquivo
+- [x] Alterar permissões por múltiplos arquivos
+- [x] Alterar permissões de um diretório
+- [x] Operação de Adição de permissões
+- [x] Operação de Remoção de permissões
+- [ ] Operação de Redefinição das permissões
+- [x] Especificar a classe de usuários nas Operações.
 
 ### Modificador de Atributos
 - [ ] Alterar atributos por um único arquivo
