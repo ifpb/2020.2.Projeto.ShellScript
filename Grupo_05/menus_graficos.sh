@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Menus de Interação
-Selecionar_Tipo_Arquivo() {
+Menu_Selecionar_Tipo_Arquivo() {
 	zenity	--list \
 		--width=450 \
 		--height=350 \
