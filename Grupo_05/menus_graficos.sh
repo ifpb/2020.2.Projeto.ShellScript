@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source funcionalidades_permissoes.sh
+source menu_permissoes.sh
 
 Menu_Principal() {
 	escolha=$(zenity --list	\
@@ -14,33 +15,7 @@ Menu_Principal() {
 
 case $escolha in
 	0)	
-		modo_arquivo="$(Menu_Tipo_Arquivo)"
-		
-		
-		if [ "$modo_arquivo" == "0" ]; then
-			arquivo="$(Menu_Selecionar_Arquivo)"
-			operador="$(Menu_Selecionar_Operador)"
-			usuarios="$(Menu_Selecionar_Classe_Usuarios)"
-			permissoes="$(Menu_Selecionar_Permissoes)"	
-
-			if [[ $permissoes =~ 0 && "$operador" == "0" ]]; then
-				adicionar-execucao $arquivo
-			fi
-		fi
-		
-		if [ "$modo_arquivo" == "1" ]; then
-			arquivos="$(Menu_Selecionar_Arquivos)"
-			usuarios="$(Menu_Selecionar_Classe_Usuarios)"
-			permissoes="$(Menu_Selecionar_Permissoes)"
-			operador="$(Menu_Selecioanr_Operador)"	
-		fi
-	
-		if [ "$modo_arquivo" == "2" ]; then 
-			diretorio="$(Menu_Selecionar_Diretorio)"
-			usuarios="$(Menu_Selecionar_Classe_Usuarios)"
-			permissoes="$(Menu_Selecionar_Permissoes)"
-			operador="$(Menu_Selecionar_Operador)"
-		fi
+		Menu_permissoes
 		;;
 	1)
 		modo_arquivo="$(Menu_Tipo_Arquivo)"
