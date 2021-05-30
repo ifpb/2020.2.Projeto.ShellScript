@@ -9,9 +9,10 @@ Menu_Permissoes() {
 		
 		if [ "$modo_arquivo" == "0" ]; then
 			arquivo="$(Selecionar_Arquivo)"
-			operador="$(Menu_Operador)"
-			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"	
+			permissoes="$(Menu_Selecionar_Permissoes)"
+			operador="$(Menu_Selecionar_Operador)"
+			usuarios="$(Menu_Selecionar_Usuarios)"
+				
 
 			if [[ $permissoes =~ 0 && "$operador" == "0" ]]; then
 				adicionar-execucao $arquivo
@@ -20,16 +21,18 @@ Menu_Permissoes() {
 		
 		if [ "$modo_arquivo" == "1" ]; then
 			arquivos="$(Selecionar_Arquivos)"
-			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"
-			operador="$(Menu_Operador)"	
+			permissoes="$(Menu_Selecionar_Permissoes)"
+			operador="$(Menu_Selecionar_Operador)"
+			usuarios="$(Menu_Selecionar_Usuarios)"
+				
 		fi
 	
 		if [ "$modo_arquivo" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
-			usuarios="$(Menu_Usuarios)"
-			permissoes="$(Menu_Permissoes)"
-			operador="$(Menu_Operador)"
+			permissoes="$(Menu_Selecionar_Permissoes)"
+			operador="$(Menu_Selecionar_Operador)"
+			usuarios="$(Menu_Selecionar_Usuarios)"
+
 		fi
 
 }
