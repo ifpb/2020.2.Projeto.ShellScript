@@ -27,7 +27,7 @@ usuario=$(yad --form --image ./Imagens/add-user.png --image-on-top \
 
 						else
 							senha=$(yad --form --image ./Imagens/key.png --image-on-top \
-								--title="Administração de Sistemas" --center --text="<b>Senhas Diferentes\nDigite a senha novamente\n\nA senha precisa ser [Ass!mm]</b>" --text-align=center \
+								--title="Administração de Sistemas" --center --text="<b>Senhas Diferentes\nDigite a senha novamente\n\nA senha precisa ser [A5s!mm]</b>" --text-align=center \
 								--field="Senha":H \
 								--field="Digite novamente":H \
 								--button="Voltar":1 --button="gtk-ok":0 --buttons-layout=edge \
