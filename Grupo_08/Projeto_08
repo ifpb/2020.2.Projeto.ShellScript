@@ -16,17 +16,17 @@ echo -n "Opção escolhida: "
 read opcao
 case $opcao in
         1)
-                echo Iniciando o serviço do Apache!
+                echo -e "\033[01;32m Iniciando o serviço do Apache!\033[01;32m"
                 sleep $TIME
                 systemctl start apache2.service
                 ;;
         2)
-                echo Parando o serviço do Apache!
+                echo -e "\033[01;31m Parando o serviço do Apache!\033[01;31m"
                 sleep $TIME
                 systemctl stop apache2.service
                 ;;
         3)
-                echo Reiniciando o serviço do Apache
+                echo -e "\033[01;33m Reiniciando o serviço do Apache \033[01;33m"
                 sleep $TIME
                 systemctl restart apache2.service
                 ;;
