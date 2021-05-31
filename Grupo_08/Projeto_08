@@ -18,17 +18,17 @@ case $opcao in
         1)
                 echo Iniciando o serviço do Apache!
                 sleep $TIME
-                sudo service apache2 start
+                systemctl start apache2.service
                 ;;
         2)
                 echo Parando o serviço do Apache!
                 sleep $TIME
-                sudo service apache2 stop
+                systemctl stop apache2.service
                 ;;
         3)
                 echo Reiniciando o serviço do Apache
                 sleep $TIME
-                sudo service apache2 restart
+                systemctl restart apache2.service
                 ;;
         4)
                 echo Mostrando  o status do Apache
