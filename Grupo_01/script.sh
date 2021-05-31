@@ -1,15 +1,19 @@
 #!/bin/bash
 
+#APENAS PARA LINUX MINT E UBUNTU!!!!!!!
+
 # para saber a distribuição
 # lsb\_release -a
 
-#read -p "Qual a distribuição do seu linux? " dist
+#read -p "Qual a sua distribuição linux? " dist
 
-read -p "Primeiro necessitamos do snap e atualizar o sistema (s/n): " dest
+read -p "Sua distribuição é linux mint? (s/n): " dest
 if [[ "${dest}" = s ]]; then 
-	sudo apt install snapd
+	sudo rm /var/lib/dpkg/lock-frontend
+	sudo rm /var/cache/apt/archives/lock
 	sudo apt update
-else
+	sudo apt install snapd
+else	
 	echo "Prosseguindo"
 fi
 
@@ -20,8 +24,22 @@ while true; do
                 r       - pacote de redes
                 e       - pacote para escritório
                 f       - pacote para entretenimento
+		a       - instalação padrão de pacotes esenciais(opção automatica)
                 " ini
         case ${ini} in
+	                if [[ "${opc}" = a ]]; then
+			
+				echo "## instalando pacote da opção automatico ##"
+				sudo snap install code --classic -y
+				sudo snap install brave -y
+				sudo apt-get install wireshark -y
+				sudo snap install sftpclient -y
+				sudo snap install remmina -y
+				sudo snap install spotify -y
+				sudo snap install wps-2019-snap -y
+				break
+				
+			fi
                 "p") read -p "Você quer: 
                                 (i) instalar ou
 				(r) remover
