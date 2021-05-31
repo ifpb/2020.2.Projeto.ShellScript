@@ -1,12 +1,27 @@
 #!/bin/bash
 
+if [ "$(id -nu)" != "root" ]; then
+  sudo -k
+  passwd=$(zenity --title="É root?"  --text="Digite a senha:" --entry --hide-text)
+  echo && exec sudo -S -p ' ' "$0" "$@" <<< "$passwd" &> /dev/null && echo
+  exit -1 &> /dev/null
+fi
+
 zenity --info --title="BOAS-VINDAS :}" \
---text="$USER, este script irá ajudá-lo a melhorar seu manuseio no SSH. Vamos prosseguir?" \
+--text="Este script irá ajudá-lo a melhorar seu manuseio no SSH. Vamos prosseguir?" \
 --width="300" height="100"
+
+if [ "$?" == "1" ]; then
+  exit
+fi
+
+opt=$(zenity --autokill && "$?")
+
+while [ "$?" != "1" ]; do
 
 result=$(
   zenity --list --title="OPÇÕES:" --width=650 --height=450 \
-  --column="Selecione o que deseja." \
+  --column="" \
   "a) Verificar se há um SSH instalado" \
   "b) Instalar o SSH" \
   "c) Verificar se o SSH está rodando" \
@@ -22,11 +37,24 @@ result=$(
   "m) Inserir usuários ao acesso SSH" \
 )
 
+if [ "$?" == "1" ]; then
+  exit
+fi
+
 if [[ $result = "a) Verificar se há um SSH instalado" ]]; then
-	echo "$(ssh -V)"
-	zenity --info --title="Opção a)" \
-	zenity --info --text="Apareceu uma mensagem com 'OpenSSH'? Então o SSH está instalado." \
-	--width="320" --height="100"
+	ssh="$(ssh -V > r.txt 2>&1 && cat r.txt | awk {'print $1'})"
+        vssh="$(sed -n '/OpenSSH*/p' r.txt | awk {'print $1'})"
+
+            if [ $vssh == $ssh ]; then
+            zenity --info --title="Opção a)" \
+            zenity --info --text="O SSH está instalado." \
+	    --width="320" --height="100"
+            else
+            zenity --info --title="Opção a)" \
+            zenity --info --text="O SSH não está instalado." \
+            --width="320" --height="100"
+            fi
+       remove="$(rm r.txt)"
 else
   if [[ $result = "b) Instalar o SSH" ]]; then
   	  echo "$(sudo apt-get install openssh-server)"
@@ -68,8 +96,7 @@ else
                 --width="320" --height="100"
           else
             if [[ $result = "g) Substituir a porta atual" ]]; then
-                  p=$(zenity --title="Atenção:" --text "Insira a porta desejada:" --entry)
-                  #zenity --info --title="Boas-vindas" --text=" $porta" --width="100" height="50"
+                  p=$(zenity --title="Atenção:" --text="Insira a porta desejada:" --entry)
                   echo "$(sed -i.bkp '/Port [0-9]*/c\Port '$p'' ./sshd_config)"
                   zenity --info --title="Opção g)" \
                   zenity --info --text="Porta substituída com sucesso." \
@@ -155,3 +182,4 @@ else
     fi
   fi
 fi
+done
