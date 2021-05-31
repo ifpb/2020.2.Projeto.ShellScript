@@ -27,13 +27,31 @@ while true; do
                                 (r) remover ou
                                 (s) sair " opc
                         if [[ "${opc}" = i ]]; then
-				echo "será instalado o code, sublime, beekeeper, kubectl, incomnia e docker"
-				sudo snap install code --classic
-				sudo snap install sublime-text --classic
-				sudo snap install beekeeper-studio
-				sudo snap install kubectl --classic
-				sudo snap install insomnia
-				sudo snap install docker
+			#	echo "será instalado o code, sublime, beekeeper, kubectl, incomnia e docker"
+				read -p "Selecione:
+			       		(C) - code
+					(S) - sublime
+					(B) - beekeeper
+					(K) - kubectl
+					(I) - insomnia 
+					(D) - docker
+					(S) - sair
+					" dest
+					if [ ${dest} = "C" ]; then
+						#sudo snap install code --classic
+						echo "code"
+					elif [ ${dest} = "S" ]; then
+					       	#sudo snap install sublime-text --classic
+						echo "sublime"
+					elif [ ${dest} = "B" ]; then
+					       	sudo snap install beekeeper-studio
+					elif [ ${dest} = "K" ]; then
+					       	sudo snap install kubectl --classic
+					elif [ ${dest} = "I" ]; then 
+						sudo snap install insomnia
+					elif [ ${dest} = "D" ]; then
+					       	sudo snap install docker
+					fi
 			fi
 			if [[ "${opc}" = r ]]; then
 			fi	
@@ -84,12 +102,6 @@ while true; do
         esac
 done
 	
-#------------------APENAS O BETA DO BETA DO BETA-------------------------"
-# ----------------------------- VARIÁVEIS ----------------------------- #
-PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
-URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
-URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
-
 
 programas para instalar:
 #"OUTROS"
