@@ -24,7 +24,7 @@ export nome
 
 if [ "$(id -nu)" != "root" ]; then
         sudo -k
-        senha=$(yad --window-icon=tux_mengao.png --title="$nome - Policy" --center --text="Olá $USER, por favor autentique para continuar:" --width="300" --entry --hide-text)
+	senha=$(yad --window-icon=tux_mengao.png --title="$nome - Policy" --center --text="Olá $USER, por favor autentique para continuar:" --width="300" --entry --hide-text)
         exec sudo -S -p '' "$0" "$@" <<< "$senha"
 	exit -1
 fi
@@ -38,7 +38,7 @@ snap_find(){
 	chave=$(yad --window-icon=tux_mengao.png --title="$nome - Buscar" --text="Digite o nome do pacote:" --entry --center)
 	
 	if [ -n "$chave" ] && [ "$chave" != 1 &> /dev/null ]; then
-	       yad --window-icon=tux_mengao.png --title="$nome - Busca" --text="Resultado da busca por <i>$chave</i>" --list --center --width="500" --height="500"  --separator=" " --button=gtk-ok:0 --checklist --column "Instalar " --column "Snap" --column "Versão" $(snap find "${chave}" 2> /dev/null | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_install 2> /dev/null
+	       yad --window-icon=tux_mengao.png --title="$nome - Busca" --text="Resultado da busca por <i>$chave</i>" --list --center --width="500" --height="500"  --separator=" " --button=gtk-cancel:1 --button=gtk-add:0 --checklist --column "Instalar " --column "Snap" --column "Versão" $(snap find "${chave}" 2> /dev/null | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_install 2> /dev/null
 	fi
 	
 	if [ -e /tmp/snap_install ]; then
@@ -61,13 +61,13 @@ snap_find(){
 
 snap_upgrade(){
 	sudo snap refresh &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" --center --title --title="$nome" --button=gtk-ok:0 --window-icon=tux_mengao.png
+	yad --text="$(cat /tmp/snap_manager)" --center --title --title="$nome" --button=gtk-close:0 --window-icon=tux_mengao.png
 
 }
 
 snap_list(){
 	rm /tmp/snap_remove /tmp/snap_remove_resultado &> /dev/null
-	yad --window-icon=tux_mengao.png --title="$nome - Meus Snaps" --list --center --width="500" --height="500"  --separator=" " --button=gtk-ok:0 --checklist --column "Remover" --column "Snap" --column "Versão" $(snap list | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_remove
+	yad --window-icon=tux_mengao.png --title="$nome - Meus Snaps" --list --center --width="500" --height="500"  --separator=" " --button=gtk-cancel:1 --button=gtk-remove:0 --checklist --column "Remover" --column "Snap" --column "Versão" $(snap list | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_remove
 	if [ -e /tmp/snap_remove ]; then
 		
 		for linha in $(cat /tmp/snap_remove); do
@@ -87,9 +87,8 @@ snap_list(){
 }
 
 snap_version(){
-	snap --version > /tmp/snap_version.txt
-	yad --title=$nome --text="$nome" --text-info --back="gainsboro" </tmp/snap_version.txt --image=tux3.png --image-on-top --width=260 --height=320 --borders=8 --button=gtk-ok:0 &> /dev/null
-	#yad --form --title="$nome" --text="\n\n$(snap --version)\n" --center --button=gtk-ok:0 --window-icon=tux_mengao.png --text-align=center --width="500" --height="300" --image tux_mengao.png --field="Legenda"
+	snap --version &> /tmp/snap_version.txt
+	yad --title="$nome" --text="Criadores:\nLeonardo Carneiro\nMarcos Ugulino\nAdrieny Dantas" --text-info --back="gainsboro" </tmp/snap_version.txt --image=tux3.png --image-on-top --width=300 --height=320 --borders=8 --button=gtk-close:0 &> /dev/null
 }
 
 #Expotando as funções
@@ -110,6 +109,6 @@ yad --form --center --title="$nome - Gerenciador de pacotes Snap"  \
 	--field="_MEUS SNAPS":BTN "@bash -c snap_list" \
 	--field="_ATUALIZAR":BTN "@bash -c snap_upgrade" \
 	--field="_PESQUISAR":BTN "@bash -c snap_find" \
-	--field="_VERSÃO":BTN "@bash -c snap_version" \
-	--columns=2 --button="_Sair":1 \
+	--field="_SOBRE":BTN "@bash -c snap_version" \
+	--columns=2 --button=gtk-close:1 \
 	--window-icon=tux_mengao.png
