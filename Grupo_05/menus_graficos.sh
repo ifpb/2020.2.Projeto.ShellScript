@@ -40,7 +40,7 @@ Menu_Selecionar_Usuarios() {
 		--title="Escolha o usuário" \
 		--radiolist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que não são do mesmo Grupo do arquivo" false 2 "Usúarios que são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
+		--column="Marque" --column="" --column="Opções" false 0 "Usuário que é o Dono do Arquivo" false 1 "Usuários que são do mesmo Grupo do arquivo" false 2 "Outros Usúarios que não são do mesmo Grupo do arquivo" false 3 "Todos os Usuários do Sistema"
 }
 
 Menu_Selecionar_Operador() {
