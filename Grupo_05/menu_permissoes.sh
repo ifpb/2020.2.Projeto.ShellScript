@@ -32,8 +32,38 @@ Menu_Permissoes() {
 			fi	
 			
 			#Condições para Escrita
+			if [[ $permissoes =~ 1 && "$operador" == "1" && "$usuarios" == "0" ]]; then
+				adicionar-escrita-dono-arquivo $arquivo
+			fi
+			
+			if [[ $permissoes =~ 1 && "$operador" == "1" && "$usuarios" == "1" ]]; then
+				adicionar-escrita-grupo-arquivo $arquivo
+			fi
+			
+			if [[ $permissoes =~ 1 && "$operador" == "1" && "$usuarios" == "2" ]]; then
+				adicionar-escrita-outros $arquivo
+			fi
+			
+			if [[ $permissoes =~ 1 && "$operador" == "1" && "$usuarios" == "3" ]]; then
+				adicionar-escrita-todos $arquivo
+			fi	
 			
 			#Condições para Leitura
+			if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "0" ]]; then
+				adicionar-leitura-dono-arquivo $arquivo
+			fi
+			
+			if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "1" ]]; then
+				adicionar-leitura-grupo-arquivo $arquivo
+			fi
+			
+			if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "2" ]]; then
+				adicionar-leitura-outros $arquivo
+			fi
+			
+			if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "3" ]]; then
+				adicionar-leitura-todos $arquivo
+			fi
 			
 			
 			#Condições para Remoção de Permissões
