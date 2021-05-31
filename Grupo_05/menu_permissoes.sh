@@ -11,7 +11,7 @@ Menu_Permissoes() {
 			permissoes="$(Menu_Selecionar_Permissoes | sed 's/|//g')"
 			operador="$(Menu_Selecionar_Operador)"
 			usuarios="$(Menu_Selecionar_Usuarios)"
-			verifica_execucao="0"
+			verifica-execucao="0"
 			verifica-escrita="0"
 			verifica-leitura="0"
 			
