@@ -2,6 +2,7 @@
 
 source funcionalidades_permissoes.sh
 source menu_permissoes.sh
+source help_sticky_bit.sh
 
 Menu_Principal() {
 	escolha=$(zenity --list	\
@@ -38,7 +39,8 @@ case $escolha in
 		fi
 		;;
 	2)	
-		echo "Você escolheu visualizar o help sobre Stick Bits";;
+		Help_Sticky_Bit
+		;;
 	3)	
 		echo "Você escolheu visualizr o help sobre Chattr"
 		
