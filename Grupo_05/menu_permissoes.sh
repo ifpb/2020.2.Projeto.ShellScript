@@ -18,7 +18,7 @@ Menu_Permissoes() {
 		for (( i=0; i<${#permissoes}; i++ )); do
 				#Condições para Adição de Permissões
 				#Condições de Execução
-				if [[ $permissoes =~ 0 && $verifica-execucao == "0" ]]; then
+				if [[ $permissoes =~ 0 && ${verifica-execucao} == "0" ]]; then
 					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
 						adicionar-execucao-dono-arquivo $arquivo
 					fi
@@ -38,7 +38,7 @@ Menu_Permissoes() {
 				fi
 
 				#Condições para Escrita
-				if [[ $permissoes =~ 1 ]]; then
+				if [[ $permissoes =~ 1 && ${verifica-escrita} == "0" ]]; then
 					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
 						adicionar-escrita-dono-arquivo $arquivo
 					fi
@@ -58,7 +58,7 @@ Menu_Permissoes() {
 				fi	
 
 				#Condições para Leitura
-				if [[ $permissoes =~ 2 ]]; then
+				if [[ $permissoes =~ 2 && ${verifica-execucao} == "0" ]]; then
 					if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "0" ]]; then
 						adicionar-leitura-dono-arquivo $arquivo
 					fi
