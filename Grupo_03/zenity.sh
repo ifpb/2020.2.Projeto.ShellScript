@@ -122,22 +122,25 @@ else
 			      --width="320" --height="100"
 
 			           for ((i=1; i<6; i++)); do
-			           u$i=$(zenity --title="Atenção:" --text "Digite o $iº: " --entry)
-				   vusers="u$i"
+                                   uuu[i]=$(zenity --title="Digite x para cancelar!" --text "Digite o $iº: " --entry)
+				   vusers[i]=${uuu[i]}
 
-			           if [[ "${!vusers}" = "Cancelar" ]]; then
+			           if [[ "${vusers[i]}" = "x" ]]; then
 			             break
-			           else
-			             if [[ "${!vusers}" != "x" ]]; then
-			               echo "$(sed -i.bkp '/AllowUsers */c\AllowUsers '$u1' '$u2' '$u3' '$u4' '$u5'' sshd_config)"
-			               habusers="$(sed -n '/AllowUsers*/p' sshd_config | tail -1 | awk -F " " '{print $2,$3,$4,$5,$6}')"
-			             fi
 			           fi
+
+				     echo "$(sed -i.bkp '/AllowUsers */c\AllowUsers '${vusers[1]}' '${vusers[2]}' '${vusers[3]}' '${vusers[4]}' '${vusers[5]}'' sshd_config)"
+			             habusers="$(sed -n '/AllowUsers*/p' sshd_config | tail -1 | awk -F " " '{print $2,$3,$4,$5,$6}')"
+
 			           done
 
-			             zenity --info --title="Opção m)"\
-				     zenity --info --text="Os usuários habilitados: $habusers"
-				     --width="320" --height="100"
+                                     if [[ "${vusers[1]}" = "x" ]]; then
+			               exit 0
+                                     else
+                                       zenity --info --title="Opção m)" \
+				       zenity --info --text="Os usuários habilitados: $habusers" \
+				       --width="320" --height="100"
+				     fi
 
                         fi
                       fi
