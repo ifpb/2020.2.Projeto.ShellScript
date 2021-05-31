@@ -2,7 +2,7 @@
 
 source funcionalidades_permissoes.sh
 source menu_permissoes.sh
-source help_sticky_bit.sh
+source funcionalidades_help.sh
 
 Menu_Principal() {
 	escolha=$(zenity --list	\
