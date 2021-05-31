@@ -33,7 +33,7 @@ case $opcao in
         4)
                 echo Mostrando  o status do Apache
                 sleep $TIME
-                systemctl status httpd
+                systemctl status apache2
                 ;;
         0)
                 echo Saindo do menu do Apache!
