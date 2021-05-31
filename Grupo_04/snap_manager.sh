@@ -35,7 +35,7 @@ fi
 snap_find(){ 	
 	
 	rm /tmp/snap_install /tmp/snap_install_resultado &> /dev/null
-	chave=$(yad --window-icon=tux_mengao.png --title="$nome - Buscar" --text="Digite o nome do pacote:" --entry --center)
+	chave=$(yad --window-icon=tux_mengao.png --title="$nome - Buscar" --text="Digite o nome do pacote:" --entry --center --width="280")
 	
 	if [ -n "$chave" ] && [ "$chave" != 1 &> /dev/null ]; then
 	       yad --window-icon=tux_mengao.png --title="$nome - Busca" --text="Resultado da busca por <i>$chave</i>" --list --center --width="500" --height="500"  --separator=" " --button=gtk-cancel:1 --button=gtk-add:0 --checklist --column "Instalar " --column "Snap" --column "Versão" $(snap find "${chave}" 2> /dev/null | awk 'NR>1 {printf "FALSE "$1" "$2" "}') | awk '{print $2}' > /tmp/snap_install 2> /dev/null
@@ -61,7 +61,7 @@ snap_find(){
 
 snap_upgrade(){
 	sudo snap refresh &> /tmp/snap_manager
-	yad --text="$(cat /tmp/snap_manager)" --center --title --title="$nome" --button=gtk-close:0 --window-icon=tux_mengao.png
+	yad --text="$(cat /tmp/snap_manager)" --center --title="$nome" --button=gtk-close:0 --window-icon=tux_mengao.png --width=300 --height=320
 
 }
 
@@ -88,7 +88,7 @@ snap_list(){
 
 snap_version(){
 	snap --version &> /tmp/snap_version.txt
-	yad --title="$nome" --text="Criadores:\nLeonardo Carneiro\nMarcos Ugulino\nAdrieny Dantas" --text-info --back="gainsboro" </tmp/snap_version.txt --image=tux3.png --image-on-top --width=300 --height=320 --borders=8 --button=gtk-close:0 &> /dev/null
+	yad --title="$nome" --text="Criadores:\nLeonardo Carneiro\nMarcos Ugulino\nAdrieny Dantas" --text-info --back="gainsboro" </tmp/snap_version.txt --image=tux3.png --image-on-top --width=300 --height=320 --borders=8 --button=gtk-close:0 &> /dev/null --window-icon=tux_mengao.png
 }
 
 #Expotando as funções
