@@ -11,14 +11,14 @@ Menu_Permissoes() {
 			permissoes="$(Menu_Selecionar_Permissoes | sed 's/|//g')"
 			operador="$(Menu_Selecionar_Operador)"
 			usuarios="$(Menu_Selecionar_Usuarios)"
-			verifica-execucao="0"
-			verifica-escrita="0"
-			verifica-leitura="0"
+			verifica_execucao="0"
+			verifica_escrita="0"
+			verifica_leitura="0"
 			
 		for (( i=0; i<${#permissoes}; i++ )); do
 				#Condições para Adição de Permissões
 				#Condições de Execução
-				if [[ $permissoes =~ 0 && ${verifica-execucao} == "0" ]]; then
+				if [[ $permissoes =~ 0 && ${verifica_execucao} == "0" ]]; then
 					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
 						adicionar-execucao-dono-arquivo $arquivo
 					fi
@@ -34,11 +34,11 @@ Menu_Permissoes() {
 					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
 						adicionar-execucao-todos $arquivo
 					fi
-					verifica-execucao="1"
+					verifica_execucao="1"
 				fi
 
 				#Condições para Escrita
-				if [[ $permissoes =~ 1 && ${verifica-escrita} == "0" ]]; then
+				if [[ $permissoes =~ 1 && ${verifica_escrita} == "0" ]]; then
 					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
 						adicionar-escrita-dono-arquivo $arquivo
 					fi
@@ -54,11 +54,11 @@ Menu_Permissoes() {
 					if [[ $permissoes =~ 1 && "$operador" == "1" && "$usuarios" == "3" ]]; then
 						adicionar-escrita-todos $arquivo
 					fi
-					verifica-escrita="1"
+					verifica_escrita="1"
 				fi	
 
 				#Condições para Leitura
-				if [[ $permissoes =~ 2 && ${verifica-execucao} == "0" ]]; then
+				if [[ $permissoes =~ 2 && ${verifica_leitura} == "0" ]]; then
 					if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "0" ]]; then
 						adicionar-leitura-dono-arquivo $arquivo
 					fi
@@ -74,7 +74,7 @@ Menu_Permissoes() {
 					if [[ $permissoes =~ 2 && "$operador" == "1" && "$usuarios" == "3" ]]; then
 						adicionar-leitura-todos $arquivo
 					fi
-					verifica-leitura="1"
+					verifica_leitura="1"
 				fi
 		done
 			
