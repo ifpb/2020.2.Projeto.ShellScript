@@ -3,44 +3,43 @@
 #Adicionando leitura para dono, grupo, outros e todos.
 
 adicionar-leitura-dono-arquivo(){
-	chmod +ru $arquivo 
+	chmod r+u $arquivo 
 }
 adicionar-leitura-grupo-arquivo(){
-	chmod +rg $arquivo
+	chmod r+g $arquivo
 }
 adicionar-leitura-outros(){
-	chmod +ro $arquivo
+	chmod r+o $arquivo
 }
 adicionar-leitura-todos(){
-	chmod +ra $arquivo
+	chmod r+a $arquivo
 }
 
 #Adicionando escrita para dono, grupo, outros e todos.
 
 adicionar-escrita-dono-arquivo(){
-	chmod +wu $arquivo
+	chmod w+u $arquivo
 }
 adicionar-escrita-grupo-arquivo(){
-	chmod +wg $arquivo
+	chmod w+g $arquivo
 }
 adicionar-escrita-outros(){
-	chmod +wo $arquivo
+	chmod w+o $arquivo
 }
 adicionar-escrita-todos(){
-	chmod +wa
+	chmod w+a
 }
 
 #Adicionando execução para dono, grupo, outros e todos.
-
 adicionar-execucao-dono-arquivo(){
-	chmod +xu $arquivo
+	chmod x+u $arquivo
 }
 adicionar-execucao-grupo-arquivo(){
-	chmod +xg $arquivo
+	chmod x+g $arquivo
 }
 adicionar-execucao-outros(){
-	chmod +xo $arquivo
+	chmod x+o $arquivo
 }
 adicionar-execucao-todos(){
-	chmod +xa
+	chmod x+a $arquivo 
 }
