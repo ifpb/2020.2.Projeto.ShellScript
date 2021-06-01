@@ -26,7 +26,7 @@ adicionar-escrita-outros(){
 	chmod o+w $arquivo
 }
 adicionar-escrita-todos(){
-	chmod a+w
+	chmod a+w $arquivo
 }
 
 #Adicionando execução para dono, grupo, outros e todos.
