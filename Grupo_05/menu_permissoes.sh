@@ -148,14 +148,16 @@ Menu_Permissoes() {
 			
 		fi
 		
+		#Múltiplos Arquivos
 		if [ "$modo_arquivo" == "1" ]; then
-			arquivos="$(Selecionar_Arquivos)"
+			arquivos="$(Selecionar_Arquivos | sed 's/|/ /g')"
 			permissoes="$(Menu_Selecionar_Permissoes)"
 			operador="$(Menu_Selecionar_Operador)"
 			usuarios="$(Menu_Selecionar_Usuarios)"
 				
 		fi
-	
+		
+		#Diretório
 		if [ "$modo_arquivo" == "2" ]; then 
 			diretorio="$(Selecionar_Diretorio)"
 			permissoes="$(Menu_Selecionar_Permissoes)"
