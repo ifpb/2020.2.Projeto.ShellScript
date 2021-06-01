@@ -14,7 +14,7 @@ source menu_principal.sh
 Inicio() {
 	zenity	--info \
 		--width=450 \
-		--height=300 \
+		--height=350 \
 		--title="Bem-vindo" \
 		--text="Script para Modificação de Permissões e Atributos" 
 	
