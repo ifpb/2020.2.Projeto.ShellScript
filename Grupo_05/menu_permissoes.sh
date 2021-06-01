@@ -17,7 +17,7 @@ Menu_Permissoes() {
 			verifica_leitura="0"
 	
 
-		for (( i=0; i<${#permissoes}; i++ )); do
+			for (( i=0; i<${#permissoes}; i++ )); do
 				#Condições para Adição de Permissões
 				#Condições de Execução
 				if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
@@ -78,7 +78,7 @@ Menu_Permissoes() {
 					fi
 					verifica_leitura="1"
 				fi
-		done
+			done
 			
 			#Condições para Remoção de Permissões
 			#Condições de Execução
