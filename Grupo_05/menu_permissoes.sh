@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source menus_graficos.sh
+source funcionalidades_permissoes.sh
 
 Menu_Permissoes() {
 		
