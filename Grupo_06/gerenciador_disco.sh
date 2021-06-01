@@ -88,7 +88,7 @@ elif [ $opcao -eq 5 ]; then
     	sudo chmod -R 777 compartilhado #alterando as permissões
 	echo " 
 	[COMPATILHAMENTO]
-	path = /home/$USER/compSamba
+	path = /home/$USER/compartilhado
 	public = yes
 	writeable = yes
 	browseable = yes" >> /etc/samba/smb.conf #inserindo o conteúdo no final do arquivo smb.conf.
