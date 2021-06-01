@@ -292,7 +292,7 @@ Menu_Permissoes() {
 		
 		#Diretório
 		if [ "$modo_arquivo" == "2" ]; then
-			diretorio="$(Selecionar_Arquivos)"
+			diretorio="$(Selecionar_Diretorio)"
 			permissoes="$(Menu_Selecionar_Permissoes | sed 's/|//g')"
 			operador="$(Menu_Selecionar_Operador)"
 			usuarios="$(Menu_Selecionar_Usuarios)"
