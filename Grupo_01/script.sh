@@ -27,19 +27,15 @@ while true; do
 		a       - instalação padrão de pacotes esenciais(opção automatica)
                 " ini
         case ${ini} in
-	                if [[ "${opc}" = a ]]; then
-			
-				echo "## instalando pacote da opção automatico ##"
-				sudo snap install code --classic -y
-				sudo snap install brave -y
-				sudo apt-get install wireshark -y
-				sudo snap install sftpclient -y
-				sudo snap install remmina -y
-				sudo snap install spotify -y
-				sudo snap install wps-2019-snap -y
-				break
-				
-			fi
+		"a") echo "## instalando pacote da opção automatico ##"
+			sudo snap install code --classic -y
+			sudo snap install brave -y
+			sudo apt-get install wireshark -y
+			sudo snap install sftpclient -y
+			sudo snap install remmina -y
+			sudo snap install spotify -y
+			sudo snap install wps-2019-snap -y
+			;;				
                 "p") read -p "Você quer: 
                                 (i) instalar ou
 				(r) remover
@@ -55,11 +51,9 @@ while true; do
 					(D) - docker
 					" dest
 					if [ ${dest} = "C" ]; then
-						#sudo snap install code --classic
-						echo "code"
+						sudo snap install code --classic
 					elif [ ${dest} = "S" ]; then
-					       	#sudo snap install sublime-text --classic
-						echo "sublime"
+					       	sudo snap install sublime-text --classic
 					elif [ ${dest} = "B" ]; then
 					       	sudo snap install beekeeper-studio
 					elif [ ${dest} = "K" ]; then
@@ -124,9 +118,10 @@ while true; do
                                         " dest
                                         if [ ${dest} = "G" ]; then
                                                 sudo snap remove google-cloud-sdk --classic
-                                        elif [ ${dest} = "W" ]; then                            #REVER
-                                                sudo apt-get install wireshark
-                                        elif [ ${dest} = "S" ]; then
+                                        elif [ ${dest} = "W" ]; then				#REVER
+						sudo add-apt-repository ppa:wireshark-dev/stable -r -y
+						sudo apt-get remove wireshark --auto-remove
+					elif [ ${dest} = "S" ]; then
                                                 sudo snap remove sftpclient
                                         elif [ ${dest} = "R" ]; then
                                                 sudo snap remove remmina
@@ -216,74 +211,3 @@ while true; do
         esac
 done
 	
-
-
-
-# ----------------------------- REQUISITOS ----------------------------- #
-## Removendo travas do apt ##
-#sudo rm /var/lib/dpkg/lock-frontend
-#sudo rm /var/cache/apt/archives/lock
-
-## Atualizando o repositório ##
-#sudo apt update -y
-
-## Adicionando repositórios de terceiros e driver de video (Driver Logitech e Drivers Nvidia)##
-#sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
-#wget -nc "$URL_WINE_KEY"
-#sudo apt-key add winehq.key
-#sudo apt-add-repository "deb $URL_PPA_WINE bionic main"
-#sudo add-apt-repository ppa:wireshark-dev/stable
-# ---------------------------------------------------------------------- #
-
-# ----------------------------- EXECUÇÃO ----------------------------- #
-## Atualizando o repositório depois da adição de novos repositórios ##
-#sudo apt update -y
-#sudo apt upgrade -y
-
-
-# Instalar programas no apt
-#sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
-#sudo apt install preload
-
-
-## retirando a trava com o snap do linux mint ##
-#sudo rm /etc/apt/preferences.d/nosnap.pref
-#sudo apt update
-#sudo apt install snapd
-
-## Instalando pacotes Snap ##
-#sudo snap install spotify
-#sudo snap install chromium
-#sudo snap install sublime-text --classic
-#sudo snap install code --classic
-# ---------------------------------------------------------------------- #
-
-## instalando pacote da opção "auto" ##
-#sudo snap install code --classic -y
-#sudo snap install brave -y
-#sudo apt-get install wireshark -y
-#sudo snap install sftpclient -y
-#sudo snap install remmina -y
-#sudo snap install spotify -y
-#sudo snap install wps-2019-snap -y
-
-
-## instalando pacote de produtor de midias digitais ##
-#sudo apt-get install ubuntustudio-installer -y
-#vai abrir uma janela e o usuario escolhe o que vai ser instalado automaticamente"
-
-#instalando ferramentas de pofissional de cyber segurança"
-#sudo snap install brave -y
-#sudo snap install remmina -y
-#wget https://raw.githubusercontent.com/LionSec/katoolin/master/katoolin.py
-#sudo mv katoolin.py /usr/bin/katoolin
-#sudo chmod +x /usr/bin/katoolin
-#katoolin
-#vai abrir uma janela e o usuario escolhe o que vai ser instalado automaticamente"
-
-# ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
-## Finalização, atualização e limpeza##
-#sudo apt update && sudo apt dist-upgrade -y
-#sudo apt autoclean
-#sudo apt autoremove -y
-# ---------------------------------------------------------------------- #
