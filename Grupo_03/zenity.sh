@@ -35,6 +35,7 @@ result=$(
   "Criar chave criptografada RSA" \
   "Criar chave criptografada DSA" \
   "Inserir usuários ao acesso SSH" \
+  "Verificar usuários com acesso ao SSH" \
 )
 
 if [ "$?" == "1" ]; then
@@ -168,7 +169,13 @@ else
 				       zenity --info --text="Os usuários habilitados: $habusers" \
 				       --width="320" --height="100"
 				     fi
-
+                        else
+                          if [[ $result = "Verificar usuários com acesso ao SSH" ]]; then
+			        habusers="$(sed -n '/AllowUsers*/p' sshd_config | tail -1 | awk -F " " '{print $2,$3,$4,$5,$6}')"
+                                zenity --info --title="Aviso:" \
+                                zenity --info --text="$habusers" \
+                                --width="320" -- height="100"
+                          fi
                         fi
                       fi
                     fi
