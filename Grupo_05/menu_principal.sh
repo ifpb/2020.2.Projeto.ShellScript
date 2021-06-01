@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source funcionalidades_permissoes.sh
 source menu_permissoes.sh
 source funcionalidades_help.sh
 

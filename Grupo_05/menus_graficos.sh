@@ -9,7 +9,7 @@ Menu_Selecionar_Tipo_Arquivo() {
 		--text="Selecione uma opcão" \
 		--radiolist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Um arquivo" false 1 "Múltiplos Arquivos" false 2 "Diretório"
+		--column="Marque" --column="" --column="Opções" false 0 "Um arquivo" false 1 "Múltiplos arquivos" false 2 "Diretório"
 }
 
 Menu_Selecionar_Permissoes() {
@@ -17,16 +17,17 @@ Menu_Selecionar_Permissoes() {
 		--width=450 \
 		--height=350 \
 		--title="Escolha as permissões" \
+		--text="Selecione alguma das opções abaixo" \
 		--checklist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Executar" false 1 "Escrever" false 2 "Ler"
+		--column="Marque" --column="" --column="Opções" false 0 "Execução" false 1 "Escrita" false 2 "Leitura"
 }
 
 Menu_Selecionar_Atributos() {
 	zenity 	--list \
 		--width=450 \
 		--height=350 \
-		--title="Escolha as permissões" \
+		--title="Escolha os atributos" \
 		--checklist \
 		--hide-column=2 \
 		--column="Marque" --column="" --column="Opções" false 0 "Atributo 1" false 1 "Atributo 2" false 2 "Atributo 3"
@@ -50,7 +51,7 @@ Menu_Selecionar_Operador() {
 		--title="Escolha o operador" \
 		--radiolist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Adicionar Permissão" false 1 "Retirar Permissão" false 2 "Redifinir Permissões"
+		--column="Marque" --column="" --column="Opções" false 0 "Adicionar Permissões" false 1 "Retirar Permissões" false 2 "Redefinir Permissões"
 }
 
 
