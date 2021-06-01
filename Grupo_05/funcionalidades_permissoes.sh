@@ -86,3 +86,8 @@ remover-execucao-outros(){
 remover-execucao-todos(){
 	chmod a-x $* 
 }
+
+#Operação de Reinicilização
+reiniciar-permissoes(){
+	chmod = $*
+}
