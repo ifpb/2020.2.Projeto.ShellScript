@@ -41,19 +41,19 @@ Menu_Permissoes() {
 
 				#Condições para Escrita
 				if [[ $permissoes =~ 1 && "$verifica_escrita" == "0" ]]; then
-					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
 						adicionar-escrita-dono-arquivo $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "1" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "1" ]]; then
 						adicionar-escrita-grupo-arquivo $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "2" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "2" ]]; then
 						adicionar-escrita-outros $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "3" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
 						adicionar-escrita-todos $arquivo
 					fi
 					verifica_escrita="1"
@@ -65,15 +65,15 @@ Menu_Permissoes() {
 						adicionar-leitura-dono-arquivo $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "1" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "1" ]]; then
 						adicionar-leitura-grupo-arquivo $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "2" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "2" ]]; then
 						adicionar-leitura-outros $arquivo
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "3" ]]; then
+					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
 						adicionar-leitura-todos $arquivo
 					fi
 					verifica_leitura="1"
