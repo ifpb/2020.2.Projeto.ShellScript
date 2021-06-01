@@ -82,67 +82,69 @@ Menu_Permissoes() {
 			fi
 			
 			#Condições para Remoção de Permissões
-			for (( i=0; i<${#permissoes}; i++ )); do
-				#Condições de Execução
-				if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
-					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
-						remover-execucao-dono-arquivo $arquivo
+			if [[ "$operador" == "1" ]]; then
+				for (( i=0; i<${#permissoes}; i++ )); do
+					#Condições de Execução
+					if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							remover-execucao-dono-arquivo $arquivo
+						fi
+
+						if [[ "$usuarios" == "1" ]]; then
+							remover-execucao-grupo-arquivo $arquivo
+						fi
+
+						if [[ "$usuarios" == "2" ]]; then
+							remover-execucao-outros $arquivo
+						fi
+
+						if [[ "$usuarios" == "3" ]]; then
+							remover-execucao-todos $arquivo
+						fi
+						verifica_execucao="1"
 					fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "1" ]]; then
-						remover-execucao-grupo-arquivo $arquivo
-					fi
+					#Condições para Escrita
+					if [[ $permissoes =~ 1 && "$verifica_escrita" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							remover-escrita-dono-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "2" ]]; then
-						remover-execucao-outros $arquivo
-					fi
+						if [[ "$usuarios" == "1" ]]; then
+							remover-escrita-grupo-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "3" ]]; then
-						remover-execucao-todos $arquivo
-					fi
-					verifica_execucao="1"
-				fi
+						if [[ "$usuarios" == "2" ]]; then
+							remover-escrita-outros $arquivo
+						fi
 
-				#Condições para Escrita
-				if [[ $permissoes =~ 1 && "$verifica_escrita" == "0" ]]; then
-					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
-						remover-escrita-dono-arquivo $arquivo
-					fi
+						if [[ "$usuarios" == "3" ]]; then
+							remover-escrita-todos $arquivo
+						fi
+						verifica_escrita="1"
+					fi	
 
-					if [[ "$operador" == "1" && "$usuarios" == "1" ]]; then
-						remover-escrita-grupo-arquivo $arquivo
-					fi
+					#Condições para Leitura
+					if [[ $permissoes =~ 2 && "$verifica_leitura" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							remover-leitura-dono-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "2" ]]; then
-						remover-escrita-outros $arquivo
-					fi
+						if [[ "$usuarios" == "1" ]]; then
+							remover-leitura-grupo-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "1" && "$usuarios" == "3" ]]; then
-						remover-escrita-todos $arquivo
-					fi
-					verifica_escrita="1"
-				fi	
+						if [[ "$usuarios" == "2" ]]; then
+							remover-leitura-outros $arquivo
+						fi
 
-				#Condições para Leitura
-				if [[ $permissoes =~ 2 && "$verifica_leitura" == "0" ]]; then
-					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
-						remover-leitura-dono-arquivo $arquivo
+						if [[ "$usuarios" == "3" ]]; then
+							remover-leitura-todos $arquivo
+						fi
+						verifica_leitura="1"
 					fi
-
-					if [[ "$operador" == "1" && "$usuarios" == "1" ]]; then
-						remover-leitura-grupo-arquivo $arquivo
-					fi
-
-					if [[ "$operador" == "1" && "$usuarios" == "2" ]]; then
-						remover-leitura-outros $arquivo
-					fi
-
-					if [[ "$operador" == "1" && "$usuarios" == "3" ]]; then
-						remover-leitura-todos $arquivo
-					fi
-					verifica_leitura="1"
-				fi
-			done
+				done
+			fi
 			
 		fi
 		
