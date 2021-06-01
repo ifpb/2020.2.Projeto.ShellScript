@@ -150,9 +150,6 @@ else
 
 			           for ((i=1; i<6; i++)); do
                                    uuu[i]=$(zenity --title="Digite x para parar" --text "Digite o $iº (de 5): " --entry)
-				       if [ "$?" == "1" ]; then
-                                         exit
-                                       fi
                                    vusers[i]=${uuu[i]}
 
 			           if [[ "${vusers[i]}" = "x" ]]; then
