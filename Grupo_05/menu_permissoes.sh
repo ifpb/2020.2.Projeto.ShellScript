@@ -15,74 +15,74 @@ Menu_Permissoes() {
 			verifica_execucao="0"
 			verifica_escrita="0"
 			verifica_leitura="0"
+			
+			#Condições para Adição de Permissões
+			if [[ "$operador" == "0" ]]; then
+				for (( i=0; i<${#permissoes}; i++ )); do
+					#Condições de Execução
+					if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							adicionar-execucao-dono-arquivo $arquivo
+						fi
 	
+						if [[ "$usuarios" == "1" ]]; then
+							adicionar-execucao-grupo-arquivo $arquivo
+						fi
 
-			for (( i=0; i<${#permissoes}; i++ )); do
-				#Condições para Adição de Permissões
-				#Condições de Execução
-				if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
-					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
-						adicionar-execucao-dono-arquivo $arquivo
+						if [[ "$usuarios" == "2" ]]; then
+							adicionar-execucao-outros $arquivo
+						fi
+
+						if [[ "$usuarios" == "3" ]]; then
+							adicionar-execucao-todos $arquivo
+						fi
+						verifica_execucao="1"
 					fi
 
-					if [[ "$operador" == "0" && "$usuarios" == "1" ]]; then
-						adicionar-execucao-grupo-arquivo $arquivo
-					fi
+					#Condições para Escrita
+					if [[ $permissoes =~ 1 && "$verifica_escrita" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							adicionar-escrita-dono-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "0" && "$usuarios" == "2" ]]; then
-						adicionar-execucao-outros $arquivo
-					fi
+						if [[ "$usuarios" == "1" ]]; then
+							adicionar-escrita-grupo-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
-						adicionar-execucao-todos $arquivo
-					fi
-					verifica_execucao="1"
-				fi
+						if [[ "$usuarios" == "2" ]]; then
+							adicionar-escrita-outros $arquivo
+						fi
 
-				#Condições para Escrita
-				if [[ $permissoes =~ 1 && "$verifica_escrita" == "0" ]]; then
-					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
-						adicionar-escrita-dono-arquivo $arquivo
-					fi
+						if [[ "$usuarios" == "3" ]]; then
+							adicionar-escrita-todos $arquivo
+						fi
+						verifica_escrita="1"
+					fi	
 
-					if [[ "$operador" == "0" && "$usuarios" == "1" ]]; then
-						adicionar-escrita-grupo-arquivo $arquivo
-					fi
+					#Condições para Leitura
+					if [[ $permissoes =~ 2 && "$verifica_leitura" == "0" ]]; then
+						if [[ "$usuarios" == "0" ]]; then
+							adicionar-leitura-dono-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "0" && "$usuarios" == "2" ]]; then
-						adicionar-escrita-outros $arquivo
-					fi
+						if [[ "$usuarios" == "1" ]]; then
+							adicionar-leitura-grupo-arquivo $arquivo
+						fi
 
-					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
-						adicionar-escrita-todos $arquivo
-					fi
-					verifica_escrita="1"
-				fi	
+						if [[ "$usuarios" == "2" ]]; then
+							adicionar-leitura-outros $arquivo
+						fi
 
-				#Condições para Leitura
-				if [[ $permissoes =~ 2 && "$verifica_leitura" == "0" ]]; then
-					if [[ "$operador" == "0" && "$usuarios" == "0" ]]; then
-						adicionar-leitura-dono-arquivo $arquivo
+						if [[ "$usuarios" == "3" ]]; then
+							adicionar-leitura-todos $arquivo
+						fi
+						verifica_leitura="1"
 					fi
-
-					if [[ "$operador" == "0" && "$usuarios" == "1" ]]; then
-						adicionar-leitura-grupo-arquivo $arquivo
-					fi
-
-					if [[ "$operador" == "0" && "$usuarios" == "2" ]]; then
-						adicionar-leitura-outros $arquivo
-					fi
-
-					if [[ "$operador" == "0" && "$usuarios" == "3" ]]; then
-						adicionar-leitura-todos $arquivo
-					fi
-					verifica_leitura="1"
-				fi
-			done
+				done
+			fi
 			
 			#Condições para Remoção de Permissões
 			for (( i=0; i<${#permissoes}; i++ )); do
-				#Condições para Remoção de Permissões
 				#Condições de Execução
 				if [[ $permissoes =~ 0 && "$verifica_execucao" == "0" ]]; then
 					if [[ "$operador" == "1" && "$usuarios" == "0" ]]; then
