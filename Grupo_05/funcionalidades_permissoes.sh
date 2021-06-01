@@ -3,86 +3,86 @@
 #Operações de Adição
 #Adicionando leitura para dono, grupo, outros e todos.
 adicionar-leitura-dono-arquivo(){
-	chmod u+r $arquivo 
+	chmod u+r $*
 }
 adicionar-leitura-grupo-arquivo(){
-	chmod g+r $arquivo
+	chmod g+r $*
 }
 adicionar-leitura-outros(){
-	chmod o+r $arquivo
+	chmod o+r $*
 }
 adicionar-leitura-todos(){
-	chmod a+r $arquivo
+	chmod a+r $*
 }
 
 #Adicionando escrita para dono, grupo, outros e todos.
 adicionar-escrita-dono-arquivo(){
-	chmod u+w $arquivo
+	chmod u+w $*
 }
 adicionar-escrita-grupo-arquivo(){
-	chmod g+w $arquivo
+	chmod g+w $*
 }
 adicionar-escrita-outros(){
-	chmod o+w $arquivo
+	chmod o+w $*
 }
 adicionar-escrita-todos(){
-	chmod a+w $arquivo
+	chmod a+w $*
 }
 
 #Adicionando execução para dono, grupo, outros e todos.
 adicionar-execucao-dono-arquivo(){
-	chmod u+x $arquivo
+	chmod u+x $*
 }
 adicionar-execucao-grupo-arquivo(){
-	chmod g+x $arquivo
+	chmod g+x $*
 }
 adicionar-execucao-outros(){
-	chmod o+x $arquivo
+	chmod o+x $*
 }
 adicionar-execucao-todos(){
-	chmod a+x $arquivo 
+	chmod a+x $*
 }
 
 
 #Operações de Remoção
 #Remoção de Leitura
 remover-leitura-dono-arquivo(){
-	chmod u-r $arquivo 
+	chmod u-r $* 
 }
 remover-leitura-grupo-arquivo(){
-	chmod g-r $arquivo
+	chmod g-r $*
 }
 remover-leitura-outros(){
-	chmod o-r $arquivo
+	chmod o-r $*
 }
 remover-leitura-todos(){
-	chmod a-r $arquivo
+	chmod a-r $*
 }
 
 #Remoção de Escrita
 remover-escrita-dono-arquivo(){
-	chmod u-w $arquivo
+	chmod u-w $*
 }
 remover-escrita-grupo-arquivo(){
-	chmod g-w $arquivo
+	chmod g-w $*
 }
 remover-escrita-outros(){
-	chmod o-w $arquivo
+	chmod o-w $*
 }
 remover-escrita-todos(){
-	chmod a-w $arquivo
+	chmod a-w $*
 }
 
 #Remoção de Execução
 remover-execucao-dono-arquivo(){
-	chmod u-x $arquivo
+	chmod u-x $*
 }
 remover-execucao-grupo-arquivo(){
-	chmod g-x $arquivo
+	chmod g-x $*
 }
 remover-execucao-outros(){
-	chmod p-x $arquivo
+	chmod p-x $*
 }
 remover-execucao-todos(){
-	chmod a-x $arquivo 
+	chmod a-x $* 
 }
