@@ -17,6 +17,7 @@ Menu_Atributos() {
 			verifica_atributo_i="3"
 			verifica_atributo_s="4"
 			verifica_atributo_u="5"
+			verifica_atributo_todos="6"
 
 			#Condições para Adição de Atributos
                         if [[ "$operador" == "0" ]]; then
