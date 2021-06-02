@@ -1,0 +1,55 @@
+#!/bin/bash
+
+#---------------------------------------------------
+#                  Drop Fun
+#
+# Drop Fun é um utilitário que facilita controle
+# de acesso à rede por meio de perfis. Os
+# perfis são criados a partir de regras de IPTables
+# e agendamentos com o Cron.
+#
+#----------------------------------------------------
+
+
+VERDE_N="\e[1;32m"
+SC="\e[0m"
+
+echo -en $VERDE_N
+clear && cat ../banner.txt && echo -e "\t\tBem vindo, $USER!\n\n"
+
+function menu {
+    echo -e "[1] Criar perfil"
+    echo -e "[2] Listar perfis"
+    echo -e "[0] Sair"
+    echo -en "\n>> "
+
+    read ESCOLHA
+
+    case $ESCOLHA in
+        1)
+            source ../src/criar_perfil.sh
+            criar_perfil
+            menu
+            ;;
+        2)
+            source ../src/listar_perfis.sh
+            listar_perfis
+            menu
+            ;;
+        0)
+            echo "Saindo..."
+            sleep 2
+            clear
+            exit 0
+            ;;
+        *)
+            echo "Opção inválida! Tente novamente."
+            sleep 1
+            clear
+            menu
+            ;;
+    esac
+    echo -en $SC
+}
+
+menu
