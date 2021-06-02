@@ -26,23 +26,23 @@ Menu_Atributos() {
 						adiciona-atributoA $arquivo
 						verifica_atributo_A="1"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_a" == "1" ]]; then
+					if [[ $atributos =~ 1 && "$verifica_atributo_a" == "1" ]]; then
 						adiciona-atributo-a $arquivo
 						verifica_atributo_a="2"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_c" == "2" ]]; then
+					if [[ $atributos =~ 2 && "$verifica_atributo_c" == "2" ]]; then
 						adiciona-atributo-c $arquivo
 						verifica_atributo_c="3"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_i" == "3" ]]; then
+					if [[ $atributos =~ 3 && "$verifica_atributo_i" == "3" ]]; then
 						adiciona-atributo-i $arquivo
 						verifica_atributo_i="4"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_s" == "4" ]]; then
+					if [[ $atributos =~ 4 && "$verifica_atributo_s" == "4" ]]; then
 						adiciona-atributo-s $arquivo
 						verifica_atributo_s="5"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_u" == "5" ]]; then
+					if [[ $atributos =~ 5 && "$verifica_atributo_u" == "5" ]]; then
 						adiciona-atributo-u $arquivo
 						verifica_atributo_u="6"
 					fi
