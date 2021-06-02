@@ -146,6 +146,24 @@ Menu_Permissoes() {
 				done
 			fi
 			
+			#Condições de Reinicilização
+			if [[ "operador" =~ "2" ]]; then
+				if [[ "$usuarios" == "0" ]]; then
+					reinicilizar-dono-arquivo $arquivo
+				fi
+	
+				if [[ "$usuarios" == "1" ]]; then
+					reinicilizar-grupo-arquivo $arquivo
+				fi
+
+				if [[ "$usuarios" == "2" ]]; then
+					reinicilizar-outros $arquivo
+				fi
+
+				if [[ "$usuarios" == "3" ]]; then
+					reinicilizar-todos $arquivo
+				fi
+			fi
 		fi
 		
 		#Múltiplos Arquivos
@@ -286,6 +304,26 @@ Menu_Permissoes() {
 						verifica_leitura="1"
 					fi
 				done
+			
+			fi
+			
+			#Condições de Reinicilização
+			if [[ "operador" =~ "2" ]]; then
+				if [[ "$usuarios" == "0" ]]; then
+					reiniciar-dono $arquivos
+				fi
+	
+				if [[ "$usuarios" == "1" ]]; then
+					reiniciar-grupo $arquivos
+				fi
+
+				if [[ "$usuarios" == "2" ]]; then
+					reiniciar-outros $arquivos
+				fi
+
+				if [[ "$usuarios" == "3" ]]; then
+					reiniciar-todos $arquivos
+				fi
 			fi
 				
 		fi
@@ -427,7 +465,27 @@ Menu_Permissoes() {
 						fi
 						verifica_leitura="1"
 					fi
+				
 				done
+			fi
+			
+			#Condições de Reinicilização
+			if [[ "operador" =~ "2" ]]; then
+				if [[ "$usuarios" == "0" ]]; then
+					reiniciar-dono $arquivos
+				fi
+	
+				if [[ "$usuarios" == "1" ]]; then
+					reiniciar-grupo $arquivos
+				fi
+
+				if [[ "$usuarios" == "2" ]]; then
+					reiniciar-outros $arquivos
+				fi
+
+				if [[ "$usuarios" == "3" ]]; then
+					reiniciar-todos $arquivos
+				fi
 			fi
 				
 		fi
