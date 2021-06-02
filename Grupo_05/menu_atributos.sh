@@ -49,6 +49,7 @@ Menu_Atributos() {
 					fi
 
 				done
+			fi
 			#Condições para retirada de Atributos
 			if  [[ "$operador" == "1" ]]; then
                                 for (( i=0; i<${#atributos}; i++ )); do
