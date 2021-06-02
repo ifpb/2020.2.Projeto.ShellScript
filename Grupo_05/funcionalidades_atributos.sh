@@ -24,16 +24,16 @@ adiciona-atributo-u(){
 
 #Retirando atributos dos arquivos.
 retira-atributoA(){
-	chattr -A $*
+	sudo chattr -A $*
 }
 retira-atributo-a(){
-	chattr -a $* #válido apenas para root.
+	sudo chattr -a $* #válido apenas para root.
 }
 retira-atributo-c(){
 	chattr -c $*
 }
 retira-atributo-i(){
-	chattr -i $*
+	sudo chattr -i $*
 #Em diretórios, faz com que arquivos não possam ser adicionados ou apagados.
 #Somente o usuário root pode especificar ou retirar este atributo.
 }
@@ -44,6 +44,6 @@ retira-atributo-u(){
 	chattr -u $*
 }
 retira-todos-atributos(){
-	chattr = $*
+	sudo chattr = $*
 }
 
