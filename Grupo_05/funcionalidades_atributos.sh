@@ -2,10 +2,10 @@
 
 #Adicionando atributos 
 adiciona-atributoA(){
-	chattr +A $* #Não modifica a hora de acesso de arquivos. #root
+	sudo chattr +A $* #Não modifica a hora de acesso de arquivos. #root
 }
 adiciona-atributo-a(){
-	chattr +a $* #Append-Only, o conteúdo poderá somente ser adicionado ao final do arquivo.
+	sudo chattr +a $* #Append-Only, o conteúdo poderá somente ser adicionado ao final do arquivo.
 #Em diretórios faz com que os arquivos sejam apenas adicionados.
 #Somente o root pode especificar ou retirar este atributo.
 }
@@ -13,7 +13,7 @@ adiciona-atributo-c(){
 	chattr +c $* #Permite compactação nos arquivos especificados de forma transparente para o usuário. 
 }
 adiciona-atributo-i(){
-	chattr +i $* #Arquivos imutáveis não podem ser modificados.
+	sudo chattr +i $* #Arquivos imutáveis não podem ser modificados.
 }
 adiciona-atributo-s(){
 	chattr +s $* #O arquivo especificado é marcado como apagamento seguro.
