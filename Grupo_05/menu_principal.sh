@@ -26,7 +26,7 @@ case $escolha in
 		Help_Sticky_Bit
 		;;
 	3)
-		help_chattr
+		Help_Chattr
 
 esac
 }
