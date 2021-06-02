@@ -12,11 +12,11 @@ Menu_Atributos() {
                         atributos="$(Menu_Selecionar_Atributos | sed 's/|//g')"
                         operador="$(Menu_Selecionar_Operador)"
                         verifica_atributo_A="0"
-                        verifica_atributo_a="0"
-                        verifica_atributo_c="0"
-			verifica_atributo_i="0"
-			verifica_atributo_s="0"
-			verifica_atributo_u="0"
+                        verifica_atributo_a="1"
+                        verifica_atributo_c="2"
+			verifica_atributo_i="3"
+			verifica_atributo_s="4"
+			verifica_atributo_u="5"
 
 			#Condições para Adição de Atributos
                         if [[ "$operador" == "0" ]]; then
@@ -24,21 +24,27 @@ Menu_Atributos() {
                                         #Condições de Adições de Atributos
                                         if [[ $atributos =~ 0 && "$verifica_atributo_A" == "0" ]]; then
 						adiciona-atributoA $arquivo
+						verifica_atributo_A="1"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_a" == "0" ]]; then
+					if [[ $atributos =~ 0 && "$verifica_atributo_a" == "1" ]]; then
 						adiciona-atributo-a $arquivo
+						verifica_atributo_a="2"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_c" == "0" ]]; then
+					if [[ $atributos =~ 0 && "$verifica_atributo_c" == "2" ]]; then
 						adiciona-atributo-c $arquivo
+						verifica_atributo_c="3"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_i" == "0" ]]; then
+					if [[ $atributos =~ 0 && "$verifica_atributo_i" == "3" ]]; then
 						adiciona-atributo-i $arquivo
+						verifica_atributo_i="4"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_s" == "0" ]]; then
+					if [[ $atributos =~ 0 && "$verifica_atributo_s" == "4" ]]; then
 						adiciona-atributo-s $arquivo
+						verifica_atributo_s="5"
 					fi
-					if [[ $atributos =~ 0 && "$verifica_atributo_u" == "0" ]]; then
+					if [[ $atributos =~ 0 && "$verifica_atributo_u" == "5" ]]; then
 						adiciona-atributo-u $arquivo
+						verifica_atributo_u="6"
 					fi
 				done
 			fi
