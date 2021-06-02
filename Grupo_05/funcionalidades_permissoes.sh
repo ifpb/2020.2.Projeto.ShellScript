@@ -88,7 +88,7 @@ remover-execucao-todos(){
 }
 
 #Operação de Reinicilização
-reiniciar-dono-arquivo(){
+reiniciar-dono(){
 	chmod u= $*
 }
 
