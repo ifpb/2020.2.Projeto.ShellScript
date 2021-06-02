@@ -88,6 +88,18 @@ remover-execucao-todos(){
 }
 
 #Operação de Reinicilização
-reiniciar-permissoes(){
-	chmod = $*
+reiniciar-dono-arquivo(){
+	chmod u= $*
+}
+
+reiniciar-grupo(){
+	chmod g= $*
+}
+
+reiniciar-outros(){
+	chmod p= $*
+}
+
+reiniciar-todos(){
+	chmod a= $*
 }
