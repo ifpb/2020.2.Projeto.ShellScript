@@ -10,7 +10,7 @@ Help_Sticky_Bit() {
 
 Help_Chattr() {
 	zenity 	--text-info \
-		--filname=help_chattr.txt
+		--filename=help_chattr.txt
 		--width=450
 		--height=350
 }
