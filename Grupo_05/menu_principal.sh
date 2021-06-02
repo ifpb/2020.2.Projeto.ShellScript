@@ -26,7 +26,7 @@ case $escolha in
 		Help_Sticky_Bit
 		;;
 	3)
-		echo "Você escolheu visualizr o help sobre Chattr"
+		help_chattr
 
 esac
 }
