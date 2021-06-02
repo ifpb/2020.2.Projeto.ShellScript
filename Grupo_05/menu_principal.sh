@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source menu_permissoes.sh
+source menu_atributos.sh
 source funcionalidades_help.sh
 
 Menu_Principal() {
