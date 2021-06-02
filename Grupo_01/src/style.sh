@@ -18,7 +18,7 @@ AUTOBASH_WINDOW_CONFIG='title="AutoBASH"
                         width-request="448"'
 
 ## NOTEBOOK
-NOTEBOOK_CONFIG='labels="Programas|Pacotes|Desinstalar|Atualizar"
+NOTEBOOK_CONFIG='labels="Programas|Pacotes|Desinstalar"
                  enable-popup="true"
                  tab-pos="3"'
 
@@ -37,6 +37,4 @@ TGBUTTON_VBOX_CONFIG='visible="false"
 
 INSTALLED_VBOX_CONFIG='scrollable="true"
                        hscrollbar-policy="2"
-                       vscrollbar-policy="1"
-                       height-request="448"
-                       height="448"'
+                       vscrollbar-policy="1"'

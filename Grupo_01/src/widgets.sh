@@ -33,13 +33,36 @@ function package_button() {
 EXIT
 }
 
+# 1 - Actions
+function refresh_button() {
+  cat <<EXIT
+    <button image-position="1">
+        <label>Refresh</label>
+        <input file icon="reload"></input>
+        ${1}
+    </button>
+EXIT
+}
+
 # TGBUTTON
-# 1 - Tooltip-markup | 2 - Label | 3 - Image
-function tgbutton() {
+# 1 - Tooltip-markup | 2 - Label | 3 - Image | 4 - Style
+function package_tgbutton() {
   cat <<EXIT
     <togglebutton>
-      <label>"  ${1}"</label>
-      <input file>${2}</input>
+      <label>"  ${2}"</label>
+      <variable>${1}</variable>
+      <input file>${3}</input>
+      <height>"${TGBUTTON_IMG_SIZE}"</height> <width>"${TGBUTTON_IMG_SIZE}"</width>
+    </togglebutton>
+EXIT
+}
+
+function uninstall_tgbutton() {
+  cat <<EXIT
+    <togglebutton>
+      <label>"  ${2}"</label>
+      <variable>${1}</variable>
+      <input file>${3}</input>
       <height>"${TGBUTTON_IMG_SIZE}"</height> <width>"${TGBUTTON_IMG_SIZE}"</width>
     </togglebutton>
 EXIT
@@ -48,10 +71,3 @@ EXIT
 
 # GAP
 GAP='<text width-chars="40" height-request="15"><label>""</label></text>'
-
-# REFRESH
-REFRESH_BUTTON='<button image-position="1">
-                <label>Refresh</label>
-                <input file icon="reload"></input>
-                <action>echo Refresh...[Mentira]</action>
-                </button>'

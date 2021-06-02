@@ -1,43 +1,86 @@
 #!/bin/bash
 
-# Pop-ups dos programas
+# Instalar
 ## Desenvolvimento
-export INSTALL_TOOLBOX=$(install_popup "JetBrains ToolBox" "${TOOLBOX_ICON}" "https://www.jetbrains.com/pt-br/toolbox-app/" "echo 'Instalando...[Mentira]'" "INSTALL_TOOLBOX" "TOOLBOX_BUTTON")
-export INSTALL_VSCODE=$(install_popup "Visual Studio" "${VSCODE_ICON}" "https://code.visualstudio.com/" "echo 'Instalando...[Mentira]'" "INSTALL_VSCODE" "VSCODE_BUTTON")
-export INSTALL_INSOMNIA=$(install_popup "Insomnia" "${INSOMNIA_ICON}" "https://insomnia.rest/" "echo 'Instalando...[Mentira]'" "INSTALL_INSOMNIA" "INSOMNIA_BUTTON")
-export INSTALL_BEEKEEPER=$(install_popup "Beekeeper" "${BEEKEEPER_ICON}" "https://www.beekeeperstudio.io/" "echo 'Instalando...[Mentira]'" "INSTALL_BEEKEEPER" "BEEKEEPER_BUTTON")
-export INSTALL_KUBERNETES=$(install_popup "Kubernetes" "${KUBERNETES_ICON}" "https://kubernetes.io/" "echo 'Instalando...[Mentira]'" "INSTALL_KUBERNETES" "KUBERNETES_BUTTON")
-export INSTALL_DOCKER=$(install_popup "Docker" "${DOCKER_ICON}" "https://www.docker.com/" "echo 'Instalando...[Mentira]'" "INSTALL_DOCKER" "DOCKER_BUTTON")
-export INSTALL_NODE=$(install_popup "Node JS" "${NODE_ICON}" "https://nodejs.org/" "echo 'Instalando...[Mentira]'" "INSTALL_NODE" "NODE_BUTTON")
-export INSTALL_REACT=$(install_popup "React JS" "${REACT_ICON}" "https://pt-br.reactjs.org/" "echo 'Instalando...[Mentira]'" "INSTALL_REACT" "REACT_BUTTON")
+INSTALL_TOOLBOX='echo "INSTALL_TOOLBOX"'
+INSTALL_VSCODE='sudo snap install code --classic'
+INSTALL_INSOMNIA='sudo snap install insomnia'
+INSTALL_BEEKEEPER='sudo snap install beekeeper-studio'
+INSTALL_KUBERNETES='sudo snap install kubectl --classic'
+INSTALL_DOCKER='sudo snap install docker'
+INSTALL_NODE='echo "INSTALL_NODE"'
+INSTALL_REACT='echo "INSTALL_REACT"'
 
 ## Redes
-export INSTALL_GOOGLE_CSDK=$(install_popup "Google Cloud SDK" "${GOOGLE_CSDK_ICON}" "https://cloud.google.com/sdk" "echo 'Instalando...[Mentira]'" "INSTALL_GOOGLE_CSDK" "GOOGLE_CSDK_BUTTON")
-export INSTALL_TCPDUMP=$(install_popup "TCPdump" "${TCPDUMP_ICON}" "https://www.tcpdump.org/" "echo 'Instalando...[Mentira]'" "INSTALL_TCPDUMP" "TCPDUMP_BUTTON")
-export INSTALL_WIRESHARK=$(install_popup "Wireshark" "${WIRESHARK_ICON}" "https://www.wireshark.org/" "echo 'Instalando...[Mentira]'" "INSTALL_WIRESHARK" "WIRESHARK_BUTTON")
-export INSTALL_VBOX=$(install_popup "Oracle Virtual Box" "${VBOX_ICON}" "https://www.virtualbox.org/" "echo 'Instalando...[Mentira]'" "INSTALL_VBOX" "VBOX_BUTTON")
-export INSTALL_VMWARE=$(install_popup "VMWare" "${VMWARE_ICON}" "https://www.vmware.com/" "echo 'Instalando...[Mentira]'" "INSTALL_VMWARE" "VMWARE_BUTTON")
-export INSTALL_FILEZILLA=$(install_popup "FileZilla" "${FILEZILLA_ICON}" "https://filezilla-project.org/" "echo 'Instalando...[Mentira]'" "INSTALL_FILEZILLA" "FILEZILLA_BUTTON")
-export INSTALL_PUTTY=$(install_popup "Putty" "${PUTTY_ICON}" "https://www.putty.org/" "echo 'Instalando...[Mentira]'" "INSTALL_PUTTY" "PUTTY_BUTTON")
-export INSTALL_REMMINA=$(install_popup "Remmina" "${REMMINA_ICON}" "https://remmina.org/" "echo 'Instalando...[Mentira]'" "INSTALL_REMMINA" "REMMINA_BUTTON")
+INSTALL_GOOGLE_CSDK='sudo snap install google-cloud-sdk --classic'
+INSTALL_TCPDUMP='echo "INSTALL_TCPDUMP"'
+INSTALL_WIRESHARK='echo "INSTALL_WIRESHARK"'
+INSTALL_VBOX='echo "INSTALL_VBOX"'
+INSTALL_VMWARE='echo "INSTALL_VMWARE"'
+INSTALL_FILEZILLA='echo "INSTALL_FILEZILLA"'
+INSTALL_PUTTY='echo "INSTALL_PUTTY"'
+INSTALL_REMMINA='sudo snap install remmina'
 
 ## Lazer
-export INSTALL_SPOTIFY=$(install_popup "Spotify" "${SPOTIFY_ICON}" "https://www.spotify.com/" "echo 'Instalando...[Mentira]'" "INSTALL_SPOTIFY" "SPOTIFY_BUTTON")
-export INSTALL_SKYPE=$(install_popup "Skype" "${SKYPE_ICON}" "https://www.skype.com/" "echo 'Instalando...[Mentira]'" "INSTALL_SKYPE" "SKYPE_BUTTON")
-export INSTALL_DISCORD=$(install_popup "Discord" "${DISCORD_ICON}" "https://discord.com/" "echo 'Instalando...[Mentira]'" "INSTALL_DISCORD" "DISCORD_BUTTON")
+INSTALL_SPOTIFY='sudo snap install spotify'
+INSTALL_SKYPE='sudo snap install skype'
+INSTALL_DISCORD='sudo snap install discord'
 
 ## Utilitários
-export INSTALL_WINE=$(install_popup "Wine" "${WINE_ICON}" "https://www.winehq.org/" "echo 'Instalando...[Mentira]'" "INSTALL_WINE" "WINE_BUTTON")
-export INSTALL_CHROME=$(install_popup "Chrome" "${CHROME_ICON}" "https://www.google.com/intl/pt-BR/chrome/" "echo 'Instalando...[Mentira]'" "INSTALL_CHROME" "CHROME_BUTTON")
-export INSTALL_BRAVE=$(install_popup "Brave" "${BRAVE_ICON}" "https://brave.com/" "echo 'Instalando...[Mentira]'" "INSTALL_BRAVE" "BRAVE_BUTTON")
-export INSTALL_OPERA=$(install_popup "Opera" "${OPERA_ICON}" "https://www.opera.com/" "echo 'Instalando...[Mentira]'" "INSTALL_OPERA" "OPERA_BUTTON")
-export INSTALL_WINRAR=$(install_popup "WinRAR" "${WINRAR_ICON}" "https://www.win-rar.com/" "echo 'Instalando...[Mentira]'" "INSTALL_WINRAR" "WINRAR_BUTTON")
+INSTALL_WINE='echo "INSTALL_WINE"'
+INSTALL_CHROME='sudo snap install chromium'
+INSTALL_BRAVE='sudo snap install brave'
+INSTALL_OPERA='echo "INSTALL_OPERA"'
+INSTALL_WINRAR='echo "INSTALL_WINRAR"'
 
 ## Escritório
-export INSTALL_WPS=$(install_popup "WPS Office" "${WPS_ICON}" "https://www.wps.com/" "echo 'Instalando...[Mentira]'" "INSTALL_WPS" "WPS_BUTTON")
-export INSTALL_FOXIT=$(install_popup "Foxit PDF" "${FOXIT_ICON}" "https://www.foxitsoftware.com/pdf-reader/" "echo 'Instalando...[Mentira]'" "INSTALL_FOXIT" "FOXIT_BUTTON")
-export INSTALL_GIMP=$(install_popup "Gimp" "${GIMP_ICON}" "https://www.gimp.org/" "echo 'Instalando...[Mentira]'" "INSTALL_GIMP" "GIMP_BUTTON")
-export INSTALL_KRITA=$(install_popup "Krita" "${KRITA_ICON}" "https://krita.org/" "echo 'Instalando...[Mentira]'" "INSTALL_KRITA" "KRITA_BUTTON")
-export INSTALL_INKSCAPE=$(install_popup "Inkscape" "${INKSCAPE_ICON}" "https://inkscape.org/" "echo 'Instalando...[Mentira]'" "INSTALL_INKSCAPE" "INKSCAPE_BUTTON")
-export INSTALL_MAILSPRING=$(install_popup "Mailspring" "${MAILSPRING_ICON}" "https://getmailspring.com/" "echo 'Instalando...[Mentira]'" "INSTALL_MAILSPRING" "MAILSPRING_BUTTON")
-export INSTALL_AUDACITY=$(install_popup "Audacity" "${AUDACITY_ICON}" "https://www.audacityteam.org/" "echo 'Instalando...[Mentira]'" "INSTALL_AUDACITY" "AUDACITY_BUTTON")
+INSTALL_WPS='sudo snap install wps-2019-snap'
+INSTALL_FOXIT='echo "INSTALL_FOXIT"'
+INSTALL_GIMP='echo "INSTALL_GIMP"'
+INSTALL_KRITA='echo "INSTALL_KRITA"'
+INSTALL_INKSCAPE='echo "INSTALL_INKSCAPE"'
+INSTALL_MAILSPRING='sudo snap install mailspring'
+INSTALL_AUDACITY='echo "INSTALL_AUDACITY"'
+
+
+#Desinstalar
+## Desenvolvimento
+UNINSTALL_TOOLBOX='echo "UNINSTALL_TOOLBOX"'
+UNINSTALL_VSCODE='sudo snap remove code'
+UNINSTALL_INSOMNIA='sudo snap remove insomnia'
+UNINSTALL_BEEKEEPER='sudo snap remove beekeeper-studio'
+UNINSTALL_KUBERNETES='sudo snap remove kubectl'
+UNINSTALL_DOCKER='sudo snap remove docker'
+UNINSTALL_NODE='echo "UNINSTALL_NODE"'
+UNINSTALL_REACT='echo "UNINSTALL_REACT"'
+
+## Redes
+UNINSTALL_GOOGLE_CSDK='sudo snap remove google-cloud-sdk'
+UNINSTALL_TCPDUMP='echo "UNINSTALL_TCPDUMP"'
+UNINSTALL_WIRESHARK='echo "UNINSTALL_WIRESHARK"'
+UNINSTALL_VBOX='echo "UNINSTALL_VBOX"'
+UNINSTALL_VMWARE='echo "UNINSTALL_VMWARE"'
+UNINSTALL_FILEZILLA='echo "UNINSTALL_FILEZILLA"'
+UNINSTALL_PUTTY='echo "UNINSTALL_PUTTY"'
+UNINSTALL_REMMINA='sudo snap remove remmina'
+
+## Lazer
+UNINSTALL_SPOTIFY='sudo snap remove spotify'
+UNINSTALL_SKYPE='sudo snap remove skype'
+UNINSTALL_DISCORD='sudo snap remove discord'
+
+## Utilitários
+UNINSTALL_WINE='echo "UNINSTALL_WINE"'
+UNINSTALL_CHROME='sudo snap remove chromium'
+UNINSTALL_BRAVE='sudo snap remove brave'
+UNINSTALL_OPERA='echo "UNINSTALL_OPERA"'
+UNINSTALL_WINRAR='echo "UNremoveINSTALL_WINRAR"'
+
+## Escritório
+UNINSTALL_WPS='sudo snap remove wps-2019-snap'
+UNINSTALL_FOXIT='echo "UNINSTALL_FOXIT"'
+UNINSTALL_GIMP='echo "UNINSTALL_GIMP"'
+UNINSTALL_KRITA='echo "UNINSTALL_KRITA"'
+UNINSTALL_INKSCAPE='echo "UNINSTALL_INKSCAPE"'
+UNINSTALL_MAILSPRING='sudo snap remove mailspring'
+UNINSTALL_AUDACITY='echo "UNINSTALL_AUDACITY"'
