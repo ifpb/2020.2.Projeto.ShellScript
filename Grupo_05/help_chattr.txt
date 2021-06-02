@@ -1,0 +1,22 @@
+O comando Chattr, basicamente é usado para alterar os atributos de arquivo em um sistema de arquivos Linux. A sintaxe do comando é " chattr [-RVF] [-v versão] [modo] arquivos ... O formato de um modo simbólico é + - = [aAcCdDeijsStTu].
+
+O operador '+' faz com que os atributos selecionados sejam adicionados aos atributos existentes dos arquivos; '-' faz com que sejam removidos; e '=' faz com que sejam únicos atributos dos arquivos.
+
+As letras 'aAcCdDeijsStTu' selecionam os novos atributos para os arquivos: anexar apenas (a); sem atualizações atime (A), compactado (c), sem cópia na gravação (C), sem despejo (d); atualizações de diretório síncronas (D); formato de extensão (e); atualizações (S); sem mesclagem final (t); topo da hierarquia de diretório (T) e não eliminável (u).
+
+Os seguintes atributos são somente leitura e podem ser listados por lsattr (1); mas não modificados por chattr: erro de compressão (E); arquivo enorme (h); diretório indexado (I), dados embutidos (N); acesso bruto de compressão (X) e arquivo sujo compactado (Z).
+
+Alguns Exemplos de uso: 
+
+-Para Adicionar um restrição de somente leitura é usado o comando;
+$ chattr +i test.txt
+
+-Para Remover uma restrição de somente leitura é usado o comando;
+$ chattr -i test.txt
+
+-Aplicar uma restrição usando chattr para todos os arquivos em um diretório:
+$ chattr -R +i ./test-dir/
+Usando o sinalizador -R, que permite alterar recursivamente os atributos dos diretórios e seus conteúdos, com o comando mostrado você pode tornar todos os arquivos dentro do diretório test-dir como somente leitura.
+
+-Para Verificar os atributos do chattr aplicados nos arquivos, você pode usar o comando;
+$ lsattr <filename>
