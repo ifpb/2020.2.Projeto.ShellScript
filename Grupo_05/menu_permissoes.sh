@@ -147,7 +147,7 @@ Menu_Permissoes() {
 			fi
 			
 			#Condições de Reinicilização
-			if [[ "operador" =~ "2" ]]; then
+			if [[ "operador" == "2" ]]; then
 				if [[ "$usuarios" == "0" ]]; then
 					reinicilizar-dono $arquivo
 				fi
@@ -308,7 +308,7 @@ Menu_Permissoes() {
 			fi
 			
 			#Condições de Reinicilização
-			if [[ "operador" =~ "2" ]]; then
+			if [[ "operador" == "2" ]]; then
 				if [[ "$usuarios" == "0" ]]; then
 					reiniciar-dono $arquivos
 				fi
@@ -470,7 +470,7 @@ Menu_Permissoes() {
 			fi
 			
 			#Condições de Reinicilização
-			if [[ "operador" =~ "2" ]]; then
+			if [[ "operador" == "2" ]]; then
 				if [[ "$usuarios" == "0" ]]; then
 					reiniciar-dono $diretorio
 				fi
