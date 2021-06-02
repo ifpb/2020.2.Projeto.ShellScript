@@ -5,7 +5,7 @@ O objetivo desse projeto é criar um script em bash para manipular as permissõe
 
 
 ## :vertical_traffic_light: Status do Projeto
-:construction: Em construção...  :construction:
+:construction: Finalizado...  :construction:
 
 
 ## :package: Pré-requisitos
@@ -23,8 +23,8 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ## :white_check_mark: Funcionalidades
 ### Help
-- [ ] Help (Sticks Bits)
-- [ ] Help (Chattr)
+- [x] Help (Sticks Bits)
+- [x] Help (Chattr)
 
 ### Modificador de permissões
 - [x] Alterar permissões por um único arquivo
@@ -32,10 +32,10 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [x] Alterar permissões de um diretório
 - [x] Operação de Adição de permissões
 - [x] Operação de Remoção de permissões
-- [ ] Operação de Redefinição das permissões
+- [x] Operação de Redefinição das permissões
 - [x] Especificar a classe de usuários nas Operações.
 
 ### Modificador de Atributos
-- [ ] Alterar atributos por um único arquivo
-- [ ] Alterar atributos por múltiplos arquivos
-- [ ] Alterar atributos de um diretório
+- [x] Alterar atributos por um único arquivo
+- [x] Alterar atributos por múltiplos arquivos
+- [x] Alterar atributos de um diretório
