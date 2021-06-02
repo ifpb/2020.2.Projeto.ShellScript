@@ -30,7 +30,7 @@ Menu_Selecionar_Atributos() {
 		--title="Escolha os atributos" \
 		--checklist \
 		--hide-column=2 \
-		--column="Marque" --column="" --column="Opções" false 0 "Não modifica a hora de acesso. (Necessário root)" false 1 "Append-Only. (Necessário root)" false 2 "Permite compactação nos arquivos." false 3 "'i' Arquivos imutáveis não podem ser modificados. (Necessário root)" false 4 "O arquivo especificado é marcado como apagamento seguro." false 5 "O arquivo especificado é marcado como recuperável."
+		--column="Marque" --column="" --column="Opções" false 0 "Não modifica a hora de acesso. (Necessário root)" false 1 "Append-Only. (Necessário root)" false 2 "Permite compactação nos arquivos." false 3 "'i' Arquivos imutáveis não podem ser modificados. (Necessário root)" false 4 "O arquivo especificado é marcado como apagamento seguro." false 5 "O arquivo especificado é marcado como recuperável." false 6 "Retirar todos os atributos."
 }
 
 
