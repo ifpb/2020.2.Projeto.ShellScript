@@ -1,0 +1,4 @@
+/sbin/iptables -A INPUT -i wlp2s0 -p tcp --match multiport --dports 22,80 -s 192.168.1.16 -j ACCEPT
+/sbin/iptables -A -o wlp2s0 -p tcp --match multiport --dports 22,80 -d 192.168.1.16 -j ACCEPT
+/sbin/iptables -A INPUT -i wlp2s0 -p tcp --match multiport --dports 22,80 -s 192.168.1.10 -j ACCEPT
+/sbin/iptables -A -o wlp2s0 -p tcp --match multiport --dports 22,80 -d 192.168.1.10 -j ACCEPT
