@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#Raony Silva.
+clear
+TIME=2
+echo PROGRAMA DE GERENCIAMENTO DO WEBSERVER APACHE
+echo " "
+echo "Escolha uma opção para gerir o webserver Apache
+      
+      1 - Iniciar o serviço do Apache
+      2 - Parar o serviço do Apache
+      3 - Reiniciar o serviço do Apache
+      4 - Mostrar status do Apache
+      0 - Sair do menu"
+echo " "
+echo -n "Opção escolhida: "
+read opcao
+case $opcao in
+        1)
+                echo -e "\033[01;32m Iniciando o serviço do Apache!\033[01;32m"
+                sleep $TIME
+                systemctl start apache2.service
+                ;;
+        2)
+                echo -e "\033[01;31m Parando o serviço do Apache!\033[01;31m"
+                sleep $TIME
+                systemctl stop apache2.service
+                ;;
+        3)
+                echo -e "\033[01;33m Reiniciando o serviço do Apache \033[01;33m"
+                sleep $TIME
+                systemctl restart apache2.service
+                ;;
+        4)
+                echo Mostrando  o status do Apache
+                sleep $TIME
+                systemctl status apache2
+                ;;
+        0)
+                echo Saindo do menu do Apache!
+                sleep $TIME
+                exit 0
+                ;;
+        *)
+                echo Opção inválida, digite outra opção!
+                sleep $TIME
+                exit 0
+                ;;
+esac
